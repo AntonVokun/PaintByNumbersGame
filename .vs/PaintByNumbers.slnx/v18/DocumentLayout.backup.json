@@ -1,0 +1,169 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\AHTOH\\PaintByNumbers\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{B4CD19DA-EE08-5225-FB19-1D0DFA4113DD}|Assembly-CSharp.csproj|c:\\users\\ahtoh\\paintbynumbers\\assets\\_project\\paintcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B4CD19DA-EE08-5225-FB19-1D0DFA4113DD}|Assembly-CSharp.csproj|solutionrelative:assets\\_project\\paintcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B4CD19DA-EE08-5225-FB19-1D0DFA4113DD}|Assembly-CSharp.csproj|c:\\users\\ahtoh\\paintbynumbers\\assets\\_project\\selectcolor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B4CD19DA-EE08-5225-FB19-1D0DFA4113DD}|Assembly-CSharp.csproj|solutionrelative:assets\\_project\\selectcolor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B4CD19DA-EE08-5225-FB19-1D0DFA4113DD}|Assembly-CSharp.csproj|c:\\users\\ahtoh\\paintbynumbers\\assets\\_project\\paintzone.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B4CD19DA-EE08-5225-FB19-1D0DFA4113DD}|Assembly-CSharp.csproj|solutionrelative:assets\\_project\\paintzone.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B4CD19DA-EE08-5225-FB19-1D0DFA4113DD}|Assembly-CSharp.csproj|c:\\users\\ahtoh\\paintbynumbers\\assets\\_project\\spritecheckerhighlight.shader||{3B902123-F8A7-4915-9F01-361F908088D0}",
+      "RelativeMoniker": "D:0:0:{B4CD19DA-EE08-5225-FB19-1D0DFA4113DD}|Assembly-CSharp.csproj|solutionrelative:assets\\_project\\spritecheckerhighlight.shader||{3B902123-F8A7-4915-9F01-361F908088D0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B4CD19DA-EE08-5225-FB19-1D0DFA4113DD}|Assembly-CSharp.csproj|c:\\users\\ahtoh\\paintbynumbers\\assets\\_project\\palettedragscroll.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B4CD19DA-EE08-5225-FB19-1D0DFA4113DD}|Assembly-CSharp.csproj|solutionrelative:assets\\_project\\palettedragscroll.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B4CD19DA-EE08-5225-FB19-1D0DFA4113DD}|Assembly-CSharp.csproj|c:\\users\\ahtoh\\paintbynumbers\\assets\\_project\\gamesound.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B4CD19DA-EE08-5225-FB19-1D0DFA4113DD}|Assembly-CSharp.csproj|solutionrelative:assets\\_project\\gamesound.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B4CD19DA-EE08-5225-FB19-1D0DFA4113DD}|Assembly-CSharp.csproj|c:\\users\\ahtoh\\paintbynumbers\\assets\\_project\\buttonnumbercreator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B4CD19DA-EE08-5225-FB19-1D0DFA4113DD}|Assembly-CSharp.csproj|solutionrelative:assets\\_project\\buttonnumbercreator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B4CD19DA-EE08-5225-FB19-1D0DFA4113DD}|Assembly-CSharp.csproj|c:\\users\\ahtoh\\paintbynumbers\\assets\\_project\\autonumberplacer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B4CD19DA-EE08-5225-FB19-1D0DFA4113DD}|Assembly-CSharp.csproj|solutionrelative:assets\\_project\\autonumberplacer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B4CD19DA-EE08-5225-FB19-1D0DFA4113DD}|Assembly-CSharp.csproj|c:\\users\\ahtoh\\paintbynumbers\\assets\\_project\\projectscanner.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B4CD19DA-EE08-5225-FB19-1D0DFA4113DD}|Assembly-CSharp.csproj|solutionrelative:assets\\_project\\projectscanner.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 8,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "SpriteCheckerHighlight.shader",
+              "DocumentMoniker": "C:\\Users\\AHTOH\\PaintByNumbers\\Assets\\_Project\\SpriteCheckerHighlight.shader",
+              "RelativeDocumentMoniker": "Assets\\_Project\\SpriteCheckerHighlight.shader",
+              "ToolTip": "C:\\Users\\AHTOH\\PaintByNumbers\\Assets\\_Project\\SpriteCheckerHighlight.shader",
+              "RelativeToolTip": "Assets\\_Project\\SpriteCheckerHighlight.shader",
+              "ViewState": "AgIAACsAAAAAAAAAAAAAAE4AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002777|",
+              "WhenOpened": "2026-05-11T12:56:44.127Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "PaletteDragScroll.cs",
+              "DocumentMoniker": "C:\\Users\\AHTOH\\PaintByNumbers\\Assets\\_Project\\PaletteDragScroll.cs",
+              "RelativeDocumentMoniker": "Assets\\_Project\\PaletteDragScroll.cs",
+              "ToolTip": "C:\\Users\\AHTOH\\PaintByNumbers\\Assets\\_Project\\PaletteDragScroll.cs",
+              "RelativeToolTip": "Assets\\_Project\\PaletteDragScroll.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-11T11:51:26.496Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "GameSound.cs",
+              "DocumentMoniker": "C:\\Users\\AHTOH\\PaintByNumbers\\Assets\\_Project\\GameSound.cs",
+              "RelativeDocumentMoniker": "Assets\\_Project\\GameSound.cs",
+              "ToolTip": "C:\\Users\\AHTOH\\PaintByNumbers\\Assets\\_Project\\GameSound.cs",
+              "RelativeToolTip": "Assets\\_Project\\GameSound.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-11T07:43:07.759Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "PaintZone.cs",
+              "DocumentMoniker": "C:\\Users\\AHTOH\\PaintByNumbers\\Assets\\_Project\\PaintZone.cs",
+              "RelativeDocumentMoniker": "Assets\\_Project\\PaintZone.cs",
+              "ToolTip": "C:\\Users\\AHTOH\\PaintByNumbers\\Assets\\_Project\\PaintZone.cs",
+              "RelativeToolTip": "Assets\\_Project\\PaintZone.cs",
+              "ViewState": "AgIAADkAAAAAAAAAAAA0wFsAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-28T17:17:10.678Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "ButtonNumberCreator.cs",
+              "DocumentMoniker": "C:\\Users\\AHTOH\\PaintByNumbers\\Assets\\_Project\\ButtonNumberCreator.cs",
+              "RelativeDocumentMoniker": "Assets\\_Project\\ButtonNumberCreator.cs",
+              "ToolTip": "C:\\Users\\AHTOH\\PaintByNumbers\\Assets\\_Project\\ButtonNumberCreator.cs",
+              "RelativeToolTip": "Assets\\_Project\\ButtonNumberCreator.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-05T17:55:58.683Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "AutoNumberPlacer.cs",
+              "DocumentMoniker": "C:\\Users\\AHTOH\\PaintByNumbers\\Assets\\_Project\\AutoNumberPlacer.cs",
+              "RelativeDocumentMoniker": "Assets\\_Project\\AutoNumberPlacer.cs",
+              "ToolTip": "C:\\Users\\AHTOH\\PaintByNumbers\\Assets\\_Project\\AutoNumberPlacer.cs",
+              "RelativeToolTip": "Assets\\_Project\\AutoNumberPlacer.cs",
+              "ViewState": "AgIAAA4AAAAAAAAAAAAwwDQAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-29T16:29:22.033Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "ProjectScanner.cs",
+              "DocumentMoniker": "C:\\Users\\AHTOH\\PaintByNumbers\\Assets\\_Project\\ProjectScanner.cs",
+              "RelativeDocumentMoniker": "Assets\\_Project\\ProjectScanner.cs",
+              "ToolTip": "C:\\Users\\AHTOH\\PaintByNumbers\\Assets\\_Project\\ProjectScanner.cs",
+              "RelativeToolTip": "Assets\\_Project\\ProjectScanner.cs",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAAwEAAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-29T15:37:50.848Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "SelectColor.cs",
+              "DocumentMoniker": "C:\\Users\\AHTOH\\PaintByNumbers\\Assets\\_Project\\SelectColor.cs",
+              "RelativeDocumentMoniker": "Assets\\_Project\\SelectColor.cs",
+              "ToolTip": "C:\\Users\\AHTOH\\PaintByNumbers\\Assets\\_Project\\SelectColor.cs",
+              "RelativeToolTip": "Assets\\_Project\\SelectColor.cs",
+              "ViewState": "AgIAACMAAAAAAAAAAAAcwEUAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-27T19:36:21.601Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "PaintController.cs",
+              "DocumentMoniker": "C:\\Users\\AHTOH\\PaintByNumbers\\Assets\\_Project\\PaintController.cs",
+              "RelativeDocumentMoniker": "Assets\\_Project\\PaintController.cs",
+              "ToolTip": "C:\\Users\\AHTOH\\PaintByNumbers\\Assets\\_Project\\PaintController.cs",
+              "RelativeToolTip": "Assets\\_Project\\PaintController.cs",
+              "ViewState": "AgIAAEMAAAAAAAAAAAAcwGUAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-27T19:35:57.001Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
