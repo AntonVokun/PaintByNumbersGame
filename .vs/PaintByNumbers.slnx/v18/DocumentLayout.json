@@ -3,6 +3,14 @@
   "WorkspaceRootPath": "C:\\Users\\AHTOH\\PaintByNumbers\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{B4CD19DA-EE08-5225-FB19-1D0DFA4113DD}|Assembly-CSharp.csproj|c:\\users\\ahtoh\\paintbynumbers\\assets\\_project\\scripts\\levelpreviewcard.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B4CD19DA-EE08-5225-FB19-1D0DFA4113DD}|Assembly-CSharp.csproj|solutionrelative:assets\\_project\\scripts\\levelpreviewcard.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B4CD19DA-EE08-5225-FB19-1D0DFA4113DD}|Assembly-CSharp.csproj|c:\\users\\ahtoh\\paintbynumbers\\assets\\_project\\scripts\\mainmenucontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B4CD19DA-EE08-5225-FB19-1D0DFA4113DD}|Assembly-CSharp.csproj|solutionrelative:assets\\_project\\scripts\\mainmenucontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{B4CD19DA-EE08-5225-FB19-1D0DFA4113DD}|Assembly-CSharp.csproj|c:\\users\\ahtoh\\paintbynumbers\\assets\\_project\\selectcolor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B4CD19DA-EE08-5225-FB19-1D0DFA4113DD}|Assembly-CSharp.csproj|solutionrelative:assets\\_project\\selectcolor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -46,23 +54,37 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 7,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "SpriteCheckerHighlight.shader",
-              "DocumentMoniker": "C:\\Users\\AHTOH\\PaintByNumbers\\Assets\\_Project\\SpriteCheckerHighlight.shader",
-              "RelativeDocumentMoniker": "Assets\\_Project\\SpriteCheckerHighlight.shader",
-              "ToolTip": "C:\\Users\\AHTOH\\PaintByNumbers\\Assets\\_Project\\SpriteCheckerHighlight.shader",
-              "RelativeToolTip": "Assets\\_Project\\SpriteCheckerHighlight.shader",
-              "ViewState": "AgIAACsAAAAAAAAAAAAAAE4AAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002777|",
-              "WhenOpened": "2026-05-11T12:56:44.127Z"
+              "DocumentIndex": 0,
+              "Title": "LevelPreviewCard.cs",
+              "DocumentMoniker": "C:\\Users\\AHTOH\\PaintByNumbers\\Assets\\_Project\\Scripts\\LevelPreviewCard.cs",
+              "RelativeDocumentMoniker": "Assets\\_Project\\Scripts\\LevelPreviewCard.cs",
+              "ToolTip": "C:\\Users\\AHTOH\\PaintByNumbers\\Assets\\_Project\\Scripts\\LevelPreviewCard.cs",
+              "RelativeToolTip": "Assets\\_Project\\Scripts\\LevelPreviewCard.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-16T21:31:44.002Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 1,
+              "Title": "MainMenuController.cs",
+              "DocumentMoniker": "C:\\Users\\AHTOH\\PaintByNumbers\\Assets\\_Project\\Scripts\\MainMenuController.cs",
+              "RelativeDocumentMoniker": "Assets\\_Project\\Scripts\\MainMenuController.cs",
+              "ToolTip": "C:\\Users\\AHTOH\\PaintByNumbers\\Assets\\_Project\\Scripts\\MainMenuController.cs",
+              "RelativeToolTip": "Assets\\_Project\\Scripts\\MainMenuController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACEAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-16T21:19:33.111Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
               "Title": "PaletteDragScroll.cs",
               "DocumentMoniker": "C:\\Users\\AHTOH\\PaintByNumbers\\Assets\\_Project\\PaletteDragScroll.cs",
               "RelativeDocumentMoniker": "Assets\\_Project\\PaletteDragScroll.cs",
@@ -74,7 +96,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 7,
               "Title": "GameSound.cs",
               "DocumentMoniker": "C:\\Users\\AHTOH\\PaintByNumbers\\Assets\\_Project\\GameSound.cs",
               "RelativeDocumentMoniker": "Assets\\_Project\\GameSound.cs",
@@ -86,7 +108,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
               "Title": "PaintZone.cs",
               "DocumentMoniker": "C:\\Users\\AHTOH\\PaintByNumbers\\Assets\\_Project\\PaintZone.cs",
               "RelativeDocumentMoniker": "Assets\\_Project\\PaintZone.cs",
@@ -98,7 +120,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 8,
               "Title": "ButtonNumberCreator.cs",
               "DocumentMoniker": "C:\\Users\\AHTOH\\PaintByNumbers\\Assets\\_Project\\ButtonNumberCreator.cs",
               "RelativeDocumentMoniker": "Assets\\_Project\\ButtonNumberCreator.cs",
@@ -110,7 +132,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 9,
               "Title": "AutoNumberPlacer.cs",
               "DocumentMoniker": "C:\\Users\\AHTOH\\PaintByNumbers\\Assets\\_Project\\AutoNumberPlacer.cs",
               "RelativeDocumentMoniker": "Assets\\_Project\\AutoNumberPlacer.cs",
@@ -122,7 +144,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 10,
               "Title": "ProjectScanner.cs",
               "DocumentMoniker": "C:\\Users\\AHTOH\\PaintByNumbers\\Assets\\_Project\\ProjectScanner.cs",
               "RelativeDocumentMoniker": "Assets\\_Project\\ProjectScanner.cs",
@@ -134,7 +156,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "SelectColor.cs",
               "DocumentMoniker": "C:\\Users\\AHTOH\\PaintByNumbers\\Assets\\_Project\\SelectColor.cs",
               "RelativeDocumentMoniker": "Assets\\_Project\\SelectColor.cs",
@@ -147,7 +169,19 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 5,
+              "Title": "SpriteCheckerHighlight.shader",
+              "DocumentMoniker": "C:\\Users\\AHTOH\\PaintByNumbers\\Assets\\_Project\\SpriteCheckerHighlight.shader",
+              "RelativeDocumentMoniker": "Assets\\_Project\\SpriteCheckerHighlight.shader",
+              "ToolTip": "C:\\Users\\AHTOH\\PaintByNumbers\\Assets\\_Project\\SpriteCheckerHighlight.shader",
+              "RelativeToolTip": "Assets\\_Project\\SpriteCheckerHighlight.shader",
+              "ViewState": "AgIAACsAAAAAAAAAAAAAAE4AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002777|",
+              "WhenOpened": "2026-05-11T12:56:44.127Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "PaintController.cs",
               "DocumentMoniker": "C:\\Users\\AHTOH\\PaintByNumbers\\Assets\\_Project\\PaintController.cs",
               "RelativeDocumentMoniker": "Assets\\_Project\\PaintController.cs",
@@ -155,8 +189,7 @@
               "RelativeToolTip": "Assets\\_Project\\PaintController.cs",
               "ViewState": "AgIAAEMAAAAAAAAAAAAcwGUAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-27T19:35:57.001Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-27T19:35:57.001Z"
             }
           ]
         }
