@@ -1,10 +1,8 @@
 using UnityEngine;
-using TMPro;
 
 public class PaintZone : MonoBehaviour
 {
     public int colorId;
-    public TMP_Text numberText;
 
     private SpriteRenderer spriteRenderer;
     private Color originalColor;
@@ -23,16 +21,16 @@ public class PaintZone : MonoBehaviour
             spriteRenderer.color = hiddenColor;
         }
 
-        TMP_Text[] allTexts = GetComponentsInChildren<TMP_Text>(true);
+        DisableZoneLabels();
+    }
 
-        foreach (TMP_Text text in allTexts)
+    private void DisableZoneLabels()
+    {
+        foreach (MonoBehaviour component in GetComponentsInChildren<MonoBehaviour>(true))
         {
-            text.text = colorId.ToString();
-        }
-
-        if (numberText == null && allTexts.Length > 0)
-        {
-            numberText = allTexts[0];
+            string typeName = component.GetType().FullName;
+            if (typeName != null && typeName.StartsWith("TMPro."))
+                component.gameObject.SetActive(false);
         }
     }
 
@@ -74,13 +72,6 @@ public class PaintZone : MonoBehaviour
 
         if (GameSound.Instance != null)
             GameSound.Instance.PlayClick();
-
-        TMP_Text[] allTexts = GetComponentsInChildren<TMP_Text>(true);
-
-        foreach (TMP_Text text in allTexts)
-        {
-            text.gameObject.SetActive(false);
-        }
 
         PaintController.Instance.ZonePainted(colorId);
     }

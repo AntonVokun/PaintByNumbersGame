@@ -1408,7 +1408,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PaintZone
   colorId: 2
-  numberText: {fileID: 761685781}
 --- !u!1 &83907391
 GameObject:
   m_ObjectHideFlags: 0
@@ -4044,7 +4043,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PaintZone
   colorId: 10
-  numberText: {fileID: 295142680}
 --- !u!1 &271908695
 GameObject:
   m_ObjectHideFlags: 0
@@ -4478,7 +4476,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PaintZone
   colorId: 11
-  numberText: {fileID: 1818821933}
 --- !u!1 &295142679
 GameObject:
   m_ObjectHideFlags: 0
@@ -6474,7 +6471,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PaintZone
   colorId: 14
-  numberText: {fileID: 1274465977}
 --- !u!1 &418058288
 GameObject:
   m_ObjectHideFlags: 0
@@ -7031,7 +7027,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PaintZone
   colorId: 16
-  numberText: {fileID: 196615563}
 --- !u!1 &432720156
 GameObject:
   m_ObjectHideFlags: 0
@@ -8008,7 +8003,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PaintZone
   colorId: 9
-  numberText: {fileID: 940343077}
 --- !u!1 &455785091
 GameObject:
   m_ObjectHideFlags: 0
@@ -12858,7 +12852,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PaintZone
   colorId: 13
-  numberText: {fileID: 228889292}
 --- !u!1 &679499854
 GameObject:
   m_ObjectHideFlags: 0
@@ -13161,7 +13154,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PaintZone
   colorId: 3
-  numberText: {fileID: 1967759787}
 --- !u!1 &701272095
 GameObject:
   m_ObjectHideFlags: 0
@@ -17224,7 +17216,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PaintZone
   colorId: 15
-  numberText: {fileID: 33886141}
 --- !u!1 &1178311352
 GameObject:
   m_ObjectHideFlags: 0
@@ -18763,7 +18754,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PaintZone
   colorId: 12
-  numberText: {fileID: 1178311353}
 --- !u!1 &1274465976
 GameObject:
   m_ObjectHideFlags: 0
@@ -19650,7 +19640,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PaintZone
   colorId: 1
-  numberText: {fileID: 1529938907}
 --- !u!1 &1394805076
 GameObject:
   m_ObjectHideFlags: 0
@@ -20010,7 +19999,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PaintZone
   colorId: 5
-  numberText: {fileID: 1881194547}
 --- !u!1 &1409893310
 GameObject:
   m_ObjectHideFlags: 0
@@ -21470,7 +21458,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PaintZone
   colorId: 6
-  numberText: {fileID: 722370345}
 --- !u!1 &1553624406
 GameObject:
   m_ObjectHideFlags: 0
@@ -21487,7 +21474,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1553624407
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22545,7 +22532,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PaintZone
   colorId: 7
-  numberText: {fileID: 102563266}
 --- !u!1 &1612456050
 GameObject:
   m_ObjectHideFlags: 0
@@ -25041,7 +25027,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PaintZone
   colorId: 8
-  numberText: {fileID: 578346184}
 --- !u!1 &1782703966
 GameObject:
   m_ObjectHideFlags: 0
@@ -29223,7 +29208,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PaintZone
   colorId: 4
-  numberText: {fileID: 341488662}
 --- !u!1 &2116786474
 GameObject:
   m_ObjectHideFlags: 0

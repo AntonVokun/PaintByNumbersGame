@@ -15,6 +15,18 @@ public class SelectColor : MonoBehaviour
     {
         normalScale = transform.localScale;
         selectedScale = normalScale * 1.2f;
+
+        DisablePaletteLabels();
+    }
+
+    private void DisablePaletteLabels()
+    {
+        foreach (MonoBehaviour component in GetComponentsInChildren<MonoBehaviour>(true))
+        {
+            string typeName = component.GetType().FullName;
+            if (typeName != null && typeName.StartsWith("TMPro."))
+                component.gameObject.SetActive(false);
+        }
     }
 
     public void Select()
@@ -22,23 +34,18 @@ public class SelectColor : MonoBehaviour
         if (GameSound.Instance != null)
             GameSound.Instance.PlayClick();
 
-        // Возвращаем прошлую кнопку к обычному размеру
         if (selectedButton != null)
         {
             selectedButton.transform.localScale =
                 selectedButton.normalScale;
         }
 
-        // Запоминаем новую выбранную кнопку
         selectedButton = this;
 
-        // Увеличиваем выбранную кнопку
         transform.localScale = selectedScale;
 
-        // Сохраняем выбранный цвет
         CurrentColorId = colorId;
 
-        // Подсвечиваем нужные зоны
         HighlightZones(colorId);
 
         Debug.Log("Выбран цвет: " + colorId);
