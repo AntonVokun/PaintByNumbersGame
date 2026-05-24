@@ -3,6 +3,14 @@
   "WorkspaceRootPath": "C:\\Users\\AHTOH\\Documents\\GitHub\\PaintByNumbersGame\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{B4CD19DA-EE08-5225-FB19-1D0DFA4113DD}|Assembly-CSharp.csproj|c:\\users\\ahtoh\\documents\\github\\paintbynumbersgame\\assets\\_project\\selectcolor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B4CD19DA-EE08-5225-FB19-1D0DFA4113DD}|Assembly-CSharp.csproj|solutionrelative:assets\\_project\\selectcolor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B4CD19DA-EE08-5225-FB19-1D0DFA4113DD}|Assembly-CSharp.csproj|c:\\users\\ahtoh\\documents\\github\\paintbynumbersgame\\assets\\_project\\paintzone.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B4CD19DA-EE08-5225-FB19-1D0DFA4113DD}|Assembly-CSharp.csproj|solutionrelative:assets\\_project\\paintzone.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{B4CD19DA-EE08-5225-FB19-1D0DFA4113DD}|Assembly-CSharp.csproj|c:\\users\\ahtoh\\documents\\github\\paintbynumbersgame\\assets\\_project\\backtomenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B4CD19DA-EE08-5225-FB19-1D0DFA4113DD}|Assembly-CSharp.csproj|solutionrelative:assets\\_project\\backtomenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
@@ -19,6 +27,32 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "SelectColor.cs",
+              "DocumentMoniker": "C:\\Users\\AHTOH\\Documents\\GitHub\\PaintByNumbersGame\\Assets\\_Project\\SelectColor.cs",
+              "RelativeDocumentMoniker": "Assets\\_Project\\SelectColor.cs",
+              "ToolTip": "C:\\Users\\AHTOH\\Documents\\GitHub\\PaintByNumbersGame\\Assets\\_Project\\SelectColor.cs",
+              "RelativeToolTip": "Assets\\_Project\\SelectColor.cs",
+              "ViewState": "AgIAAEEAAAAAAAAAAAAowGgAAAAwAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-24T08:14:20.447Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "PaintZone.cs",
+              "DocumentMoniker": "C:\\Users\\AHTOH\\Documents\\GitHub\\PaintByNumbersGame\\Assets\\_Project\\PaintZone.cs",
+              "RelativeDocumentMoniker": "Assets\\_Project\\PaintZone.cs",
+              "ToolTip": "C:\\Users\\AHTOH\\Documents\\GitHub\\PaintByNumbersGame\\Assets\\_Project\\PaintZone.cs",
+              "RelativeToolTip": "Assets\\_Project\\PaintZone.cs",
+              "ViewState": "AgIAAFkAAAAAAAAAAAAowKEAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-24T08:08:12.805Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "BackToMenu.cs",
               "DocumentMoniker": "C:\\Users\\AHTOH\\Documents\\GitHub\\PaintByNumbersGame\\Assets\\_Project\\BackToMenu.cs",
               "RelativeDocumentMoniker": "Assets\\_Project\\BackToMenu.cs",
@@ -28,10 +62,6 @@
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-05-19T15:03:14.317Z",
               "EditorCaption": ""
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
             }
           ]
         }

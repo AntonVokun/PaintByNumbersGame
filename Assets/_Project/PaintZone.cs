@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class PaintZone : MonoBehaviour
@@ -7,6 +8,11 @@ public class PaintZone : MonoBehaviour
     private SpriteRenderer spriteRenderer;
     private Color originalColor;
     private bool painted = false;
+
+    private Coroutine paintCoroutine;
+    private Coroutine hintCoroutine;
+
+    [SerializeField] private float paintAnimationTime = 0.25f;
 
     private void Awake()
     {
@@ -64,16 +70,89 @@ public class PaintZone : MonoBehaviour
         if (SelectColor.CurrentColorId != colorId)
             return;
 
-        Color paintColor = originalColor;
-        paintColor.a = 1f;
-
-        spriteRenderer.color = paintColor;
         painted = true;
+
+        SelectColor.ResetHintTimer();
+
+        if (paintCoroutine != null)
+            StopCoroutine(paintCoroutine);
+
+        if (hintCoroutine != null)
+            StopCoroutine(hintCoroutine);
+
+        paintCoroutine = StartCoroutine(PaintAnimation());
 
         if (GameSound.Instance != null)
             GameSound.Instance.PlayClick();
 
         PaintController.Instance.ZonePainted(colorId);
+    }
+
+    private IEnumerator PaintAnimation()
+    {
+        float timer = 0f;
+
+        Color startColor = originalColor;
+        startColor.a = 0f;
+
+        Color endColor = originalColor;
+        endColor.a = 1f;
+
+        spriteRenderer.color = startColor;
+
+        while (timer < paintAnimationTime)
+        {
+            timer += Time.deltaTime;
+
+            float progress = timer / paintAnimationTime;
+            spriteRenderer.color = Color.Lerp(startColor, endColor, progress);
+
+            yield return null;
+        }
+
+        spriteRenderer.color = endColor;
+    }
+
+    public void StartHintPulse()
+    {
+        if (painted || spriteRenderer == null)
+            return;
+
+        if (hintCoroutine != null)
+            StopCoroutine(hintCoroutine);
+
+        hintCoroutine = StartCoroutine(HintPulse());
+    }
+
+    public void StopHintPulse()
+    {
+        if (hintCoroutine != null)
+        {
+            StopCoroutine(hintCoroutine);
+            hintCoroutine = null;
+        }
+
+        if (!painted && spriteRenderer != null)
+        {
+            Color hiddenColor = originalColor;
+            hiddenColor.a = 0f;
+            spriteRenderer.color = hiddenColor;
+        }
+    }
+
+    private IEnumerator HintPulse()
+    {
+        while (!painted)
+        {
+            float alpha = Mathf.PingPong(Time.time * 1.5f, 0.45f) + 0.35f;
+
+            Color pulseColor = originalColor;
+            pulseColor.a = alpha;
+
+            spriteRenderer.color = pulseColor;
+
+            yield return null;
+        }
     }
 
     private void OnMouseDown()
