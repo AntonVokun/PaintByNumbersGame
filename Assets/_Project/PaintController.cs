@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -10,10 +11,13 @@ public class PaintController : MonoBehaviour
     public SelectColor[] paletteButtons;
 
     public GameObject winPanel;
-    public string nextLevelSceneName = "Level_2";
+    public string nextLevelSceneName = "Level_002";
 
     private Dictionary<int, int> remainingZones = new Dictionary<int, int>();
     private int totalZonesToPaint = 0;
+
+    private bool levelCompleted = false;
+    private bool waitingForTapToShowWinPanel = false;
 
     private void Awake()
     {
@@ -34,6 +38,39 @@ public class PaintController : MonoBehaviour
         CountZones();
     }
 
+    private void Update()
+    {
+        if (!waitingForTapToShowWinPanel)
+            return;
+
+        if (Input.GetMouseButtonDown(0))
+            ShowWinPanel();
+
+        if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
+            ShowWinPanel();
+    }
+
+    private void OnGUI()
+    {
+        if (!waitingForTapToShowWinPanel)
+            return;
+
+        if (Event.current.type == EventType.MouseDown)
+            ShowWinPanel();
+    }
+
+    private void ShowWinPanel()
+    {
+        waitingForTapToShowWinPanel = false;
+
+        Debug.Log("✅ Показываем WinPanel.");
+
+        if (winPanel != null)
+            winPanel.SetActive(true);
+        else
+            Debug.LogError("❌ WinPanel не назначен в PaintController!");
+    }
+
     private void CountZones()
     {
         remainingZones.Clear();
@@ -41,7 +78,8 @@ public class PaintController : MonoBehaviour
 
         foreach (PaintZone zone in zones)
         {
-            if (zone == null) continue;
+            if (zone == null)
+                continue;
 
             if (!remainingZones.ContainsKey(zone.colorId))
                 remainingZones.Add(zone.colorId, 0);
@@ -55,6 +93,9 @@ public class PaintController : MonoBehaviour
 
     public void ZonePainted(int colorId)
     {
+        if (levelCompleted)
+            return;
+
         if (!remainingZones.ContainsKey(colorId))
             return;
 
@@ -74,7 +115,8 @@ public class PaintController : MonoBehaviour
     {
         foreach (SelectColor button in paletteButtons)
         {
-            if (button == null) continue;
+            if (button == null)
+                continue;
 
             if (button.colorId == colorId)
             {
@@ -88,11 +130,45 @@ public class PaintController : MonoBehaviour
     {
         if (totalZonesToPaint <= 0)
         {
+            levelCompleted = true;
+
             Debug.Log("🎉 УРОВЕНЬ ПРОЙДЕН!");
 
-            if (winPanel != null)
-                winPanel.SetActive(true);
+            StartCoroutine(ShowReplayThenWaitForTap());
         }
+    }
+
+    private IEnumerator ShowReplayThenWaitForTap()
+    {
+        if (winPanel != null)
+            winPanel.SetActive(false);
+
+        yield return new WaitForSeconds(0.5f);
+
+        foreach (PaintZone zone in zones)
+        {
+            if (zone != null)
+                zone.ResetForReplay();
+        }
+
+        yield return new WaitForSeconds(0.3f);
+
+        foreach (PaintZone zone in zones)
+        {
+            if (zone != null)
+            {
+                zone.PaintForReplay();
+
+                // СКОРОСТЬ REPLAY
+                yield return new WaitForSeconds(0.08f);
+            }
+        }
+
+        yield return new WaitForSeconds(1.2f);
+
+        waitingForTapToShowWinPanel = true;
+
+        Debug.Log("👆 Теперь можно нажать на экран.");
     }
 
     public void LoadNextLevel()

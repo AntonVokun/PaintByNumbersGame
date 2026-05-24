@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class SelectColor : MonoBehaviour
@@ -133,6 +134,37 @@ public class SelectColor : MonoBehaviour
 
     public void HideButton()
     {
+        StartCoroutine(HideAnimation());
+    }
+
+    private IEnumerator HideAnimation()
+    {
+        Vector3 startScale = transform.localScale;
+        Vector3 endScale = Vector3.zero;
+
+        CanvasGroup canvasGroup = GetComponent<CanvasGroup>();
+
+        if (canvasGroup == null)
+            canvasGroup = gameObject.AddComponent<CanvasGroup>();
+
+        float duration = 0.25f;
+        float timer = 0f;
+
+        while (timer < duration)
+        {
+            timer += Time.deltaTime;
+
+            float progress = timer / duration;
+
+            transform.localScale =
+                Vector3.Lerp(startScale, endScale, progress);
+
+            canvasGroup.alpha =
+                Mathf.Lerp(1f, 0f, progress);
+
+            yield return null;
+        }
+
         gameObject.SetActive(false);
     }
 }

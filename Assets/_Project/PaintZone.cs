@@ -45,18 +45,9 @@ public class PaintZone : MonoBehaviour
         if (painted || spriteRenderer == null)
             return;
 
-        if (value)
-        {
-            Color highlightColor = originalColor;
-            highlightColor.a = 0.35f;
-            spriteRenderer.color = highlightColor;
-        }
-        else
-        {
-            Color hiddenColor = originalColor;
-            hiddenColor.a = 0f;
-            spriteRenderer.color = hiddenColor;
-        }
+        Color newColor = originalColor;
+        newColor.a = value ? 0.55f : 0f;
+        spriteRenderer.color = newColor;
     }
 
     public void Paint()
@@ -103,10 +94,8 @@ public class PaintZone : MonoBehaviour
         while (timer < paintAnimationTime)
         {
             timer += Time.deltaTime;
-
             float progress = timer / paintAnimationTime;
             spriteRenderer.color = Color.Lerp(startColor, endColor, progress);
-
             yield return null;
         }
 
@@ -144,7 +133,7 @@ public class PaintZone : MonoBehaviour
     {
         while (!painted)
         {
-            float alpha = Mathf.PingPong(Time.time * 1.5f, 0.45f) + 0.35f;
+            float alpha = Mathf.PingPong(Time.time * 2f, 0.35f) + 0.55f;
 
             Color pulseColor = originalColor;
             pulseColor.a = alpha;
@@ -153,6 +142,28 @@ public class PaintZone : MonoBehaviour
 
             yield return null;
         }
+    }
+
+    public void ResetForReplay()
+    {
+        StopHintPulse();
+
+        if (paintCoroutine != null)
+            StopCoroutine(paintCoroutine);
+
+        painted = true;
+
+        Color hiddenColor = originalColor;
+        hiddenColor.a = 0f;
+        spriteRenderer.color = hiddenColor;
+    }
+
+    public void PaintForReplay()
+    {
+        if (paintCoroutine != null)
+            StopCoroutine(paintCoroutine);
+
+        paintCoroutine = StartCoroutine(PaintAnimation());
     }
 
     private void OnMouseDown()
