@@ -373,6 +373,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13927ae6376009d44a2176365083dadf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MainMenuController
+  level001Preview: {fileID: 0}
+  level001BlackWhiteSprite: {fileID: 3987851450286668453, guid: fdaf4b7537c28a44e963a9ccb9b22995, type: 3}
+  level001ColorSprite: {fileID: -8882765775400742646, guid: dac342428e1531c45a237ffa54b253af, type: 3}
+  level002Preview: {fileID: 0}
+  level002BlackWhiteSprite: {fileID: 21300000, guid: d9b1165a63b1de14fbd91dd1378e0324, type: 3}
+  level002ColorSprite: {fileID: -855298285791758126, guid: df158bab1e9bb0a458b97a266306b46f, type: 3}
 --- !u!1 &523008617
 GameObject:
   m_ObjectHideFlags: 0
@@ -520,7 +526,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de6c9879f35a6eb40a7925b9810452db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LevelPreviewCard
-  levelCompleteKey: Level_002_Complete
+  levelCompleteKey: Level_002_Completed
   blackWhitePreview: {fileID: 1272983413}
   colorPreview: {fileID: 1885508175}
 --- !u!1 &688527363
@@ -1753,7 +1759,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 0.7058824, g: 1, b: 0.7058824, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1790,7 +1796,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de6c9879f35a6eb40a7925b9810452db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LevelPreviewCard
-  levelCompleteKey: Level_001_Complete
+  levelCompleteKey: Level_001_Completed
   blackWhitePreview: {fileID: 1135365456}
   colorPreview: {fileID: 1866639737}
 --- !u!1 &1550648254
@@ -2365,7 +2371,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1866639736
 RectTransform:
   m_ObjectHideFlags: 0

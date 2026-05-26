@@ -19,6 +19,10 @@ public class PaintController : MonoBehaviour
     private bool levelCompleted = false;
     private bool waitingForTapToShowWinPanel = false;
 
+    private string SceneName => SceneManager.GetActiveScene().name;
+    private string PaintedColorKey(int colorId) => SceneName + "_Color_" + colorId + "_Painted";
+    private string LevelCompletedKey => SceneName + "_Completed";
+
     private void Awake()
     {
         Instance = this;
@@ -36,6 +40,7 @@ public class PaintController : MonoBehaviour
             paletteButtons = FindObjectsByType<SelectColor>(FindObjectsSortMode.None);
 
         CountZones();
+        LoadProgress();
     }
 
     private void Update()
@@ -91,6 +96,36 @@ public class PaintController : MonoBehaviour
         Debug.Log($"📊 Загружено: {totalZonesToPaint} зон к покраске.");
     }
 
+    private void LoadProgress()
+    {
+        foreach (PaintZone zone in zones)
+        {
+            if (zone == null)
+                continue;
+
+            if (PlayerPrefs.GetInt(PaintedColorKey(zone.colorId), 0) == 1)
+            {
+                zone.SetPaintedInstant();
+
+                if (remainingZones.ContainsKey(zone.colorId))
+                {
+                    totalZonesToPaint -= remainingZones[zone.colorId];
+                    remainingZones[zone.colorId] = 0;
+                }
+
+                HidePaletteButton(zone.colorId);
+            }
+        }
+
+        if (PlayerPrefs.GetInt(LevelCompletedKey, 0) == 1)
+        {
+            levelCompleted = true;
+            Debug.Log("✅ Этот уровень уже был пройден ранее.");
+        }
+
+        Debug.Log($"💾 Прогресс загружен. Осталось зон: {totalZonesToPaint}");
+    }
+
     public void ZonePainted(int colorId)
     {
         if (levelCompleted)
@@ -104,7 +139,10 @@ public class PaintController : MonoBehaviour
         totalZonesToPaint -= paintedCount;
         remainingZones[colorId] = 0;
 
-        Debug.Log($"✅ Цвет {colorId} завершён. Осталось всего зон: {totalZonesToPaint}");
+        PlayerPrefs.SetInt(PaintedColorKey(colorId), 1);
+        PlayerPrefs.Save();
+
+        Debug.Log($"✅ Цвет {colorId} завершён и сохранён. Осталось всего зон: {totalZonesToPaint}");
 
         HidePaletteButton(colorId);
 
@@ -132,7 +170,10 @@ public class PaintController : MonoBehaviour
         {
             levelCompleted = true;
 
-            Debug.Log("🎉 УРОВЕНЬ ПРОЙДЕН!");
+            PlayerPrefs.SetInt(LevelCompletedKey, 1);
+            PlayerPrefs.Save();
+
+            Debug.Log("🎉 УРОВЕНЬ ПРОЙДЕН И СОХРАНЁН!");
 
             StartCoroutine(ShowReplayThenWaitForTap());
         }
@@ -158,8 +199,6 @@ public class PaintController : MonoBehaviour
             if (zone != null)
             {
                 zone.PaintForReplay();
-
-                // СКОРОСТЬ REPLAY
                 yield return new WaitForSeconds(0.08f);
             }
         }
@@ -174,5 +213,21 @@ public class PaintController : MonoBehaviour
     public void LoadNextLevel()
     {
         SceneManager.LoadScene(nextLevelSceneName);
+    }
+
+    public void ResetLevelProgress()
+    {
+        foreach (PaintZone zone in zones)
+        {
+            if (zone == null)
+                continue;
+
+            PlayerPrefs.DeleteKey(PaintedColorKey(zone.colorId));
+        }
+
+        PlayerPrefs.DeleteKey(LevelCompletedKey);
+        PlayerPrefs.Save();
+
+        SceneManager.LoadScene(SceneName);
     }
 }

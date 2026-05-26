@@ -14,6 +14,8 @@ public class PaintZone : MonoBehaviour
 
     [SerializeField] private float paintAnimationTime = 0.25f;
 
+    public bool IsPainted => painted;
+
     private void Awake()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
@@ -61,9 +63,37 @@ public class PaintZone : MonoBehaviour
         if (SelectColor.CurrentColorId != colorId)
             return;
 
-        painted = true;
+        SetPaintedWithAnimation();
 
         SelectColor.ResetHintTimer();
+
+        if (GameSound.Instance != null)
+            GameSound.Instance.PlayClick();
+
+        PaintController.Instance.ZonePainted(colorId);
+    }
+
+    public void SetPaintedInstant()
+    {
+        painted = true;
+
+        if (paintCoroutine != null)
+            StopCoroutine(paintCoroutine);
+
+        if (hintCoroutine != null)
+            StopCoroutine(hintCoroutine);
+
+        if (spriteRenderer == null)
+            return;
+
+        Color paintedColor = originalColor;
+        paintedColor.a = 1f;
+        spriteRenderer.color = paintedColor;
+    }
+
+    private void SetPaintedWithAnimation()
+    {
+        painted = true;
 
         if (paintCoroutine != null)
             StopCoroutine(paintCoroutine);
@@ -72,11 +102,6 @@ public class PaintZone : MonoBehaviour
             StopCoroutine(hintCoroutine);
 
         paintCoroutine = StartCoroutine(PaintAnimation());
-
-        if (GameSound.Instance != null)
-            GameSound.Instance.PlayClick();
-
-        PaintController.Instance.ZonePainted(colorId);
     }
 
     private IEnumerator PaintAnimation()
