@@ -9,3 +9,8 @@ UserSettings/
 *.csproj
 *.unityproj
 *.sln
+
+.vs/
+*.user
+*.suo
+*.slnx

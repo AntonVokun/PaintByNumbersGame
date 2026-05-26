@@ -545,6 +545,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PaintZone
   colorId: 2
+  paintAnimationTime: 0.25
 --- !u!1 &87767517
 GameObject:
   m_ObjectHideFlags: 0
@@ -1094,6 +1095,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PaintZone
   colorId: 10
+  paintAnimationTime: 0.25
 --- !u!1 &271908695
 GameObject:
   m_ObjectHideFlags: 0
@@ -1516,6 +1518,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PaintZone
   colorId: 11
+  paintAnimationTime: 0.25
 --- !u!1 &342239919
 GameObject:
   m_ObjectHideFlags: 0
@@ -1880,6 +1883,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PaintZone
   colorId: 14
+  paintAnimationTime: 0.25
 --- !u!1 &422531572
 GameObject:
   m_ObjectHideFlags: 0
@@ -2247,6 +2251,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PaintZone
   colorId: 16
+  paintAnimationTime: 0.25
 --- !u!1 &432720156
 GameObject:
   m_ObjectHideFlags: 0
@@ -3033,6 +3038,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PaintZone
   colorId: 9
+  paintAnimationTime: 0.25
 --- !u!1 &469806791
 GameObject:
   m_ObjectHideFlags: 0
@@ -4833,6 +4839,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PaintZone
   colorId: 13
+  paintAnimationTime: 0.25
 --- !u!1 &679499854
 GameObject:
   m_ObjectHideFlags: 0
@@ -5132,6 +5139,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PaintZone
   colorId: 3
+  paintAnimationTime: 0.25
 --- !u!1 &702547182
 GameObject:
   m_ObjectHideFlags: 0
@@ -5927,6 +5935,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PaintZone
   colorId: 15
+  paintAnimationTime: 0.25
 --- !u!1 &1200927345
 GameObject:
   m_ObjectHideFlags: 0
@@ -6639,6 +6648,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PaintZone
   colorId: 12
+  paintAnimationTime: 0.25
 --- !u!1 &1340290052
 GameObject:
   m_ObjectHideFlags: 0
@@ -6843,6 +6853,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PaintZone
   colorId: 1
+  paintAnimationTime: 0.25
 --- !u!1 &1394805076
 GameObject:
   m_ObjectHideFlags: 0
@@ -7190,6 +7201,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PaintZone
   colorId: 5
+  paintAnimationTime: 0.25
 --- !u!1 &1409893310
 GameObject:
   m_ObjectHideFlags: 0
@@ -7384,6 +7396,7 @@ GameObject:
   - component: {fileID: 1423132195}
   - component: {fileID: 1423132194}
   - component: {fileID: 1423132193}
+  - component: {fileID: 1423132196}
   m_Layer: 0
   m_Name: Camera
   m_TagString: Untagged
@@ -7466,6 +7479,23 @@ Transform:
   - {fileID: 1503520160}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1423132196
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1423132192}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8595024ea965c36419c8803c476d2f94, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CameraZoomAndPan
+  minZoom: 2.5
+  maxZoom: 11
+  zoomSpeed: 0.05
+  mouseZoomSpeed: 15
+  panSpeed: 1
 --- !u!1 &1496978157
 GameObject:
   m_ObjectHideFlags: 0
@@ -7965,6 +7995,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PaintZone
   colorId: 6
+  paintAnimationTime: 0.25
 --- !u!1 &1553624406
 GameObject:
   m_ObjectHideFlags: 0
@@ -8847,6 +8878,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PaintZone
   colorId: 7
+  paintAnimationTime: 0.25
 --- !u!1 &1683783845
 GameObject:
   m_ObjectHideFlags: 0
@@ -9616,6 +9648,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PaintZone
   colorId: 8
+  paintAnimationTime: 0.25
 --- !u!1 &1789990803
 GameObject:
   m_ObjectHideFlags: 0
@@ -11207,6 +11240,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PaintZone
   colorId: 4
+  paintAnimationTime: 0.25
 --- !u!1 &2125297079
 GameObject:
   m_ObjectHideFlags: 0

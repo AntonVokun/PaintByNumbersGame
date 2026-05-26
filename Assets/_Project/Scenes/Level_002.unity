@@ -487,6 +487,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PaintZone
   colorId: 2
+  paintAnimationTime: 0.25
 --- !u!60 &71427191
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -832,6 +833,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PaintZone
   colorId: 10
+  paintAnimationTime: 0.25
 --- !u!60 &269639162
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -1370,6 +1372,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PaintZone
   colorId: 11
+  paintAnimationTime: 0.25
 --- !u!60 &271908701
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -1822,6 +1825,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PaintZone
   colorId: 14
+  paintAnimationTime: 0.25
 --- !u!60 &408100521
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -2252,6 +2256,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PaintZone
   colorId: 16
+  paintAnimationTime: 0.25
 --- !u!60 &422531578
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -2687,6 +2692,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PaintZone
   colorId: 9
+  paintAnimationTime: 0.25
 --- !u!60 &448965640
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -3934,6 +3940,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PaintZone
   colorId: 13
+  paintAnimationTime: 0.25
 --- !u!60 &676614611
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -4207,6 +4214,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PaintZone
   colorId: 3
+  paintAnimationTime: 0.25
 --- !u!60 &679499860
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -4897,6 +4905,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PaintZone
   colorId: 15
+  paintAnimationTime: 0.25
 --- !u!60 &1143204722
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -5485,6 +5494,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PaintZone
   colorId: 12
+  paintAnimationTime: 0.25
 --- !u!60 &1268192712
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -5970,6 +5980,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PaintZone
   colorId: 1
+  paintAnimationTime: 0.25
 --- !u!60 &1340290058
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -6172,6 +6183,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PaintZone
   colorId: 5
+  paintAnimationTime: 0.25
 --- !u!60 &1394805082
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -7082,6 +7094,7 @@ GameObject:
   - component: {fileID: 1423132195}
   - component: {fileID: 1423132194}
   - component: {fileID: 1423132193}
+  - component: {fileID: 1423132196}
   m_Layer: 0
   m_Name: Camera
   m_TagString: Untagged
@@ -7163,6 +7176,23 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1423132196
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1423132192}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8595024ea965c36419c8803c476d2f94, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CameraZoomAndPan
+  minZoom: 2.5
+  maxZoom: 11
+  zoomSpeed: 0.01
+  mouseZoomSpeed: 1
+  panSpeed: 1
 --- !u!1 &1496978157
 GameObject:
   m_ObjectHideFlags: 0
@@ -7452,6 +7482,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PaintZone
   colorId: 6
+  paintAnimationTime: 0.25
 --- !u!60 &1544428657
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -7771,6 +7802,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PaintZone
   colorId: 17
+  paintAnimationTime: 0.25
 --- !u!212 &1579926393
 SpriteRenderer:
   serializedVersion: 2
@@ -8453,6 +8485,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PaintZone
   colorId: 7
+  paintAnimationTime: 0.25
 --- !u!60 &1592858562
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -9335,6 +9368,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PaintZone
   colorId: 8
+  paintAnimationTime: 0.25
 --- !u!60 &1770554275
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -10820,6 +10854,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PaintZone
   colorId: 4
+  paintAnimationTime: 0.25
 --- !u!60 &2115693772
 PolygonCollider2D:
   m_ObjectHideFlags: 0
