@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.InputSystem;
 
 public class PaintController : MonoBehaviour
 {
@@ -48,19 +49,15 @@ public class PaintController : MonoBehaviour
         if (!waitingForTapToShowWinPanel)
             return;
 
-        if (Input.GetMouseButtonDown(0))
-            ShowWinPanel();
+        bool mouseClicked =
+            Mouse.current != null &&
+            Mouse.current.leftButton.wasPressedThisFrame;
 
-        if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
-            ShowWinPanel();
-    }
+        bool touched =
+            Touchscreen.current != null &&
+            Touchscreen.current.primaryTouch.press.wasPressedThisFrame;
 
-    private void OnGUI()
-    {
-        if (!waitingForTapToShowWinPanel)
-            return;
-
-        if (Event.current.type == EventType.MouseDown)
+        if (mouseClicked || touched)
             ShowWinPanel();
     }
 

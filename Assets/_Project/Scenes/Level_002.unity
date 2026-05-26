@@ -739,6 +739,7 @@ GameObject:
   - component: {fileID: 166032103}
   - component: {fileID: 166032102}
   - component: {fileID: 166032101}
+  - component: {fileID: 166032104}
   m_Layer: 5
   m_Name: BackButton
   m_TagString: Untagged
@@ -765,7 +766,7 @@ RectTransform:
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 80, y: -80}
   m_SizeDelta: {x: 200, y: 100}
-  m_Pivot: {x: 0, y: 1}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &166032101
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -809,7 +810,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 166032102}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 166032104}
+        m_TargetAssemblyTypeName: BackToMenu, Assembly-CSharp
+        m_MethodName: GoToMenu
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &166032102
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -848,6 +861,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 166032099}
   m_CullTransparentMesh: 1
+--- !u!114 &166032104
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 166032099}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10c58dbd057125f488f47f1054c18372, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BackToMenu
 --- !u!1 &189319480
 GameObject:
   m_ObjectHideFlags: 0
@@ -905,7 +930,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Button
+  m_text: "\u041D\u0430\u0437\u0430\u0434"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -5041,7 +5066,7 @@ MonoBehaviour:
   - {fileID: 432720158}
   - {fileID: 909623235}
   winPanel: {fileID: 485905069}
-  nextLevelSceneName: Level_2
+  nextLevelSceneName: MainMenu
 --- !u!4 &952490494
 Transform:
   m_ObjectHideFlags: 0
@@ -7448,9 +7473,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CameraZoomAndPan
   minZoom: 2.5
   maxZoom: 11
-  zoomSpeed: 0.01
-  mouseZoomSpeed: 1
+  zoomSpeed: 0.03
+  mouseZoomSpeed: 8
   panSpeed: 1
+  useBounds: 1
+  minX: -2.5
+  maxX: 2.5
+  minY: -4
+  maxY: 4
 --- !u!1 &1496978157
 GameObject:
   m_ObjectHideFlags: 0
@@ -7982,52 +8012,6 @@ PolygonCollider2D:
       - {x: -1.9399999, y: 2.97}
       - {x: -1.9499999, y: 3.22}
   m_UseDelaunayMesh: 1
---- !u!1 &1553624406
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1553624408}
-  - component: {fileID: 1553624407}
-  m_Layer: 0
-  m_Name: ButtonNumberCreator
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!114 &1553624407
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1553624406}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e1257aad90777d94b82e5cf308ce4584, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::AutoButtonNumbers
-  audioSource: {fileID: 0}
-  clickSound: {fileID: 0}
---- !u!4 &1553624408
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1553624406}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.37068, y: 0, z: 29.75969}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1579926390
 GameObject:
   m_ObjectHideFlags: 0
@@ -11316,6 +11300,5 @@ SceneRoots:
   - {fileID: 35698497}
   - {fileID: 2125297083}
   - {fileID: 1818136993}
-  - {fileID: 1553624408}
   - {fileID: 2039940062}
   - {fileID: 1738332973}
