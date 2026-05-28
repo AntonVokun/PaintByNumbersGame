@@ -109,8 +109,11 @@ public class PaintZone : MonoBehaviour
         spriteRenderer.color = paintedColor;
     }
 
-    private void SetPaintedWithAnimation()
+    public void SetPaintedWithAnimation()
     {
+        if (painted)
+            return;
+
         painted = true;
 
         if (paintCoroutine != null)

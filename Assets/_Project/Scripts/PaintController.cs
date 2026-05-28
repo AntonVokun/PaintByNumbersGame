@@ -177,6 +177,8 @@ public class PaintController : MonoBehaviour
         totalZonesToPaint = Mathf.Max(0, totalZonesToPaint);
         remainingZones[colorId] = 0;
 
+        PaintAllZonesWithColor(colorId);
+
         PlayerPrefs.SetInt(PaintedColorKey(colorId), 1);
         PlayerPrefs.Save();
 
@@ -185,6 +187,21 @@ public class PaintController : MonoBehaviour
         HidePaletteButton(colorId);
 
         CheckLevelComplete();
+    }
+
+    private void PaintAllZonesWithColor(int colorId)
+    {
+        if (zones == null)
+            return;
+
+        foreach (PaintZone zone in zones)
+        {
+            if (zone == null)
+                continue;
+
+            if (zone.colorId == colorId && !zone.IsPainted)
+                zone.SetPaintedWithAnimation();
+        }
     }
 
     private void HidePaletteButton(int colorId)
