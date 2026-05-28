@@ -14,6 +14,12 @@ public class MainMenuController : MonoBehaviour
     public Sprite level002BlackWhiteSprite;
     public Sprite level002ColorSprite;
 
+    [Header("Levels")]
+    [SerializeField] private string[] levelSceneNames = { "Level_001", "Level_002" };
+
+    [Header("Colors Per Level")]
+    [SerializeField] private int colorsPerLevel = 16;
+
     private void Start()
     {
         UpdateLevelCards();
@@ -33,54 +39,45 @@ public class MainMenuController : MonoBehaviour
 
     public void OpenLevel001()
     {
-        SceneManager.LoadScene("Level_001");
+        LoadLevel("Level_001");
     }
 
     public void OpenLevel002()
     {
-        SceneManager.LoadScene("Level_002");
+        LoadLevel("Level_002");
+    }
+
+    private void LoadLevel(string sceneName)
+    {
+        if (Application.CanStreamedLevelBeLoaded(sceneName))
+        {
+            SceneManager.LoadScene(sceneName);
+        }
+        else
+        {
+            Debug.LogError($"❌ Сцена '{sceneName}' не найдена в Build Settings.");
+        }
     }
 
     public void ResetProgress()
     {
-        PlayerPrefs.DeleteKey("Level_001_Completed");
-        PlayerPrefs.DeleteKey("Level_002_Completed");
+        foreach (string levelName in levelSceneNames)
+        {
+            if (string.IsNullOrWhiteSpace(levelName))
+                continue;
 
-        PlayerPrefs.DeleteKey("Level_001_Color_1_Painted");
-        PlayerPrefs.DeleteKey("Level_001_Color_2_Painted");
-        PlayerPrefs.DeleteKey("Level_001_Color_3_Painted");
-        PlayerPrefs.DeleteKey("Level_001_Color_4_Painted");
-        PlayerPrefs.DeleteKey("Level_001_Color_5_Painted");
-        PlayerPrefs.DeleteKey("Level_001_Color_6_Painted");
-        PlayerPrefs.DeleteKey("Level_001_Color_7_Painted");
-        PlayerPrefs.DeleteKey("Level_001_Color_8_Painted");
-        PlayerPrefs.DeleteKey("Level_001_Color_9_Painted");
-        PlayerPrefs.DeleteKey("Level_001_Color_10_Painted");
-        PlayerPrefs.DeleteKey("Level_001_Color_11_Painted");
-        PlayerPrefs.DeleteKey("Level_001_Color_12_Painted");
-        PlayerPrefs.DeleteKey("Level_001_Color_13_Painted");
-        PlayerPrefs.DeleteKey("Level_001_Color_14_Painted");
-        PlayerPrefs.DeleteKey("Level_001_Color_15_Painted");
-        PlayerPrefs.DeleteKey("Level_001_Color_16_Painted");
+            PlayerPrefs.DeleteKey(levelName + "_Completed");
 
-        PlayerPrefs.DeleteKey("Level_002_Color_1_Painted");
-        PlayerPrefs.DeleteKey("Level_002_Color_2_Painted");
-        PlayerPrefs.DeleteKey("Level_002_Color_3_Painted");
-        PlayerPrefs.DeleteKey("Level_002_Color_4_Painted");
-        PlayerPrefs.DeleteKey("Level_002_Color_5_Painted");
-        PlayerPrefs.DeleteKey("Level_002_Color_6_Painted");
-        PlayerPrefs.DeleteKey("Level_002_Color_7_Painted");
-        PlayerPrefs.DeleteKey("Level_002_Color_8_Painted");
-        PlayerPrefs.DeleteKey("Level_002_Color_9_Painted");
-        PlayerPrefs.DeleteKey("Level_002_Color_10_Painted");
-        PlayerPrefs.DeleteKey("Level_002_Color_11_Painted");
-        PlayerPrefs.DeleteKey("Level_002_Color_12_Painted");
-        PlayerPrefs.DeleteKey("Level_002_Color_13_Painted");
-        PlayerPrefs.DeleteKey("Level_002_Color_14_Painted");
-        PlayerPrefs.DeleteKey("Level_002_Color_15_Painted");
-        PlayerPrefs.DeleteKey("Level_002_Color_16_Painted");
+            for (int i = 1; i <= colorsPerLevel; i++)
+            {
+                PlayerPrefs.DeleteKey(levelName + "_Color_" + i + "_Painted");
+            }
+        }
 
         PlayerPrefs.Save();
+
+        Debug.Log("🧹 Прогресс игры сброшен.");
+
         UpdateLevelCards();
     }
 }
