@@ -20,14 +20,18 @@ public class PaintZone : MonoBehaviour
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
 
-        if (spriteRenderer != null)
+        if (spriteRenderer == null)
         {
-            originalColor = spriteRenderer.color;
-
-            Color hiddenColor = originalColor;
-            hiddenColor.a = 0f;
-            spriteRenderer.color = hiddenColor;
+            Debug.LogError("❌ На объекте нет SpriteRenderer: " + gameObject.name);
+            enabled = false;
+            return;
         }
+
+        originalColor = spriteRenderer.color;
+
+        Color hiddenColor = originalColor;
+        hiddenColor.a = 0f;
+        spriteRenderer.color = hiddenColor;
 
         DisableZoneLabels();
     }
@@ -36,7 +40,11 @@ public class PaintZone : MonoBehaviour
     {
         foreach (MonoBehaviour component in GetComponentsInChildren<MonoBehaviour>(true))
         {
+            if (component == null)
+                continue;
+
             string typeName = component.GetType().FullName;
+
             if (typeName != null && typeName.StartsWith("TMPro."))
                 component.gameObject.SetActive(false);
         }
@@ -54,6 +62,9 @@ public class PaintZone : MonoBehaviour
 
     public void Paint()
     {
+        if (!enabled)
+            return;
+
         if (painted)
             return;
 
@@ -70,7 +81,14 @@ public class PaintZone : MonoBehaviour
         if (GameSound.Instance != null)
             GameSound.Instance.PlayClick();
 
-        PaintController.Instance.ZonePainted(colorId);
+        if (PaintController.Instance != null)
+        {
+            PaintController.Instance.ZonePainted(colorId);
+        }
+        else
+        {
+            Debug.LogError("❌ PaintController.Instance == null. На сцене отсутствует PaintController.");
+        }
     }
 
     public void SetPaintedInstant()
@@ -106,6 +124,9 @@ public class PaintZone : MonoBehaviour
 
     private IEnumerator PaintAnimation()
     {
+        if (spriteRenderer == null)
+            yield break;
+
         float timer = 0f;
 
         Color startColor = originalColor;
@@ -158,6 +179,9 @@ public class PaintZone : MonoBehaviour
     {
         while (!painted)
         {
+            if (spriteRenderer == null)
+                yield break;
+
             float alpha = Mathf.PingPong(Time.time * 2f, 0.35f) + 0.55f;
 
             Color pulseColor = originalColor;
@@ -178,6 +202,9 @@ public class PaintZone : MonoBehaviour
 
         painted = true;
 
+        if (spriteRenderer == null)
+            return;
+
         Color hiddenColor = originalColor;
         hiddenColor.a = 0f;
         spriteRenderer.color = hiddenColor;
@@ -185,6 +212,9 @@ public class PaintZone : MonoBehaviour
 
     public void PaintForReplay()
     {
+        if (spriteRenderer == null)
+            return;
+
         if (paintCoroutine != null)
             StopCoroutine(paintCoroutine);
 
