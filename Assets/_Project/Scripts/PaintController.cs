@@ -6,7 +6,7 @@ using UnityEngine.InputSystem;
 
 public class PaintController : MonoBehaviour
 {
-    public static PaintController Instance;
+    public static PaintController Instance { get; private set; }
 
     public PaintZone[] zones;
     public SelectColor[] paletteButtons;
@@ -19,6 +19,7 @@ public class PaintController : MonoBehaviour
 
     private bool levelCompleted = false;
     private bool waitingForTapToShowWinPanel = false;
+    private Coroutine replayCoroutine;
 
     private string SceneName => SceneManager.GetActiveScene().name;
     private string PaintedColorKey(int colorId) => SceneName + "_Color_" + colorId + "_Painted";
@@ -26,11 +27,27 @@ public class PaintController : MonoBehaviour
 
     private void Awake()
     {
+        if (Instance != null && Instance != this)
+        {
+            Debug.LogWarning("⚠️ В сцене найден лишний PaintController. Лишний объект отключён: " + gameObject.name);
+            enabled = false;
+            return;
+        }
+
         Instance = this;
+    }
+
+    private void OnDestroy()
+    {
+        if (Instance == this)
+            Instance = null;
     }
 
     private void Start()
     {
+        if (!enabled)
+            return;
+
         if (winPanel != null)
             winPanel.SetActive(false);
 
@@ -39,6 +56,12 @@ public class PaintController : MonoBehaviour
 
         if (paletteButtons == null || paletteButtons.Length == 0)
             paletteButtons = FindObjectsByType<SelectColor>(FindObjectsSortMode.None);
+
+        if (zones == null || zones.Length == 0)
+            Debug.LogWarning("⚠️ На сцене не найдены PaintZone. Проверь зоны раскраски.");
+
+        if (paletteButtons == null || paletteButtons.Length == 0)
+            Debug.LogWarning("⚠️ На сцене не найдены кнопки палитры SelectColor.");
 
         CountZones();
         LoadProgress();
@@ -78,6 +101,9 @@ public class PaintController : MonoBehaviour
         remainingZones.Clear();
         totalZonesToPaint = 0;
 
+        if (zones == null)
+            return;
+
         foreach (PaintZone zone in zones)
         {
             if (zone == null)
@@ -95,6 +121,11 @@ public class PaintController : MonoBehaviour
 
     private void LoadProgress()
     {
+        if (zones == null)
+            return;
+
+        HashSet<int> loadedColors = new HashSet<int>();
+
         foreach (PaintZone zone in zones)
         {
             if (zone == null)
@@ -104,15 +135,18 @@ public class PaintController : MonoBehaviour
             {
                 zone.SetPaintedInstant();
 
-                if (remainingZones.ContainsKey(zone.colorId))
+                if (!loadedColors.Contains(zone.colorId) && remainingZones.ContainsKey(zone.colorId))
                 {
                     totalZonesToPaint -= remainingZones[zone.colorId];
                     remainingZones[zone.colorId] = 0;
+                    loadedColors.Add(zone.colorId);
                 }
 
                 HidePaletteButton(zone.colorId);
             }
         }
+
+        totalZonesToPaint = Mathf.Max(0, totalZonesToPaint);
 
         if (PlayerPrefs.GetInt(LevelCompletedKey, 0) == 1)
         {
@@ -129,11 +163,18 @@ public class PaintController : MonoBehaviour
             return;
 
         if (!remainingZones.ContainsKey(colorId))
+        {
+            Debug.LogWarning($"⚠️ Цвет {colorId} не найден в списке зон PaintController.");
             return;
+        }
 
         int paintedCount = remainingZones[colorId];
 
+        if (paintedCount <= 0)
+            return;
+
         totalZonesToPaint -= paintedCount;
+        totalZonesToPaint = Mathf.Max(0, totalZonesToPaint);
         remainingZones[colorId] = 0;
 
         PlayerPrefs.SetInt(PaintedColorKey(colorId), 1);
@@ -148,6 +189,9 @@ public class PaintController : MonoBehaviour
 
     private void HidePaletteButton(int colorId)
     {
+        if (paletteButtons == null)
+            return;
+
         foreach (SelectColor button in paletteButtons)
         {
             if (button == null)
@@ -163,6 +207,9 @@ public class PaintController : MonoBehaviour
 
     private void CheckLevelComplete()
     {
+        if (levelCompleted)
+            return;
+
         if (totalZonesToPaint <= 0)
         {
             levelCompleted = true;
@@ -172,7 +219,10 @@ public class PaintController : MonoBehaviour
 
             Debug.Log("🎉 УРОВЕНЬ ПРОЙДЕН И СОХРАНЁН!");
 
-            StartCoroutine(ShowReplayThenWaitForTap());
+            if (replayCoroutine != null)
+                StopCoroutine(replayCoroutine);
+
+            replayCoroutine = StartCoroutine(ShowReplayThenWaitForTap());
         }
     }
 
@@ -183,20 +233,26 @@ public class PaintController : MonoBehaviour
 
         yield return new WaitForSeconds(0.5f);
 
-        foreach (PaintZone zone in zones)
+        if (zones != null)
         {
-            if (zone != null)
-                zone.ResetForReplay();
+            foreach (PaintZone zone in zones)
+            {
+                if (zone != null)
+                    zone.ResetForReplay();
+            }
         }
 
         yield return new WaitForSeconds(0.3f);
 
-        foreach (PaintZone zone in zones)
+        if (zones != null)
         {
-            if (zone != null)
+            foreach (PaintZone zone in zones)
             {
-                zone.PaintForReplay();
-                yield return new WaitForSeconds(0.08f);
+                if (zone != null)
+                {
+                    zone.PaintForReplay();
+                    yield return new WaitForSeconds(0.08f);
+                }
             }
         }
 
@@ -209,17 +265,33 @@ public class PaintController : MonoBehaviour
 
     public void LoadNextLevel()
     {
-        SceneManager.LoadScene(nextLevelSceneName);
+        if (string.IsNullOrWhiteSpace(nextLevelSceneName))
+        {
+            Debug.LogError("❌ Имя следующей сцены не указано в PaintController.");
+            return;
+        }
+
+        if (Application.CanStreamedLevelBeLoaded(nextLevelSceneName))
+        {
+            SceneManager.LoadScene(nextLevelSceneName);
+        }
+        else
+        {
+            Debug.LogError($"❌ Сцена '{nextLevelSceneName}' не найдена в Build Settings. Добавь её в File → Build Profiles / Build Settings.");
+        }
     }
 
     public void ResetLevelProgress()
     {
-        foreach (PaintZone zone in zones)
+        if (zones != null)
         {
-            if (zone == null)
-                continue;
+            foreach (PaintZone zone in zones)
+            {
+                if (zone == null)
+                    continue;
 
-            PlayerPrefs.DeleteKey(PaintedColorKey(zone.colorId));
+                PlayerPrefs.DeleteKey(PaintedColorKey(zone.colorId));
+            }
         }
 
         PlayerPrefs.DeleteKey(LevelCompletedKey);
