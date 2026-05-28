@@ -4,15 +4,17 @@ using UnityEngine.UI;
 
 public class MainMenuController : MonoBehaviour
 {
-    [Header("Level 001")]
+    [Header("OLD LEVEL CARDS")]
     public Image level001Preview;
     public Sprite level001BlackWhiteSprite;
     public Sprite level001ColorSprite;
 
-    [Header("Level 002")]
     public Image level002Preview;
     public Sprite level002BlackWhiteSprite;
     public Sprite level002ColorSprite;
+
+    [Header("NEW LEVEL CARD SYSTEM")]
+    [SerializeField] private LevelCardUI[] levelCards;
 
     [Header("Levels")]
     [SerializeField] private string[] levelSceneNames = { "Level_001", "Level_002" };
@@ -22,19 +24,32 @@ public class MainMenuController : MonoBehaviour
 
     private void Start()
     {
-        UpdateLevelCards();
+        UpdateOldCards();
+        RefreshLevelCards();
     }
 
-    private void UpdateLevelCards()
+    private void UpdateOldCards()
     {
-        bool level001Completed = PlayerPrefs.GetInt("Level_001_Completed", 0) == 1;
-        bool level002Completed = PlayerPrefs.GetInt("Level_002_Completed", 0) == 1;
+        bool level001Completed = SaveSystem.IsLevelCompleted("Level_001");
+        bool level002Completed = SaveSystem.IsLevelCompleted("Level_002");
 
         if (level001Preview != null)
             level001Preview.sprite = level001Completed ? level001ColorSprite : level001BlackWhiteSprite;
 
         if (level002Preview != null)
             level002Preview.sprite = level002Completed ? level002ColorSprite : level002BlackWhiteSprite;
+    }
+
+    public void RefreshLevelCards()
+    {
+        if (levelCards == null)
+            return;
+
+        foreach (LevelCardUI card in levelCards)
+        {
+            if (card != null)
+                card.Refresh();
+        }
     }
 
     public void OpenLevel001()
@@ -61,23 +76,11 @@ public class MainMenuController : MonoBehaviour
 
     public void ResetProgress()
     {
-        foreach (string levelName in levelSceneNames)
-        {
-            if (string.IsNullOrWhiteSpace(levelName))
-                continue;
-
-            PlayerPrefs.DeleteKey(levelName + "_Completed");
-
-            for (int i = 1; i <= colorsPerLevel; i++)
-            {
-                PlayerPrefs.DeleteKey(levelName + "_Color_" + i + "_Painted");
-            }
-        }
-
-        PlayerPrefs.Save();
+        SaveSystem.ResetLevelsProgress(levelSceneNames, colorsPerLevel);
 
         Debug.Log("🧹 Прогресс игры сброшен.");
 
-        UpdateLevelCards();
+        UpdateOldCards();
+        RefreshLevelCards();
     }
 }
