@@ -1,16 +1,67 @@
+# Unity generated folders
 [Ll]ibrary/
 [Tt]emp/
 [Oo]bj/
 [Bb]uild/
 [Bb]uilds/
 [Ll]ogs/
-UserSettings/
+[Uu]ser[Ss]ettings/
 
+# Memory captures and recordings
+[Mm]emoryCaptures/
+[Rr]ecordings/
+
+# Unity crash / diagnostic files
+sysinfo.txt
+mono_crash.*
+*.stackdump
+
+# Unity package exports
+*.unitypackage
+*.unitypackage.meta
+
+# Android / mobile build outputs
+.gradle/
+*.apk
+*.aab
+*.apks
+*.keystore
+*.jks
+
+# iOS / macOS build outputs
+*.app
+*.ipa
+
+# Visual Studio / Rider / VS Code / Cursor generated files
+.vs/
+.vscode/
+.idea/
 *.csproj
 *.unityproj
 *.sln
-
-.vs/
-*.user
-*.suo
 *.slnx
+*.user
+*.userprefs
+*.suo
+*.tmp
+*.booproj
+*.svd
+*.pdb
+*.mdb
+*.opendb
+*.VC.db
+*.pidb
+*.DotSettings.user
+[Aa]ssets/Plugins/Editor/JetBrains*
+
+# OS generated files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Logs and temporary files
+*.log
+*.tmp
+*.bak
+*.swp
+*.pid
