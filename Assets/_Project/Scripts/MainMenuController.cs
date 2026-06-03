@@ -17,7 +17,12 @@ public class MainMenuController : MonoBehaviour
     [SerializeField] private LevelCardUI[] levelCards;
 
     [Header("Levels")]
-    [SerializeField] private string[] levelSceneNames = { "Level_001", "Level_002" };
+    [SerializeField]
+    private string[] levelSceneNames =
+    {
+        "Level_001",
+        "Level_002_New"
+    };
 
     [Header("Colors Per Level")]
     [SerializeField] private int colorsPerLevel = 16;
@@ -30,14 +35,27 @@ public class MainMenuController : MonoBehaviour
 
     private void UpdateOldCards()
     {
-        bool level001Completed = SaveSystem.IsLevelCompleted("Level_001");
-        bool level002Completed = SaveSystem.IsLevelCompleted("Level_002");
+        bool level001Completed =
+            SaveSystem.IsLevelCompleted("Level_001");
+
+        bool level002Completed =
+            SaveSystem.IsLevelCompleted("Level_002_New");
 
         if (level001Preview != null)
-            level001Preview.sprite = level001Completed ? level001ColorSprite : level001BlackWhiteSprite;
+        {
+            level001Preview.sprite =
+                level001Completed
+                ? level001ColorSprite
+                : level001BlackWhiteSprite;
+        }
 
         if (level002Preview != null)
-            level002Preview.sprite = level002Completed ? level002ColorSprite : level002BlackWhiteSprite;
+        {
+            level002Preview.sprite =
+                level002Completed
+                ? level002ColorSprite
+                : level002BlackWhiteSprite;
+        }
     }
 
     public void RefreshLevelCards()
@@ -59,7 +77,7 @@ public class MainMenuController : MonoBehaviour
 
     public void OpenLevel002()
     {
-        LoadLevel("Level_002");
+        LoadLevel("Level_002_New");
     }
 
     private void LoadLevel(string sceneName)
@@ -70,15 +88,19 @@ public class MainMenuController : MonoBehaviour
         }
         else
         {
-            Debug.LogError($"❌ Сцена '{sceneName}' не найдена в Build Settings.");
+            Debug.LogError(
+                $"❌ Сцена '{sceneName}' не найдена в Build Settings."
+            );
         }
     }
 
+    [ContextMenu("Reset Progress")]
     public void ResetProgress()
     {
-        SaveSystem.ResetLevelsProgress(levelSceneNames, colorsPerLevel);
+        PlayerPrefs.DeleteAll();
+        PlayerPrefs.Save();
 
-        Debug.Log("🧹 Прогресс игры сброшен.");
+        Debug.Log("🧹 Весь прогресс игры полностью сброшен.");
 
         UpdateOldCards();
         RefreshLevelCards();

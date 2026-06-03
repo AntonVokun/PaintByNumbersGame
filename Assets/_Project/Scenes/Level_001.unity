@@ -5757,7 +5757,7 @@ MonoBehaviour:
   - {fileID: 1584496357}
   - {fileID: 432720158}
   winPanel: {fileID: 485905069}
-  nextLevelSceneName: Level_002
+  nextLevelSceneName: Level_002_New
 --- !u!4 &952490494
 Transform:
   m_ObjectHideFlags: 0
