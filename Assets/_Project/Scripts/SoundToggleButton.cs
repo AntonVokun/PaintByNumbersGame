@@ -3,37 +3,30 @@ using UnityEngine.UI;
 
 public class SoundToggleButton : MonoBehaviour
 {
-    [SerializeField] private Image iconImage;
+    [SerializeField] private Image buttonImage;
     [SerializeField] private Sprite soundOnSprite;
     [SerializeField] private Sprite soundOffSprite;
 
-    private const string SoundKey = "SoundEnabled";
-
-    private bool soundEnabled = true;
+    private bool isSoundOn = true;
 
     private void Start()
     {
-        soundEnabled = PlayerPrefs.GetInt(SoundKey, 1) == 1;
-        ApplySoundState();
+        isSoundOn = AudioListener.volume > 0f;
+        UpdateIcon();
     }
 
     public void ToggleSound()
     {
-        soundEnabled = !soundEnabled;
-
-        PlayerPrefs.SetInt(SoundKey, soundEnabled ? 1 : 0);
-        PlayerPrefs.Save();
-
-        ApplySoundState();
+        isSoundOn = !isSoundOn;
+        AudioListener.volume = isSoundOn ? 1f : 0f;
+        UpdateIcon();
     }
 
-    private void ApplySoundState()
+    private void UpdateIcon()
     {
-        AudioListener.volume = soundEnabled ? 1f : 0f;
+        if (buttonImage == null)
+            buttonImage = GetComponent<Image>();
 
-        if (iconImage != null)
-        {
-            iconImage.sprite = soundEnabled ? soundOnSprite : soundOffSprite;
-        }
+        buttonImage.sprite = isSoundOn ? soundOnSprite : soundOffSprite;
     }
 }
