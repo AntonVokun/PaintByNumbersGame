@@ -1408,7 +1408,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 756c100b53f71c746aad8f1e6c6dfbc0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LevelCardUI
-  levelSceneName: Level_001
+  levelSceneName: Level_001_New
   levelDisplayName: "\u0423\u0440\u043E\u0432\u0435\u043D\u044C 1"
   levelNameText: {fileID: 0}
   previewImage: {fileID: 897723019}
