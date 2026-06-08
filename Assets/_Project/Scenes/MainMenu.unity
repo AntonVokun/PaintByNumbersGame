@@ -1240,7 +1240,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   levelSceneNames:
-  - Level_001
+  - Level_001_New
   - Level_002_New
   colorsPerLevel: 16
 --- !u!1 &1170512998

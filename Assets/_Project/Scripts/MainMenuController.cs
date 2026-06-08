@@ -20,7 +20,7 @@ public class MainMenuController : MonoBehaviour
     [SerializeField]
     private string[] levelSceneNames =
     {
-        "Level_001",
+        "Level_001_New",
         "Level_002_New"
     };
 
@@ -36,7 +36,7 @@ public class MainMenuController : MonoBehaviour
     private void UpdateOldCards()
     {
         bool level001Completed =
-            SaveSystem.IsLevelCompleted("Level_001");
+            SaveSystem.IsLevelCompleted("Level_001_New");
 
         bool level002Completed =
             SaveSystem.IsLevelCompleted("Level_002_New");
@@ -72,7 +72,7 @@ public class MainMenuController : MonoBehaviour
 
     public void OpenLevel001()
     {
-        LoadLevel("Level_001");
+        LoadLevel("Level_001_New");
     }
 
     public void OpenLevel002()
