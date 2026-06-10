@@ -25,7 +25,7 @@ public class MainMenuController : MonoBehaviour
     };
 
     [Header("Colors Per Level")]
-    [SerializeField] private int colorsPerLevel = 16;
+    [SerializeField] private int colorsPerLevel = 17;
 
     private void Start()
     {
@@ -35,24 +35,19 @@ public class MainMenuController : MonoBehaviour
 
     private void UpdateOldCards()
     {
-        bool level001Completed =
-            SaveSystem.IsLevelCompleted("Level_001_New");
-
-        bool level002Completed =
-            SaveSystem.IsLevelCompleted("Level_002_New");
+        bool level001Completed = SaveSystem.IsLevelCompleted("Level_001_New");
+        bool level002Completed = SaveSystem.IsLevelCompleted("Level_002_New");
 
         if (level001Preview != null)
         {
-            level001Preview.sprite =
-                level001Completed
+            level001Preview.sprite = level001Completed
                 ? level001ColorSprite
                 : level001BlackWhiteSprite;
         }
 
         if (level002Preview != null)
         {
-            level002Preview.sprite =
-                level002Completed
+            level002Preview.sprite = level002Completed
                 ? level002ColorSprite
                 : level002BlackWhiteSprite;
         }
@@ -88,21 +83,18 @@ public class MainMenuController : MonoBehaviour
         }
         else
         {
-            Debug.LogError(
-                $"❌ Сцена '{sceneName}' не найдена в Build Settings."
-            );
+            Debug.LogError($"❌ Сцена '{sceneName}' не найдена в Build Settings.");
         }
     }
 
     [ContextMenu("Reset Progress")]
     public void ResetProgress()
     {
-        PlayerPrefs.DeleteAll();
-        PlayerPrefs.Save();
-
-        Debug.Log("🧹 Весь прогресс игры полностью сброшен.");
+        SaveSystem.ResetLevelsProgress(levelSceneNames, colorsPerLevel);
 
         UpdateOldCards();
         RefreshLevelCards();
+
+        Debug.Log("🧹 Прогресс уровней сброшен.");
     }
 }
