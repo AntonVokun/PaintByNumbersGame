@@ -139,6 +139,9 @@ public class SelectColor : MonoBehaviour
 
     private IEnumerator HideAnimation()
     {
+        PaletteDragScroll paletteScroll =
+            GetComponentInParent<PaletteDragScroll>();
+
         Vector3 startScale = transform.localScale;
         Vector3 endScale = Vector3.zero;
 
@@ -166,5 +169,8 @@ public class SelectColor : MonoBehaviour
         }
 
         gameObject.SetActive(false);
+
+        if (paletteScroll != null)
+            paletteScroll.RefreshLayout();
     }
 }
