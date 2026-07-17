@@ -24,9 +24,6 @@ public class MainMenuController : MonoBehaviour
         "Level_002_New"
     };
 
-    [Header("Colors Per Level")]
-    [SerializeField] private int colorsPerLevel = 17;
-
     private void Start()
     {
         UpdateOldCards();
@@ -55,14 +52,25 @@ public class MainMenuController : MonoBehaviour
 
     public void RefreshLevelCards()
     {
-        if (levelCards == null)
+        bool refreshedAssignedCard = false;
+
+        if (levelCards != null)
+        {
+            foreach (LevelCardUI card in levelCards)
+            {
+                if (card == null)
+                    continue;
+
+                card.Refresh();
+                refreshedAssignedCard = true;
+            }
+        }
+
+        if (refreshedAssignedCard)
             return;
 
-        foreach (LevelCardUI card in levelCards)
-        {
-            if (card != null)
-                card.Refresh();
-        }
+        foreach (LevelCardUI card in FindObjectsByType<LevelCardUI>())
+            card.Refresh();
     }
 
     public void OpenLevel001()
@@ -90,7 +98,7 @@ public class MainMenuController : MonoBehaviour
     [ContextMenu("Reset Progress")]
     public void ResetProgress()
     {
-        SaveSystem.ResetLevelsProgress(levelSceneNames, colorsPerLevel);
+        SaveSystem.ResetLevelsProgress(levelSceneNames);
 
         UpdateOldCards();
         RefreshLevelCards();

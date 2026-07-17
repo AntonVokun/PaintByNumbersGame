@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
-using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class CameraZoomAndPan : MonoBehaviour
 {
@@ -25,6 +25,10 @@ public class CameraZoomAndPan : MonoBehaviour
     public float minY = -4f;
     public float maxY = 4f;
 
+    [Header("Viewport References")]
+    [SerializeField] private RectTransform gameplayViewport;
+    [SerializeField] private SpriteRenderer viewportBackgroundRenderer;
+
     private Camera cam;
 
     private Vector2 lastPanPosition;
@@ -34,6 +38,7 @@ public class CameraZoomAndPan : MonoBehaviour
     private bool singleTouchActive;
     private bool initialFitCompleted;
     private bool artworkBoundsReady;
+    private bool viewportReferenceErrorReported;
 
     private readonly List<RaycastResult> uiRaycastResults =
         new List<RaycastResult>();
@@ -43,7 +48,10 @@ public class CameraZoomAndPan : MonoBehaviour
     private float fittedOrthographicSize;
     private Bounds artworkBounds;
 
-    private const int BackgroundOnlyLayer = 31;
+    private const string ViewportBackgroundLayerName =
+        "ViewportBackground";
+    private const string ViewportBackgroundCameraName =
+        "ViewportBackgroundCamera";
 
     private void Awake()
     {
@@ -55,28 +63,104 @@ public class CameraZoomAndPan : MonoBehaviour
 
     private void CreateBackgroundCamera()
     {
-        SpriteRenderer backgroundRenderer = null;
-        SpriteRenderer[] renderers = FindObjectsByType<SpriteRenderer>(
-            FindObjectsSortMode.None
+        int backgroundLayer = LayerMask.NameToLayer(
+            ViewportBackgroundLayerName
         );
 
-        foreach (SpriteRenderer renderer in renderers)
+        if (backgroundLayer < 0)
         {
-            if (renderer.name == "Background")
-            {
-                backgroundRenderer = renderer;
-                break;
-            }
+            Debug.LogError(
+                $"CameraZoomAndPan: layer '{ViewportBackgroundLayerName}' " +
+                $"is not configured. Scene: '{gameObject.scene.name}', " +
+                $"object: '{name}'. Background camera was not created.",
+                this
+            );
+            return;
         }
+
+        CameraZoomAndPan[] controllers =
+            FindObjectsByType<CameraZoomAndPan>(
+                FindObjectsInactive.Include,
+                FindObjectsSortMode.None
+            );
+        int controllersInScene = 0;
+
+        foreach (CameraZoomAndPan controller in controllers)
+        {
+            if (controller.gameObject.scene == gameObject.scene)
+                controllersInScene++;
+        }
+
+        if (controllersInScene > 1)
+        {
+            Debug.LogWarning(
+                $"CameraZoomAndPan: found {controllersInScene} controllers " +
+                $"in scene '{gameObject.scene.name}'. Only one " +
+                $"'{ViewportBackgroundCameraName}' will be used.",
+                this
+            );
+        }
+
+        SpriteRenderer backgroundRenderer =
+            ResolveViewportBackgroundRenderer();
 
         if (backgroundRenderer == null)
             return;
 
-        int backgroundMask = 1 << BackgroundOnlyLayer;
-        backgroundRenderer.gameObject.layer = BackgroundOnlyLayer;
+        if (backgroundRenderer.gameObject.scene != gameObject.scene)
+        {
+            Debug.LogError(
+                "CameraZoomAndPan: viewportBackgroundRenderer belongs to " +
+                $"scene '{backgroundRenderer.gameObject.scene.name}', not " +
+                $"'{gameObject.scene.name}'. Background camera was not " +
+                "created.",
+                this
+            );
+            return;
+        }
+
+        int backgroundMask = 1 << backgroundLayer;
+        backgroundRenderer.gameObject.layer = backgroundLayer;
+        cam.cullingMask &= ~backgroundMask;
+        cam.clearFlags = CameraClearFlags.Depth;
+
+        Camera[] cameras = FindObjectsByType<Camera>(
+            FindObjectsInactive.Include,
+            FindObjectsSortMode.None
+        );
+        int existingCameraCount = 0;
+
+        foreach (Camera camera in cameras)
+        {
+            if (camera.gameObject.scene == gameObject.scene &&
+                camera.name == ViewportBackgroundCameraName)
+            {
+                existingCameraCount++;
+            }
+        }
+
+        if (existingCameraCount > 0)
+        {
+            if (existingCameraCount > 1)
+            {
+                Debug.LogWarning(
+                    $"CameraZoomAndPan: found {existingCameraCount} " +
+                    $"'{ViewportBackgroundCameraName}' cameras in scene " +
+                    $"'{gameObject.scene.name}'. No additional camera was " +
+                    "created.",
+                    this
+                );
+            }
+
+            return;
+        }
 
         GameObject backgroundCameraObject = new GameObject(
-            "ViewportBackgroundCamera"
+            ViewportBackgroundCameraName
+        );
+        SceneManager.MoveGameObjectToScene(
+            backgroundCameraObject,
+            gameObject.scene
         );
         backgroundCameraObject.transform.SetPositionAndRotation(
             transform.position,
@@ -90,9 +174,50 @@ public class CameraZoomAndPan : MonoBehaviour
         backgroundCamera.rect = new Rect(0f, 0f, 1f, 1f);
         backgroundCamera.clearFlags = CameraClearFlags.SolidColor;
         backgroundCamera.useOcclusionCulling = false;
+    }
 
-        cam.cullingMask &= ~backgroundMask;
-        cam.clearFlags = CameraClearFlags.Depth;
+    private SpriteRenderer ResolveViewportBackgroundRenderer()
+    {
+        if (viewportBackgroundRenderer != null)
+            return viewportBackgroundRenderer;
+
+        Transform levelRoot = FindSceneRoot("LevelRoot");
+
+        if (levelRoot == null)
+        {
+            Debug.LogError(
+                $"CameraZoomAndPan: LevelRoot was not found in scene " +
+                $"'{gameObject.scene.name}'. Assign " +
+                "viewportBackgroundRenderer explicitly.",
+                this
+            );
+            return null;
+        }
+
+        SpriteRenderer[] renderers =
+            levelRoot.GetComponentsInChildren<SpriteRenderer>(true);
+        List<SpriteRenderer> candidates = new List<SpriteRenderer>();
+
+        foreach (SpriteRenderer renderer in renderers)
+        {
+            if (renderer.name == "Background")
+                candidates.Add(renderer);
+        }
+
+        if (candidates.Count != 1)
+        {
+            Debug.LogError(
+                $"CameraZoomAndPan: expected exactly one Background " +
+                $"SpriteRenderer inside LevelRoot in scene " +
+                $"'{gameObject.scene.name}', but found {candidates.Count}. " +
+                "Assign viewportBackgroundRenderer explicitly.",
+                this
+            );
+            return null;
+        }
+
+        viewportBackgroundRenderer = candidates[0];
+        return viewportBackgroundRenderer;
     }
 
     private IEnumerator Start()
@@ -300,7 +425,7 @@ public class CameraZoomAndPan : MonoBehaviour
         if (!TryUpdateCameraViewport())
             return false;
 
-        Transform levelRoot = GameObject.Find("LevelRoot")?.transform;
+        Transform levelRoot = FindSceneRoot("LevelRoot");
         Transform whitePaper =
             levelRoot != null
                 ? levelRoot.Find("Background/WhitePaper")
@@ -348,12 +473,7 @@ public class CameraZoomAndPan : MonoBehaviour
         artworkBounds = measuredArtworkBounds;
         artworkBoundsReady = true;
 
-        float referenceScale = Screen.width / 1080f;
-        float horizontalMargin = 40f * referenceScale;
-        float availableWidth = Mathf.Max(
-            1f,
-            cam.pixelWidth - horizontalMargin * 2f
-        );
+        float availableWidth = Mathf.Max(1f, cam.pixelWidth);
         float availableAspect =
             availableWidth / Mathf.Max(1f, cam.pixelHeight);
 
@@ -384,129 +504,63 @@ public class CameraZoomAndPan : MonoBehaviour
     {
         Canvas.ForceUpdateCanvases();
 
-        GameObject topBar = GameObject.Find("TopBar");
-        GameObject paletteWindow = GameObject.Find("PaletteWindow");
-        RectTransform topBarRect =
-            topBar != null
-                ? topBar.GetComponent<RectTransform>()
-                : null;
-        RectTransform paletteRect =
-            paletteWindow != null
-                ? paletteWindow.GetComponent<RectTransform>()
-                : null;
-
-        if (topBarRect == null || paletteRect == null)
-            return false;
-
-        if (!TryGetVisibleTopBarBottom(
-                topBar,
-                topBarRect,
-                out float topBarBottom) ||
-            !TryGetScreenVerticalEdges(
-                paletteRect,
-                out _,
-                out float paletteTop))
+        if (gameplayViewport == null)
         {
-            return false;
+            ReportViewportReferenceError(
+                "GameplayViewport reference is not assigned"
+            );
+            ApplyFullScreenViewportFallback();
+            return cam.pixelWidth > 0 && cam.pixelHeight > 0;
         }
 
-        float viewportBottom = Mathf.Clamp(
-            paletteTop,
-            0f,
-            Screen.height
-        );
-        float viewportTop = Mathf.Clamp(
-            topBarBottom,
-            0f,
-            Screen.height
-        );
-        float viewportHeight = viewportTop - viewportBottom;
+        if (!TryGetClampedScreenRect(gameplayViewport, out Rect viewportRect))
+        {
+            ReportViewportReferenceError(
+                "GameplayViewport produced an invalid screen Rect"
+            );
+            ApplyFullScreenViewportFallback();
+            return cam.pixelWidth > 0 && cam.pixelHeight > 0;
+        }
 
-        if (viewportHeight <= 1f)
-            return false;
-
-        cam.pixelRect = new Rect(
-            0f,
-            viewportBottom,
-            Screen.width,
-            viewportHeight
-        );
+        cam.pixelRect = viewportRect;
 
         return cam.pixelWidth > 0 && cam.pixelHeight > 0;
     }
 
-    private bool TryGetVisibleTopBarBottom(
-        GameObject topBar,
-        RectTransform fallbackRect,
-        out float bottom
-    )
+    private void ReportViewportReferenceError(string reason)
     {
-        Image topBarImage = null;
-        Image[] images = topBar.GetComponentsInChildren<Image>(true);
+        if (viewportReferenceErrorReported)
+            return;
 
-        foreach (Image image in images)
-        {
-            if (image.name == "TopBarImage" && image.sprite != null)
-            {
-                topBarImage = image;
-                break;
-            }
-        }
-
-        if (topBarImage == null)
-        {
-            return TryGetScreenVerticalEdges(
-                fallbackRect,
-                out bottom,
-                out _
-            );
-        }
-
-        Sprite sprite = topBarImage.sprite;
-        if (sprite.rect.height <= 0f)
-        {
-            return TryGetScreenVerticalEdges(
-                fallbackRect,
-                out bottom,
-                out _
-            );
-        }
-
-        const float transparentBottomPixels = 335f;
-        float normalizedBottom = Mathf.Clamp01(
-            transparentBottomPixels / sprite.rect.height
+        Debug.LogError(
+            $"CameraZoomAndPan: {reason}. Scene: " +
+            $"'{gameObject.scene.name}', object: '{name}'. Falling back " +
+            "to the full screen viewport.",
+            this
         );
-        Rect imageRect = topBarImage.rectTransform.rect;
-        float localBottom = Mathf.Lerp(
-            imageRect.yMin,
-            imageRect.yMax,
-            normalizedBottom
-        );
-        Vector3 worldBottom = topBarImage.rectTransform.TransformPoint(
-            new Vector3(0f, localBottom, 0f)
-        );
-
-        Canvas canvas = topBarImage.canvas;
-        Camera uiCamera =
-            canvas != null && canvas.renderMode != RenderMode.ScreenSpaceOverlay
-                ? canvas.worldCamera
-                : null;
-        bottom = RectTransformUtility.WorldToScreenPoint(
-            uiCamera,
-            worldBottom
-        ).y;
-
-        return !float.IsInfinity(bottom) && !float.IsNaN(bottom);
+        viewportReferenceErrorReported = true;
     }
 
-    private bool TryGetScreenVerticalEdges(
+    private void ApplyFullScreenViewportFallback()
+    {
+        cam.pixelRect = new Rect(
+            0f,
+            0f,
+            Mathf.Max(1f, Screen.width),
+            Mathf.Max(1f, Screen.height)
+        );
+    }
+
+    private bool TryGetClampedScreenRect(
         RectTransform rectTransform,
-        out float bottom,
-        out float top
+        out Rect screenRect
     )
     {
-        bottom = float.PositiveInfinity;
-        top = float.NegativeInfinity;
+        screenRect = Rect.zero;
+        float left = float.PositiveInfinity;
+        float right = float.NegativeInfinity;
+        float bottom = float.PositiveInfinity;
+        float top = float.NegativeInfinity;
 
         Vector3[] corners = new Vector3[4];
         rectTransform.GetWorldCorners(corners);
@@ -523,14 +577,45 @@ public class CameraZoomAndPan : MonoBehaviour
                 uiCamera,
                 corner
             );
+            left = Mathf.Min(left, screenPoint.x);
+            right = Mathf.Max(right, screenPoint.x);
             bottom = Mathf.Min(bottom, screenPoint.y);
             top = Mathf.Max(top, screenPoint.y);
         }
 
-        return !float.IsInfinity(bottom) &&
-            !float.IsInfinity(top) &&
-            !float.IsNaN(bottom) &&
-            !float.IsNaN(top);
+        if (float.IsInfinity(left) ||
+            float.IsInfinity(right) ||
+            float.IsInfinity(bottom) ||
+            float.IsInfinity(top) ||
+            float.IsNaN(left) ||
+            float.IsNaN(right) ||
+            float.IsNaN(bottom) ||
+            float.IsNaN(top))
+        {
+            return false;
+        }
+
+        left = Mathf.Clamp(left, 0f, Screen.width);
+        right = Mathf.Clamp(right, 0f, Screen.width);
+        bottom = Mathf.Clamp(bottom, 0f, Screen.height);
+        top = Mathf.Clamp(top, 0f, Screen.height);
+
+        if (right - left <= 1f || top - bottom <= 1f)
+            return false;
+
+        screenRect = Rect.MinMaxRect(left, bottom, right, top);
+        return true;
+    }
+
+    private Transform FindSceneRoot(string rootName)
+    {
+        foreach (GameObject root in gameObject.scene.GetRootGameObjects())
+        {
+            if (root.name == rootName)
+                return root.transform;
+        }
+
+        return null;
     }
 
     private void PanCamera(Vector2 newPanPosition)

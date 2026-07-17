@@ -22,8 +22,6 @@ public class PaintController : MonoBehaviour
     private Coroutine replayCoroutine;
 
     private string SceneName => SceneManager.GetActiveScene().name;
-    private string PaintedColorKey(int colorId) => SceneName + "_Color_" + colorId + "_Painted";
-    private string LevelCompletedKey => SceneName + "_Completed";
 
     private void Awake()
     {
@@ -64,6 +62,7 @@ public class PaintController : MonoBehaviour
             Debug.LogWarning("⚠️ На сцене не найдены кнопки палитры SelectColor.");
 
         CountZones();
+        SaveSystem.PrepareLevelProgress(SceneName, remainingZones.Keys);
         LoadProgress();
     }
 
@@ -131,7 +130,7 @@ public class PaintController : MonoBehaviour
             if (zone == null)
                 continue;
 
-            if (PlayerPrefs.GetInt(PaintedColorKey(zone.colorId), 0) == 1)
+            if (SaveSystem.IsColorPainted(SceneName, zone.colorId))
             {
                 zone.SetPaintedInstant();
 
@@ -148,7 +147,7 @@ public class PaintController : MonoBehaviour
 
         totalZonesToPaint = Mathf.Max(0, totalZonesToPaint);
 
-        if (PlayerPrefs.GetInt(LevelCompletedKey, 0) == 1)
+        if (SaveSystem.IsLevelCompleted(SceneName))
         {
             levelCompleted = true;
             Debug.Log("✅ Этот уровень уже был пройден ранее.");
@@ -177,8 +176,7 @@ public class PaintController : MonoBehaviour
         totalZonesToPaint = Mathf.Max(0, totalZonesToPaint);
         remainingZones[colorId] = 0;
 
-        PlayerPrefs.SetInt(PaintedColorKey(colorId), 1);
-        PlayerPrefs.Save();
+        SaveSystem.SetColorPainted(SceneName, colorId, true);
 
         Debug.Log($"✅ Цвет {colorId} завершён и сохранён. Осталось всего зон: {totalZonesToPaint}");
 
@@ -214,8 +212,7 @@ public class PaintController : MonoBehaviour
         {
             levelCompleted = true;
 
-            PlayerPrefs.SetInt(LevelCompletedKey, 1);
-            PlayerPrefs.Save();
+            SaveSystem.SetLevelCompleted(SceneName, true);
 
             Debug.Log("🎉 УРОВЕНЬ ПРОЙДЕН И СОХРАНЁН!");
 
@@ -283,19 +280,7 @@ public class PaintController : MonoBehaviour
 
     public void ResetLevelProgress()
     {
-        if (zones != null)
-        {
-            foreach (PaintZone zone in zones)
-            {
-                if (zone == null)
-                    continue;
-
-                PlayerPrefs.DeleteKey(PaintedColorKey(zone.colorId));
-            }
-        }
-
-        PlayerPrefs.DeleteKey(LevelCompletedKey);
-        PlayerPrefs.Save();
+        SaveSystem.ResetLevelProgress(SceneName);
 
         SceneManager.LoadScene(SceneName);
     }
