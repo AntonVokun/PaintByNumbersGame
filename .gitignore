@@ -1,16 +1,17 @@
-# Unity generated folders
-[Ll]ibrary/
-[Tt]emp/
-.utmp/
-[Oo]bj/
-[Bb]uild/
-[Bb]uilds/
-[Ll]ogs/
-[Uu]ser[Ss]ettings/
+# Unity generated folders (project root only; keep same-named asset folders)
+# Reference: https://github.com/github/gitignore/blob/main/Unity.gitignore
+/[Ll]ibrary/
+/[Tt]emp/
+/.utmp/
+/[Oo]bj/
+/[Bb]uild/
+/[Bb]uilds/
+/[Ll]ogs/
+/[Uu]ser[Ss]ettings/
 
 # Memory captures and recordings
-[Mm]emoryCaptures/
-[Rr]ecordings/
+/[Mm]emoryCaptures/
+/[Rr]ecordings/
 
 # Unity crash / diagnostic files
 sysinfo.txt
@@ -53,7 +54,10 @@ mono_crash.*
 *.VC.db
 *.pidb
 *.DotSettings.user
-[Aa]ssets/Plugins/Editor/JetBrains*
+/[Aa]ssets/Plugins/Editor/JetBrains*
+
+# Bundled resolver symbols are source assets supplied with the plugin
+!/Assets/MobileDependencyResolver/**/*.pdb
 
 # OS generated files
 .DS_Store
@@ -62,7 +66,6 @@ desktop.ini
 
 # Logs and temporary files
 *.log
-*.tmp
 *.bak
 *.swp
 *.pid
