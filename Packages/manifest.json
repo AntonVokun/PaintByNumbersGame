@@ -3,7 +3,7 @@
     "com.unity.2d.sprite": "1.0.0",
     "com.unity.2d.tilemap": "1.0.0",
     "com.unity.ads": "4.16.4",
-    "com.unity.ai.assistant": "2.7.0-pre.1",
+    "com.unity.ai.assistant": "2.13.0-pre.2",
     "com.unity.ai.navigation": "2.0.12",
     "com.unity.analytics": "3.8.2",
     "com.unity.collab-proxy": "2.12.4",
@@ -51,6 +51,7 @@
     "com.unity.modules.video": "1.0.0",
     "com.unity.modules.vr": "1.0.0",
     "com.unity.modules.wind": "1.0.0",
-    "com.unity.modules.xr": "1.0.0"
+    "com.unity.modules.xr": "1.0.0",
+    "com.unity.pipeline": "0.6.0-exp.1"
   }
 }
