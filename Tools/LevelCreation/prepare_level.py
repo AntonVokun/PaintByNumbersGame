@@ -6,7 +6,7 @@ import argparse
 import hashlib
 import json
 import io
-from collections import defaultdict
+from collections import defaultdict, deque
 import numpy as np
 from PIL import Image
 
@@ -82,6 +82,30 @@ def runs_and_samples(mask):
             for i in range(len(parent)) if root(i) == i]
 
 
+def interior_uncovered(missing):
+    """Ignore transparent exterior connected to the canvas edge; reject enclosed gaps."""
+    interior = missing.copy()
+    h, w = interior.shape
+    queue = deque()
+    def visit(y, x):
+        if interior[y, x]:
+            interior[y, x] = False
+            queue.append((y, x))
+    for x in range(w):
+        visit(0, x)
+        visit(h - 1, x)
+    for y in range(h):
+        visit(y, 0)
+        visit(y, w - 1)
+    while queue:
+        y, x = queue.popleft()
+        if y > 0: visit(y - 1, x)
+        if y + 1 < h: visit(y + 1, x)
+        if x > 0: visit(y, x - 1)
+        if x + 1 < w: visit(y, x + 1)
+    return interior
+
+
 def simplify_open(points, epsilon):
     if len(points) <= 2:
         return points
@@ -141,7 +165,75 @@ def contours(mask):
     return paths
 
 
-def prepare(source, output, scene_name, display_name, validate_only=False):
+def palette_rgb(value):
+    if not isinstance(value, list) or len(value) != 3 or any(type(v) is not int or not 0 <= v <= 255 for v in value):
+        raise ValueError('Palette RGB must contain three integers in 0..255')
+    return value
+
+
+def representative_color(rgba):
+    """Nearest actual opaque RGB to the per-channel median; deterministic and robust."""
+    pixels = rgba[:, :, :3][rgba[:, :, 3] == 255]
+    if not len(pixels):
+        raise ValueError('No opaque pixels for a representative palette color')
+    colors = np.unique(pixels, axis=0)
+    median = np.median(pixels, axis=0)
+    return colors[((colors - median) ** 2).sum(axis=1).argmin()].tolist()
+
+
+def palette_lab(rgb):
+    """sRGB -> CIELAB, D65 white; used only for palette review, never artwork."""
+    c = np.asarray(rgb, dtype=float) / 255
+    c = np.where(c <= .04045, c / 12.92, ((c + .055) / 1.055) ** 2.4)
+    xyz = np.array([[.4124564,.3575761,.1804375], [.2126729,.7151522,.0721750], [.0193339,.1191920,.9503041]]) @ c
+    xyz /= [.95047, 1, 1.08883]
+    f = np.where(xyz > (6/29)**3, np.cbrt(xyz), xyz / (3*(6/29)**2) + 4/29)
+    return np.array([116*f[1]-16, 500*(f[0]-f[1]), 200*(f[1]-f[2])])
+
+
+def review_palette(groups, config):
+    """Near palette candidates are not duplicates. Only explicit config can merge."""
+    by_source = {g['source']: g for g in groups}
+    approvals = {}
+    approved = config.get('approvedClosePairs', [])
+    if not isinstance(approved, list) or any(not isinstance(item, dict) for item in approved):
+        raise ValueError('approvedClosePairs must be a list of explicit approval objects')
+    for item in approved:
+        names, colors = item.get('sources'), item.get('colors')
+        if not isinstance(names, list) or len(names) != 2 or any(not isinstance(n,str) for n in names) or len(set(names)) != 2 or any(n not in by_source for n in names):
+            raise ValueError('Close-pair approval must name two current source layers')
+        if not isinstance(colors, list) or len(colors) != 2:
+            raise ValueError('Close-pair approval must bind both exact palette RGB values')
+        colors = [palette_rgb(c) for c in colors]
+        if any(by_source[n]['color'] != c for n, c in zip(names, colors)):
+            raise ValueError('Stale close-pair approval: palette RGB changed')
+        key = tuple(sorted(names))
+        if key in approvals:
+            raise ValueError('Duplicate close-pair approval')
+        approvals[key] = item
+    close = []
+    for index, a in enumerate(groups):
+        for b in groups[index + 1:]:
+            distance = float(np.linalg.norm(palette_lab(a['color']) - palette_lab(b['color'])))
+            if distance < 6:
+                close.append(dict(sources=[a['source'], b['source']], colors=[a['color'], b['color']],
+                                  distance=round(distance, 6), approved=tuple(sorted([a['source'], b['source']])) in approvals))
+    if any(not pair['approved'] for pair in close):
+        raise ValueError('Palette review required; approve exact pairs or explicitly set palette RGB: ' + json.dumps(close))
+    return dict(metric='CIE76 sRGB D65 (review candidates, not duplicates)', minDistance=6, closePairs=close, status='PASS')
+
+
+def prepare(source, output, scene_name, display_name, validate_only=False, grouping_mode=None, group_config=None):
+    config = {} if group_config is None else group_config
+    if not isinstance(config, dict) or set(config) - {'groupingMode', 'colors', 'approvedClosePairs', 'sourceSha256', 'mergeGroups'}:
+        raise ValueError('Invalid group configuration')
+    grouping_mode = grouping_mode or config.get('groupingMode', 'rgb')
+    if grouping_mode not in ('rgb', 'layer'):
+        raise ValueError('Grouping mode must be rgb or layer')
+    if config.get('groupingMode', grouping_mode) != grouping_mode:
+        raise ValueError('Conflicting grouping modes')
+    if grouping_mode == 'rgb' and config:
+        raise ValueError('Palette/layer configuration requires explicit layer mode')
     source, output = Path(source).resolve(), Path(output).resolve()
     outlines = list(source.rglob('outlines.png'))
     if len(outlines) != 1:
@@ -150,10 +242,43 @@ def prepare(source, output, scene_name, display_name, validate_only=False):
     zone_files = sorted(outline_path.parent.glob('Zone_*.png'))
     if not zone_files:
         raise ValueError('Expected outlines.png and Zone_*.png; single-image segmentation needs reviewed masks first.')
+    names = {f.relative_to(source).as_posix() for f in zone_files}
+    overrides = config.get('colors', {})
+    if not isinstance(overrides, dict) or set(overrides) - names:
+        raise ValueError('Palette overrides must name existing source layers')
+    for color in overrides.values():
+        palette_rgb(color)
+    pinned = config.get('sourceSha256')
+    if pinned is not None and (not isinstance(pinned, dict) or set(pinned) != names or any(pinned[f.relative_to(source).as_posix()] != sha(f) for f in zone_files)):
+        raise ValueError('Reviewed source hashes changed or layer set differs')
+    merge_groups = config.get('mergeGroups', [])
+    if not isinstance(merge_groups, list):
+        raise ValueError('mergeGroups must be a list of explicit source-layer lists')
+    merged_names = set()
+    order = {f.relative_to(source).as_posix(): i for i, f in enumerate(zone_files)}
+    for members in merge_groups:
+        if not isinstance(members, list) or len(members) < 2 or any(not isinstance(n, str) or n not in names for n in members) or len(set(members)) != len(members):
+            raise ValueError('Merge must name at least two different existing source layers')
+        if merged_names.intersection(members):
+            raise ValueError('A source layer cannot belong to multiple merged groups')
+        positions = [order[n] for n in members]
+        if positions != list(range(min(positions), max(positions)+1)):
+            raise ValueError('Merge sources must be consecutive in original layer order')
+        merged_names.update(members)
+    if set(overrides).intersection(merged_names - {v[0] for v in merge_groups}):
+        raise ValueError('A merged palette override must use its first source layer')
     outline = np.array(Image.open(outline_path).convert('RGBA'))
     h, w = outline.shape[:2]
     groups, sources = [], []
+    pending_merge = {members[0]: members for members in merge_groups}
+    skipped_merge_members = merged_names - set(pending_merge)
     for file in zone_files:
+        if file.relative_to(source).as_posix() in skipped_merge_members:
+            continue
+        if grouping_mode == 'layer':
+            with Image.open(file) as image:
+                if image.mode != 'RGBA':
+                    raise ValueError(f'{file.name}: layer mode requires RGBA PNG for exact byte preservation')
         rgba = np.array(Image.open(file).convert('RGBA'))
         if rgba.shape != outline.shape:
             raise ValueError(f'Canvas mismatch: {file.name}: {rgba.shape}, expected {outline.shape}')
@@ -161,6 +286,31 @@ def prepare(source, output, scene_name, display_name, validate_only=False):
         if alpha.min() != 0 or alpha.max() != 255:
             raise ValueError(f'Missing transparent exterior or opaque interior: {file.name}')
         colors, counts = np.unique(rgba[:, :, :3][alpha == 255], axis=0, return_counts=True)
+        sources.append(dict(file=file.name, sha256=sha(file), opaqueColors=len(colors)))
+        if grouping_mode == 'layer':
+            name = file.relative_to(source).as_posix()
+            members = pending_merge.get(name, [name])
+            source_records = [dict(source=name, sha256=sha(file), rgbaSha256=hashlib.sha256(rgba.tobytes()).hexdigest())]
+            for member in members[1:]:
+                member_file = source/member
+                with Image.open(member_file) as im:
+                    if im.mode != 'RGBA':
+                        raise ValueError(f'{member}: merged layer requires RGBA')
+                    extra = np.array(im)
+                if extra.shape != rgba.shape or extra[:,:,3].min() != 0 or extra[:,:,3].max() != 255:
+                    raise ValueError(f'{member}: incompatible merged canvas/alpha')
+                if ((rgba[:,:,3] > 0) & (extra[:,:,3] > 0)).any():
+                    raise ValueError('Merge has overlapping nonzero alpha; exact per-source RGBA cannot be preserved')
+                source_records.append(dict(source=member, sha256=sha(member_file), rgbaSha256=hashlib.sha256(extra.tobytes()).hexdigest()))
+                rgba[extra[:,:,3] > 0] = extra[extra[:,:,3] > 0]
+                sources.append(dict(file=member_file.name, sha256=sha(member_file), opaqueColors=len(np.unique(extra[:,:,:3][extra[:,:,3]==255],axis=0))))
+            color = overrides.get(name, representative_color(rgba))
+            groups.append((rgba, dict(id=len(groups)+1, source=name, color=color,
+                type='gradient', paletteMethod='explicit' if name in overrides else 'opaque_median_nearest',
+                sourceSha256=sha(file), rgbaSha256=hashlib.sha256(rgba.tobytes()).hexdigest(),
+                sources=source_records, mergeMethod='disjoint_rgba_union' if len(members)>1 else 'source_bytes',
+                regions=0, samples=[], paths=[])))
+            continue
         # Ready flat artwork: refuse ambiguous gradients instead of silently quantizing.
         if len(colors) > 64:
             raise ValueError(f'{file.name}: {len(colors)} opaque colors; explicit grouping/gradient configuration required.')
@@ -173,11 +323,11 @@ def prepare(source, output, scene_name, display_name, validate_only=False):
             # Color bleed under fully transparent pixels; no matte-white fringes.
             image[:, :, :3] = rgb
             groups.append((image, dict(id=len(groups)+1, source=file.relative_to(source).as_posix(), color=rgb.tolist(),
-                regions=0, samples=[], paths=[])))
-        sources.append(dict(file=file.name, sha256=sha(file), opaqueColors=len(colors)))
+                type='flat', regions=0, samples=[], paths=[])))
+    palette_review = review_palette([g for _, g in groups], config) if grouping_mode == 'layer' else None
     alpha = np.stack([a[:, :, 3] for a, _ in groups])
     overlap = int(((alpha >= 200).sum(axis=0) > 1).sum())
-    uncovered = int(((alpha.max(axis=0) == 0) & (outline[:, :, 3] == 0)).sum())
+    uncovered = int(interior_uncovered((alpha.max(axis=0) == 0) & (outline[:, :, 3] == 0)).sum())
     if overlap or uncovered:
         raise ValueError(f'Invalid layer coverage: {overlap} overlapping solid pixels, {uncovered} uncovered pixels')
     # Antialiased shared borders under the opaque outline belong to one collider only.
@@ -210,7 +360,7 @@ def prepare(source, output, scene_name, display_name, validate_only=False):
         for f in sorted(source.rglob('*')) if f.is_file() and f.suffix.lower() in ('.ai','.png','.jpg','.jpeg','.svg','.psd','.pdf','.tif','.tiff')]
     data = dict(schema=1, sceneName=scene_name, displayName=display_name, width=w, height=h,
         pixelsPerUnit=100, pivot=dict(x=0.5, y=0.5), sourceFolder=str(source),
-        levelNumber=int(''.join(c for c in scene_name if c.isdigit())), artFolder=output.relative_to(Path.cwd()).as_posix(),
+        levelNumber=int(''.join(c for c in scene_name if c.isdigit())), artFolder=output.relative_to(Path.cwd().resolve()).as_posix(),
         originalImage=(archive/'Original'/candidates[0][1]).as_posix(),
         outlineFile='Outline/outlines.png', colorPreviewFile='Previews/Preview_Color.png',
         bwPreviewFile='Previews/Preview_BW.png', hitmaskFile=hitmask_file,
@@ -221,13 +371,26 @@ def prepare(source, output, scene_name, display_name, validate_only=False):
         solidOverlapPixels=overlap, uncoveredPixels=uncovered,
         validation=dict(preparedFiles='PASS',canvas='PASS',alpha='PASS',overlap='PASS',coverage='PASS',
                         unityStatic='run separately',playMode='run separately',androidBuild='run separately'), groups=[])
+    data['groupingMode'] = grouping_mode
+    if grouping_mode == 'layer':
+        data['groupConfig'] = config
+        data['paletteReview'] = palette_review
+    manifest=archive/'level_manifest.json'
+    old=json.loads(manifest.read_text(encoding='utf-8')) if manifest.exists() else None
+    if old is not None:
+        for field in ('sceneName','width','height','pixelsPerUnit','colors','regions'):
+            if old.get(field) != data[field]:
+                raise ValueError(f'Manifest identity changed: {field}; review before updating')
+        if old.get('groupingMode','rgb') != grouping_mode or [(g.get('type','flat'),g['color']) for g in old['groups']] != [(g['type'],g['color']) for _,g in groups]:
+            raise ValueError('Existing grouping mode or palette changed; review migration before updating')
     if not validate_only:
         for original in source.rglob('*'):
             if original.is_file() and original.suffix.lower() in ('.ai','.png','.jpg','.jpeg','.svg','.psd','.pdf','.tif','.tiff'):
                 checked_write(archive/'Original'/original.relative_to(source),original.read_bytes())
         for image, group in groups:
             group['file'] = f"Zones/Zone_{group['id']:03d}.png"
-            checked_write(output/group['file'],png_bytes(Image.fromarray(image)))
+            exact_source = group['type'] == 'gradient' and len(group['sources']) == 1
+            checked_write(output/group['file'],(source/group['source']).read_bytes() if exact_source else png_bytes(Image.fromarray(image)))
             group['sha256'] = sha(output / group['file'])
             data['groups'].append({k:v for k,v in group.items() if k not in ('paths','samples')})
         checked_write(output/data['outlineFile'],png_bytes(Image.fromarray(outline)))
@@ -235,13 +398,8 @@ def prepare(source, output, scene_name, display_name, validate_only=False):
         checked_write(output/data['bwPreviewFile'],png_bytes(bw))
         checked_write(hitmask_file,np.where(alpha.max(axis=0) >= 200, owner + 1, 0).astype('<u2').tobytes())
         checked_write(data['geometryFile'],json.dumps(dict(groups=[dict(id=g['id'],paths=g['paths'],samples=g['samples']) for _,g in groups]),separators=(',', ':')).encode('utf-8'))
-        manifest=archive/'level_manifest.json'
         # Keep recorded Unity/Play/build outcomes on a byte-identical preparation rerun.
-        if manifest.exists():
-            old=json.loads(manifest.read_text(encoding='utf-8'))
-            for field in ('sceneName','width','height','pixelsPerUnit','colors','regions'):
-                if old.get(field) != data[field]:
-                    raise ValueError(f'Manifest identity changed: {field}; review before updating')
+        if old is not None:
             if [(g['id'],g['file'],g['sha256']) for g in old['groups']] != [(g['id'],g['file'],g['sha256']) for g in data['groups']]:
                 raise ValueError('Existing manifest describes different sprite contents; review before updating')
             data['validation']=old.get('validation',data['validation'])
@@ -260,5 +418,8 @@ if __name__ == '__main__':
     parser.add_argument('--scene', required=True)
     parser.add_argument('--title', required=True)
     parser.add_argument('--validate-only', action='store_true')
+    parser.add_argument('--grouping-mode', choices=('rgb','layer'), help='Explicit layer mode preserves each source PNG as one group; default rgb splits flat colors.')
+    parser.add_argument('--group-config', help='JSON palette overrides, reviewed source hashes and exact close-pair approvals.')
     args = parser.parse_args()
-    prepare(discover(args.source,args.exchange_root), args.output, args.scene, args.title, args.validate_only)
+    config = json.loads(Path(args.group_config).read_text(encoding='utf-8-sig')) if args.group_config else None
+    prepare(discover(args.source,args.exchange_root), args.output, args.scene, args.title, args.validate_only, args.grouping_mode, config)

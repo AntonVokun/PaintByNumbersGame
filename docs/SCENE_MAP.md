@@ -4,10 +4,11 @@
 
 | Сцена | В сборке | Зоны / палитра | Следующая |
 |---|---|---|---|
-| [MainMenu](../Assets/_Project/Scenes/MainMenu.unity) | Да | 3 карточки LevelCardUI | Выбранная сцена |
+| [MainMenu](../Assets/_Project/Scenes/MainMenu.unity) | Да | 4 разные карточки LevelCardUI, сетка 2×2 | Выбранная сцена |
 | [Level_001_New](../Assets/_Project/Scenes/Level_001_New.unity) | Да | 16 / 16 | Level_002_New |
 | [Level_002_New](../Assets/_Project/Scenes/Level_002_New.unity) | Да | 17 / 17 | Level_003_New |
-| [Level_003_New](../Assets/_Project/Scenes/Level_003_New.unity) | Да | 15 / 15 | MainMenu |
+| [Level_003_New](../Assets/_Project/Scenes/Level_003_New.unity) | Да | 15 / 15 | Level_004_New |
+| [Level_004_New](../Assets/_Project/Scenes/Level_004_New.unity) | Да | 17 / 17, «7. кот» | MainMenu |
 | [Level_001](../Assets/_Project/Scenes/Level_001.unity) | Нет | 16 групп; legacy-иерархия | Не использовать вместо New |
 | [Level_002](../Assets/_Project/Scenes/Level_002.unity) | Нет | 17 групп; legacy-иерархия | Не использовать вместо New |
 
@@ -27,12 +28,15 @@ CameraZoomAndPan получает явные ссылки на GameplayViewport 
 ## Главное меню
 
 Корни: Main Camera, EventSystem, Canvas, Managers, Background.
-Карточки LevelCard_001/002/003 находятся в
+Карточки LevelCard_001/002/003/004 находятся в
 `Canvas/LevelsScrollView/Viewport/Content`; GridLayoutGroup + ContentSizeFitter.
 Каждая карточка связывает LevelCardUI с Button, Preview, двумя Sprite и именем New-сцены.
 MainMenuController содержит список levelSceneNames для сброса и levelCards для Refresh.
 Старые поля level001Preview/level002Preview сохранены, но основная система — массив карточек.
 ResetProgressButton вызывает сброс зарегистрированных сцен. Дизайн меню не перестраивать при добавлении карточки.
+Имена карточек последовательно «Уровень 1»–«Уровень 4»; первые три превью сохранены.
+Четвёртая карточка показывает новый контур «7. кот», прежний повтор рисунка второго уровня заменён.
+Отдельной системы блокировки уровней нет: карточки открывают любую зарегистрированную сцену.
 
 ## WinPanel
 
@@ -50,3 +54,11 @@ MenuButton → WinPanelUI.GoToMenu → BackToMenu.GoToMenu.
 Сцена и подключения существуют; Play Mode ранее проверен в этой сессии.
 Это не завершённая Android-валидация: последняя сборка Failed на Gradle loopback, дальнейшая APK-сборка остановлена пользователем.
 Датированные результаты, текущие Console и HEAD всегда читать из AgentSync, не принимать эту карту за новый игровой тест.
+
+## Четвёртый уровень
+
+«7. кот»: 1254×1254, 18 исходных RGBA-масок, 17 PaintZone/кнопок, 73 участка, 81 контур.
+Один PaintZone содержит все участки группы; Zone_017/018 объединены в группу 17 с шестью участками.
+Zone_013/016 раздельны. RGB, alpha, градиенты и детали исходников сохранены.
+Старые ресурсы и прогресс Level_004 сохранены вне Assets; несовместимый прогресс только этого уровня сброшен.
+Последний Play Mode и ограничения смотреть в AgentSync; Android APK в этой задаче запрещён пользователем.

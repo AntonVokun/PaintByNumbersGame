@@ -3,6 +3,9 @@ param(
     [Parameter(Mandatory)][ValidateRange(3,999)][int]$Number,
     [Parameter(Mandatory)][string]$Title,
     [string]$PreviousScene,
+    [ValidateSet('rgb','layer')][string]$GroupingMode = 'rgb',
+    [string]$GroupConfig,
+    [switch]$ReplaceExisting,
     [string]$Python = (Join-Path $env:USERPROFILE '.cache\codex-runtimes\codex-primary-runtime\dependencies\python\python.exe')
 )
 $ErrorActionPreference = 'Stop'
@@ -30,11 +33,45 @@ try {
     }
     $null = Invoke-UnityJson @('status','--until-ready','--project-path',$projectRoot,'--format','json')
     $prepareArguments = @("$PSScriptRoot/prepare_level.py",'--source',$Source,'--output',$artFolder,'--scene',$sceneName,'--title',$Title)
-    & $Python @prepareArguments --validate-only
-    if ($LASTEXITCODE -ne 0) { throw 'Source preflight failed; no Unity scene was changed.' }
-
+    $prepareArguments += @('--grouping-mode',$GroupingMode)
+    if ($GroupConfig) { $prepareArguments += @('--group-config',(Resolve-Path -LiteralPath $GroupConfig).Path) }
     $backupRoot = "Logs/LevelCreation/$levelName-$(Get-Date -Format 'yyyyMMddTHHmmss')/backup"
-    foreach ($file in @('Assets/_Project/Scenes/MainMenu.unity',"Assets/_Project/Scenes/$PreviousScene.unity",'ProjectSettings/EditorBuildSettings.asset')) {
+    if ($ReplaceExisting) {
+        if (!(Test-Path -LiteralPath $manifest) -or !(Test-Path -LiteralPath "Assets/_Project/Scenes/$sceneName.unity")) {
+            throw 'ReplaceExisting requires a backed-up existing manifest and scene.'
+        }
+        $guard='if(UnityEditor.EditorApplication.isPlaying||UnityEditor.EditorApplication.isCompiling||Enumerable.Range(0,UnityEngine.SceneManagement.SceneManager.sceneCount).Any(i=>UnityEngine.SceneManagement.SceneManager.GetSceneAt(i).isDirty))throw new System.InvalidOperationException("Finish Play/compilation and save user scenes before replacement");return true;'
+        $null=Invoke-UnityJson @('command','eval','--project-path',$projectRoot,'--caller','plugin','--skill','unity-cli','--format','json','--','--code',$guard)
+        $stageRoot=Join-Path $projectRoot ((Split-Path $backupRoot -Parent)+'/staging')
+        New-Item -ItemType Directory -Path $stageRoot -Force | Out-Null
+        Push-Location -LiteralPath $stageRoot
+        try {
+            & $Python @prepareArguments --validate-only
+            if ($LASTEXITCODE -ne 0) { throw 'Replacement preflight failed; active resources unchanged.' }
+            & $Python @prepareArguments
+            if ($LASTEXITCODE -ne 0) { throw 'Replacement staging failed; active resources unchanged.' }
+            & $Python "$PSScriptRoot/check_level.py" $manifest
+            if ($LASTEXITCODE -ne 0) { throw 'Replacement staging verification failed.' }
+        }
+        finally { Pop-Location }
+        $stageArt=Join-Path $stageRoot $artFolder
+        $activeArt=Join-Path $projectRoot $artFolder
+        $activeFiles=@(Get-ChildItem -LiteralPath $activeArt -Recurse -File -Filter '*.png' | ForEach-Object {$_.FullName.Substring($activeArt.Length+1)} | Sort-Object)
+        $stagedFiles=@(Get-ChildItem -LiteralPath $stageArt -Recurse -File -Filter '*.png' | ForEach-Object {$_.FullName.Substring($stageArt.Length+1)} | Sort-Object)
+        if (Compare-Object $activeFiles $stagedFiles) { throw 'Replacement requires matching PNG paths; no asset deletion or meta migration is automatic.' }
+        foreach ($directory in @($artFolder,"ArtSources/$levelName")) {
+            $target=Join-Path $backupRoot $directory
+            New-Item -ItemType Directory -Path (Split-Path $target) -Force | Out-Null
+            Copy-Item -LiteralPath $directory -Destination $target -Recurse
+        }
+    }
+    else {
+        & $Python @prepareArguments --validate-only
+        if ($LASTEXITCODE -ne 0) { throw 'Source preflight failed; no Unity scene was changed.' }
+    }
+    $sceneBackupFiles = @('Assets/_Project/Scenes/MainMenu.unity',"Assets/_Project/Scenes/$PreviousScene.unity",'ProjectSettings/EditorBuildSettings.asset')
+    if ($ReplaceExisting) { $sceneBackupFiles += "Assets/_Project/Scenes/$sceneName.unity" }
+    foreach ($file in $sceneBackupFiles) {
         foreach ($item in @($file,"$file.meta")) {
             if (Test-Path -LiteralPath $item) {
                 $target = Join-Path $backupRoot $item
@@ -43,14 +80,28 @@ try {
             }
         }
     }
-    & $Python @prepareArguments
-    if ($LASTEXITCODE -ne 0) { throw 'Image preparation failed; conflicting files were retained.' }
+    if ($ReplaceExisting) {
+        $activeArchive=[IO.Path]::GetFullPath((Join-Path $projectRoot "ArtSources/$levelName"))
+        $archiveBackup=[IO.Path]::GetFullPath((Join-Path $projectRoot "$backupRoot/replaced-archive"))
+        # Native PowerShell move; validate both absolute targets remain within their named roots.
+        if (!$activeArchive.StartsWith((Join-Path $projectRoot 'ArtSources')+[IO.Path]::DirectorySeparatorChar,[StringComparison]::OrdinalIgnoreCase) -or
+            !$archiveBackup.StartsWith((Join-Path $projectRoot 'Logs')+[IO.Path]::DirectorySeparatorChar,[StringComparison]::OrdinalIgnoreCase)) { throw 'Unsafe archive target.' }
+        Move-Item -LiteralPath $activeArchive -Destination $archiveBackup
+        Copy-Item -LiteralPath (Join-Path $stageRoot "ArtSources/$levelName") -Destination $activeArchive -Recurse
+        foreach ($relative in $stagedFiles) {
+            Copy-Item -LiteralPath (Join-Path $stageArt $relative) -Destination (Join-Path $activeArt $relative) -Force
+        }
+    }
+    else {
+        & $Python @prepareArguments
+        if ($LASTEXITCODE -ne 0) { throw 'Image preparation failed; conflicting files were retained.' }
+    }
     & $Python "$PSScriptRoot/check_level.py" $manifest
     if ($LASTEXITCODE -ne 0) { throw 'Prepared-file checks failed.' }
     foreach ($code in @(
         "return LevelCreationTools.Import(`"$artFolder`");",
-        "return LevelCreationTools.Create(`"$artFolder`",`"$PreviousScene`");",
-        "return LevelCreationTools.ValidatePixels(`"$artFolder`",4);"
+        "return LevelCreationTools.Create(`"$artFolder`",`"$PreviousScene`",$($ReplaceExisting.ToString().ToLowerInvariant()));",
+        "UnityEditor.SceneManagement.EditorSceneManager.OpenScene(`"Assets/_Project/Scenes/$sceneName.unity`"); return LevelCreationTools.ValidatePixels(`"$artFolder`",4);"
     )) {
         $data = Invoke-UnityJson @('command','eval','--project-path',$projectRoot,'--caller','plugin','--skill','unity-cli','--format','json','--timeout','120','--','--code',$code,'--timeout','60000')
         if ($data.result.success -ne $true) { throw ($data.result | ConvertTo-Json -Compress -Depth 8) }

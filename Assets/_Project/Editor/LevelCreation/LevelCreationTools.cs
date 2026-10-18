@@ -112,7 +112,7 @@ public static class LevelCreationTools
     }
 
     // Caller must have made a backup and inspected Git, Console and unsaved scenes.
-    public static string Create(string folder, string previousSceneName)
+    public static string Create(string folder, string previousSceneName, bool replaceExisting = false)
     {
         if (EditorApplication.isPlaying || EditorApplication.isCompiling)
             throw new InvalidOperationException("Stop Play Mode and finish compilation first");
@@ -120,12 +120,13 @@ public static class LevelCreationTools
             if (SceneManager.GetSceneAt(i).isDirty) throw new InvalidOperationException("Unsaved scene; refusing to replace it");
         var m = Read(folder);
         string target = "Assets/_Project/Scenes/" + m.sceneName + ".unity";
-        if (File.Exists(target))
+        if (File.Exists(target) && !replaceExisting)
         {
             EditorSceneManager.OpenScene(target, OpenSceneMode.Single);
             return "Existing scene retained; " + Validate(folder) + "; " + ValidateIntegration(folder, previousSceneName);
         }
-        if (!AssetDatabase.CopyAsset(Template, target)) throw new InvalidOperationException("Template copy failed");
+        if (replaceExisting && !File.Exists(target)) throw new InvalidOperationException("Replacement requires an existing scene and external backup");
+        if (!File.Exists(target) && !AssetDatabase.CopyAsset(Template, target)) throw new InvalidOperationException("Template copy failed");
         var scene = EditorSceneManager.OpenScene(target, OpenSceneMode.Single);
         var levelRoot = Root(scene, "LevelRoot");
         var art = levelRoot.Find("Art");
@@ -189,14 +190,20 @@ public static class LevelCreationTools
         string levelValidation = Validate(folder);
 
         var previous = EditorSceneManager.OpenScene("Assets/_Project/Scenes/" + previousSceneName + ".unity", OpenSceneMode.Single);
-        Find<PaintController>(previous).nextLevelSceneName = m.sceneName;
-        EditorSceneManager.MarkSceneDirty(previous);
-        EditorSceneManager.SaveScene(previous);
+        var previousController = Find<PaintController>(previous);
+        if (previousController.nextLevelSceneName != m.sceneName)
+        {
+            previousController.nextLevelSceneName = m.sceneName;
+            EditorSceneManager.MarkSceneDirty(previous);
+            EditorSceneManager.SaveScene(previous);
+        }
 
         var menu = EditorSceneManager.OpenScene(Menu, OpenSceneMode.Single);
         var cards = menu.GetRootGameObjects().SelectMany(r => r.GetComponentsInChildren<LevelCardUI>(true)).ToList();
+        var matches = cards.Where(c => new SerializedObject(c).FindProperty("levelSceneName").stringValue == m.sceneName).ToArray();
+        if (matches.Length > 1) throw new InvalidOperationException("Duplicate menu cards; review before replacing");
         var last = cards.OrderBy(c => c.name).Last();
-        var card = UnityEngine.Object.Instantiate(last, last.transform.parent);
+        var card = matches.Length == 1 ? matches[0] : UnityEngine.Object.Instantiate(last, last.transform.parent);
         card.name = "LevelCard_" + m.sceneName.Replace("Level_", "").Replace("_New", "");
         card.transform.SetAsLastSibling();
         var so = new SerializedObject(card);
@@ -210,7 +217,21 @@ public static class LevelCreationTools
         var names = menuController.FindProperty("levelSceneNames");
         var existingNames = Enumerable.Range(0, names.arraySize).Select(i => names.GetArrayElementAtIndex(i).stringValue).ToList();
         if (!existingNames.Contains(m.sceneName)) { names.arraySize++; names.GetArrayElementAtIndex(names.arraySize-1).stringValue = m.sceneName; }
-        cards.Add(card);
+        if (!cards.Contains(card)) cards.Add(card);
+        if (replaceExisting)
+        {
+            foreach (var item in cards)
+            {
+                var fields = new SerializedObject(item);
+                var match = System.Text.RegularExpressions.Regex.Match(fields.FindProperty("levelSceneName").stringValue, @"^Level_(\d+)_New$");
+                if (!match.Success) throw new InvalidOperationException("Unexpected menu scene name");
+                string title = "Уровень " + int.Parse(match.Groups[1].Value);
+                fields.FindProperty("levelDisplayName").stringValue = title;
+                var label = fields.FindProperty("levelNameText").objectReferenceValue as TMPro.TMP_Text;
+                fields.ApplyModifiedPropertiesWithoutUndo();
+                if (label != null) label.text = title;
+            }
+        }
         var assigned = menuController.FindProperty("levelCards");
         assigned.arraySize = cards.Count;
         for (int i = 0; i < cards.Count; i++) assigned.GetArrayElementAtIndex(i).objectReferenceValue = cards[i];
@@ -220,9 +241,10 @@ public static class LevelCreationTools
         var buildScenes = EditorBuildSettings.scenes.ToList();
         if (!buildScenes.Any(s => s.path == target))
             buildScenes.Insert(buildScenes.FindLastIndex(s => s.enabled)+1, new EditorBuildSettingsScene(target, true));
-        EditorBuildSettings.scenes = buildScenes.ToArray();
-        AssetDatabase.SaveAssets();
-        return $"{levelValidation}; added menu card, reset registration, {previousSceneName} -> {m.sceneName} -> MainMenu, enabled build scene";
+        if (!EditorBuildSettings.scenes.Select(s => s.path + ":" + s.enabled).SequenceEqual(buildScenes.Select(s => s.path + ":" + s.enabled)))
+            EditorBuildSettings.scenes = buildScenes.ToArray();
+        if (!replaceExisting) AssetDatabase.SaveAssets();
+        return $"{levelValidation}; menu card updated without duplication, reset registration, {previousSceneName} -> {m.sceneName} -> MainMenu, enabled build scene";
     }
 
     public static string Validate(string folder)

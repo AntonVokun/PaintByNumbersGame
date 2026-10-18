@@ -1,0 +1,669 @@
+{
+  "schema": 1,
+  "sceneName": "Level_004_New",
+  "displayName": "Кот 7",
+  "width": 1254,
+  "height": 1254,
+  "pixelsPerUnit": 100,
+  "pivot": {
+    "x": 0.5,
+    "y": 0.5
+  },
+  "sourceFolder": "C:\\Users\\Public\\Documents\\PaintByNumbers Exchange\\уровни\\7. кот",
+  "levelNumber": 4,
+  "artFolder": "Assets/_Project/Art/Levels/Level_004",
+  "originalImage": "ArtSources/Level_004/Original/кот-2.png",
+  "outlineFile": "Outline/outlines.png",
+  "colorPreviewFile": "Previews/Preview_Color.png",
+  "bwPreviewFile": "Previews/Preview_BW.png",
+  "hitmaskFile": "ArtSources/Level_004/Working/hitmask.bytes",
+  "geometryFile": "ArtSources/Level_004/Working/geometry.json",
+  "hitmaskBytesPerPixel": 2,
+  "originalFiles": [
+    {
+      "file": "ArtSources/Level_004/Original/outlines.png",
+      "sha256": "47fb10569da02624a3f0614fd65d3193f6f5117b40e1268f52497955026dc87d"
+    },
+    {
+      "file": "ArtSources/Level_004/Original/Zone_001.png",
+      "sha256": "9b8abc0368fda5018db8eab19051f1c06c1e372ee6bee25c07895e7774161210"
+    },
+    {
+      "file": "ArtSources/Level_004/Original/Zone_002.png",
+      "sha256": "ccdcfa05630a2c4bfe7bc7822ef835185db33cca1868d977b19311c3916cfe8f"
+    },
+    {
+      "file": "ArtSources/Level_004/Original/Zone_003.png",
+      "sha256": "5bfa0da255060a0e0811869e7cbc8807ded12b22e8c1f234fcd3dbd92f04046e"
+    },
+    {
+      "file": "ArtSources/Level_004/Original/Zone_004.png",
+      "sha256": "1a378ed25966038e6e54957ea0fdb43302a4d4b836e11360a214b4b35b61edef"
+    },
+    {
+      "file": "ArtSources/Level_004/Original/Zone_005.png",
+      "sha256": "dca02b5fd3228dd0913838278459a90e8ddb5d05c08023afef3ca1c3beefcfa5"
+    },
+    {
+      "file": "ArtSources/Level_004/Original/Zone_006.png",
+      "sha256": "c64560c9f2d8d26ce541aba6f1575b30a01104aa9bd6b1a4f2bb4c64ed8b8934"
+    },
+    {
+      "file": "ArtSources/Level_004/Original/Zone_007.png",
+      "sha256": "c12a51cf521ec7ba22f49683ef59feb5274beb11afbfeafaec400f84e4e57469"
+    },
+    {
+      "file": "ArtSources/Level_004/Original/Zone_008.png",
+      "sha256": "b3c91e351648cdd1e2d506cc84bf245ffdaf95b602eb013d9edd099a7ec181e9"
+    },
+    {
+      "file": "ArtSources/Level_004/Original/Zone_009.png",
+      "sha256": "35291166f3a971e94fc58eafa7dc286474029dd460bcb5cefa5da378720906c8"
+    },
+    {
+      "file": "ArtSources/Level_004/Original/Zone_010.png",
+      "sha256": "4b6f8c4083d8ec7f110b70fc6c05db2f098cce7978e74a705bb131a23ed589be"
+    },
+    {
+      "file": "ArtSources/Level_004/Original/Zone_011.png",
+      "sha256": "36f33b08fa4b74185581c6f81f26c872f269386400e02ac0282bb35df6df0d16"
+    },
+    {
+      "file": "ArtSources/Level_004/Original/Zone_012.png",
+      "sha256": "7b36a30247ae6c26fbbbf45a170a1e528927038a26a90ca32e8ed4459787a1dd"
+    },
+    {
+      "file": "ArtSources/Level_004/Original/Zone_013.png",
+      "sha256": "be170be82fe079cc84d5c8d89e90f26b69eb88ea19c384f3e2e75e9cbd0c9ed5"
+    },
+    {
+      "file": "ArtSources/Level_004/Original/Zone_014.png",
+      "sha256": "97353db5b1298231aa0d92123b68954011b22955eb1e5d936790a1f18d33987a"
+    },
+    {
+      "file": "ArtSources/Level_004/Original/Zone_015.png",
+      "sha256": "f2d162338d56b0a39b0a295dcc71e9549f1f82bd07bca15dff2bb6832a366c79"
+    },
+    {
+      "file": "ArtSources/Level_004/Original/Zone_016.png",
+      "sha256": "4fd0006054ddb120c0f0738062d34a1cde12d2579e38647d07891f7648e1c7b7"
+    },
+    {
+      "file": "ArtSources/Level_004/Original/Zone_017.png",
+      "sha256": "fb41028a5ee90e09365b3ac3d93a9f06a0e90301322efdb65571a551f2ddb853"
+    },
+    {
+      "file": "ArtSources/Level_004/Original/Zone_018.png",
+      "sha256": "f6d36f9ff0842cffdeaeb08c21d629a7844999084b23a4fc5278615e77e82f58"
+    },
+    {
+      "file": "ArtSources/Level_004/Original/кот 2.ai",
+      "sha256": "80676a67dfbaac89988aa726c85208163c79fc38f2be8a837ad8ddc82149df20"
+    },
+    {
+      "file": "ArtSources/Level_004/Original/кот-2.png",
+      "sha256": "98f0d0ee2b58c4674538917079ab5c6dc4f9a70a556c5464419da973d622fac1"
+    }
+  ],
+  "sourceFiles": [
+    {
+      "file": "Zone_001.png",
+      "sha256": "9b8abc0368fda5018db8eab19051f1c06c1e372ee6bee25c07895e7774161210",
+      "opaqueColors": 58
+    },
+    {
+      "file": "Zone_002.png",
+      "sha256": "ccdcfa05630a2c4bfe7bc7822ef835185db33cca1868d977b19311c3916cfe8f",
+      "opaqueColors": 124
+    },
+    {
+      "file": "Zone_003.png",
+      "sha256": "5bfa0da255060a0e0811869e7cbc8807ded12b22e8c1f234fcd3dbd92f04046e",
+      "opaqueColors": 235
+    },
+    {
+      "file": "Zone_004.png",
+      "sha256": "1a378ed25966038e6e54957ea0fdb43302a4d4b836e11360a214b4b35b61edef",
+      "opaqueColors": 78
+    },
+    {
+      "file": "Zone_005.png",
+      "sha256": "dca02b5fd3228dd0913838278459a90e8ddb5d05c08023afef3ca1c3beefcfa5",
+      "opaqueColors": 103
+    },
+    {
+      "file": "Zone_006.png",
+      "sha256": "c64560c9f2d8d26ce541aba6f1575b30a01104aa9bd6b1a4f2bb4c64ed8b8934",
+      "opaqueColors": 246
+    },
+    {
+      "file": "Zone_007.png",
+      "sha256": "c12a51cf521ec7ba22f49683ef59feb5274beb11afbfeafaec400f84e4e57469",
+      "opaqueColors": 75
+    },
+    {
+      "file": "Zone_008.png",
+      "sha256": "b3c91e351648cdd1e2d506cc84bf245ffdaf95b602eb013d9edd099a7ec181e9",
+      "opaqueColors": 109
+    },
+    {
+      "file": "Zone_009.png",
+      "sha256": "35291166f3a971e94fc58eafa7dc286474029dd460bcb5cefa5da378720906c8",
+      "opaqueColors": 78
+    },
+    {
+      "file": "Zone_010.png",
+      "sha256": "4b6f8c4083d8ec7f110b70fc6c05db2f098cce7978e74a705bb131a23ed589be",
+      "opaqueColors": 114
+    },
+    {
+      "file": "Zone_011.png",
+      "sha256": "36f33b08fa4b74185581c6f81f26c872f269386400e02ac0282bb35df6df0d16",
+      "opaqueColors": 73
+    },
+    {
+      "file": "Zone_012.png",
+      "sha256": "7b36a30247ae6c26fbbbf45a170a1e528927038a26a90ca32e8ed4459787a1dd",
+      "opaqueColors": 83
+    },
+    {
+      "file": "Zone_013.png",
+      "sha256": "be170be82fe079cc84d5c8d89e90f26b69eb88ea19c384f3e2e75e9cbd0c9ed5",
+      "opaqueColors": 83
+    },
+    {
+      "file": "Zone_014.png",
+      "sha256": "97353db5b1298231aa0d92123b68954011b22955eb1e5d936790a1f18d33987a",
+      "opaqueColors": 50
+    },
+    {
+      "file": "Zone_015.png",
+      "sha256": "f2d162338d56b0a39b0a295dcc71e9549f1f82bd07bca15dff2bb6832a366c79",
+      "opaqueColors": 92
+    },
+    {
+      "file": "Zone_016.png",
+      "sha256": "4fd0006054ddb120c0f0738062d34a1cde12d2579e38647d07891f7648e1c7b7",
+      "opaqueColors": 115
+    },
+    {
+      "file": "Zone_017.png",
+      "sha256": "fb41028a5ee90e09365b3ac3d93a9f06a0e90301322efdb65571a551f2ddb853",
+      "opaqueColors": 64
+    },
+    {
+      "file": "Zone_018.png",
+      "sha256": "f6d36f9ff0842cffdeaeb08c21d629a7844999084b23a4fc5278615e77e82f58",
+      "opaqueColors": 43
+    },
+    {
+      "file": "outlines.png",
+      "sha256": "47fb10569da02624a3f0614fd65d3193f6f5117b40e1268f52497955026dc87d"
+    }
+  ],
+  "colors": 17,
+  "regions": 73,
+  "solidOverlapPixels": 0,
+  "uncoveredPixels": 0,
+  "validation": {
+    "preparedFiles": "PASS",
+    "canvas": "PASS",
+    "alpha": "PASS",
+    "overlap": "PASS",
+    "coverage": "PASS",
+    "unityStatic": "run separately",
+    "playMode": "run separately",
+    "androidBuild": "run separately"
+  },
+  "groups": [
+    {
+      "id": 1,
+      "source": "Zone_001.png",
+      "color": [
+        249,
+        117,
+        112
+      ],
+      "type": "gradient",
+      "paletteMethod": "opaque_median_nearest",
+      "sourceSha256": "9b8abc0368fda5018db8eab19051f1c06c1e372ee6bee25c07895e7774161210",
+      "rgbaSha256": "0401b9a9f6c1cb0ac06b19f64b45683637232448aabe2f910c1d4cea3a393229",
+      "sources": [
+        {
+          "source": "Zone_001.png",
+          "sha256": "9b8abc0368fda5018db8eab19051f1c06c1e372ee6bee25c07895e7774161210",
+          "rgbaSha256": "0401b9a9f6c1cb0ac06b19f64b45683637232448aabe2f910c1d4cea3a393229"
+        }
+      ],
+      "mergeMethod": "source_bytes",
+      "regions": 1,
+      "file": "Zones/Zone_001.png",
+      "sha256": "9b8abc0368fda5018db8eab19051f1c06c1e372ee6bee25c07895e7774161210"
+    },
+    {
+      "id": 2,
+      "source": "Zone_002.png",
+      "color": [
+        243,
+        113,
+        29
+      ],
+      "type": "gradient",
+      "paletteMethod": "opaque_median_nearest",
+      "sourceSha256": "ccdcfa05630a2c4bfe7bc7822ef835185db33cca1868d977b19311c3916cfe8f",
+      "rgbaSha256": "a1fa94af9bffb9079c6090cb33dac09ae40b13648731a267067fbac7c7b17fa3",
+      "sources": [
+        {
+          "source": "Zone_002.png",
+          "sha256": "ccdcfa05630a2c4bfe7bc7822ef835185db33cca1868d977b19311c3916cfe8f",
+          "rgbaSha256": "a1fa94af9bffb9079c6090cb33dac09ae40b13648731a267067fbac7c7b17fa3"
+        }
+      ],
+      "mergeMethod": "source_bytes",
+      "regions": 8,
+      "file": "Zones/Zone_002.png",
+      "sha256": "ccdcfa05630a2c4bfe7bc7822ef835185db33cca1868d977b19311c3916cfe8f"
+    },
+    {
+      "id": 3,
+      "source": "Zone_003.png",
+      "color": [
+        61,
+        121,
+        14
+      ],
+      "type": "gradient",
+      "paletteMethod": "opaque_median_nearest",
+      "sourceSha256": "5bfa0da255060a0e0811869e7cbc8807ded12b22e8c1f234fcd3dbd92f04046e",
+      "rgbaSha256": "0d6e3fa5e8128ad8d91966ce8394547a1102c0773a0ea00b9c9613642900769e",
+      "sources": [
+        {
+          "source": "Zone_003.png",
+          "sha256": "5bfa0da255060a0e0811869e7cbc8807ded12b22e8c1f234fcd3dbd92f04046e",
+          "rgbaSha256": "0d6e3fa5e8128ad8d91966ce8394547a1102c0773a0ea00b9c9613642900769e"
+        }
+      ],
+      "mergeMethod": "source_bytes",
+      "regions": 5,
+      "file": "Zones/Zone_003.png",
+      "sha256": "5bfa0da255060a0e0811869e7cbc8807ded12b22e8c1f234fcd3dbd92f04046e"
+    },
+    {
+      "id": 4,
+      "source": "Zone_004.png",
+      "color": [
+        54,
+        151,
+        4
+      ],
+      "type": "gradient",
+      "paletteMethod": "opaque_median_nearest",
+      "sourceSha256": "1a378ed25966038e6e54957ea0fdb43302a4d4b836e11360a214b4b35b61edef",
+      "rgbaSha256": "f5b4c7eda65b33aa148368fad38696fd487bc3fe90c89d802443eb9c439f7184",
+      "sources": [
+        {
+          "source": "Zone_004.png",
+          "sha256": "1a378ed25966038e6e54957ea0fdb43302a4d4b836e11360a214b4b35b61edef",
+          "rgbaSha256": "f5b4c7eda65b33aa148368fad38696fd487bc3fe90c89d802443eb9c439f7184"
+        }
+      ],
+      "mergeMethod": "source_bytes",
+      "regions": 9,
+      "file": "Zones/Zone_004.png",
+      "sha256": "1a378ed25966038e6e54957ea0fdb43302a4d4b836e11360a214b4b35b61edef"
+    },
+    {
+      "id": 5,
+      "source": "Zone_005.png",
+      "color": [
+        43,
+        150,
+        229
+      ],
+      "type": "gradient",
+      "paletteMethod": "opaque_median_nearest",
+      "sourceSha256": "dca02b5fd3228dd0913838278459a90e8ddb5d05c08023afef3ca1c3beefcfa5",
+      "rgbaSha256": "d040d2648fe22eb2c08b7cbebb5a3d51b4f262e6ca5ee3d9cdf08f8932e833f5",
+      "sources": [
+        {
+          "source": "Zone_005.png",
+          "sha256": "dca02b5fd3228dd0913838278459a90e8ddb5d05c08023afef3ca1c3beefcfa5",
+          "rgbaSha256": "d040d2648fe22eb2c08b7cbebb5a3d51b4f262e6ca5ee3d9cdf08f8932e833f5"
+        }
+      ],
+      "mergeMethod": "source_bytes",
+      "regions": 16,
+      "file": "Zones/Zone_005.png",
+      "sha256": "dca02b5fd3228dd0913838278459a90e8ddb5d05c08023afef3ca1c3beefcfa5"
+    },
+    {
+      "id": 6,
+      "source": "Zone_006.png",
+      "color": [
+        119,
+        176,
+        6
+      ],
+      "type": "gradient",
+      "paletteMethod": "opaque_median_nearest",
+      "sourceSha256": "c64560c9f2d8d26ce541aba6f1575b30a01104aa9bd6b1a4f2bb4c64ed8b8934",
+      "rgbaSha256": "96d2778d86b0316c59a51060d5d6ef564978f3bfb61eeded588fd94f6f1c5c6b",
+      "sources": [
+        {
+          "source": "Zone_006.png",
+          "sha256": "c64560c9f2d8d26ce541aba6f1575b30a01104aa9bd6b1a4f2bb4c64ed8b8934",
+          "rgbaSha256": "96d2778d86b0316c59a51060d5d6ef564978f3bfb61eeded588fd94f6f1c5c6b"
+        }
+      ],
+      "mergeMethod": "source_bytes",
+      "regions": 3,
+      "file": "Zones/Zone_006.png",
+      "sha256": "c64560c9f2d8d26ce541aba6f1575b30a01104aa9bd6b1a4f2bb4c64ed8b8934"
+    },
+    {
+      "id": 7,
+      "source": "Zone_007.png",
+      "color": [
+        102,
+        52,
+        3
+      ],
+      "type": "gradient",
+      "paletteMethod": "opaque_median_nearest",
+      "sourceSha256": "c12a51cf521ec7ba22f49683ef59feb5274beb11afbfeafaec400f84e4e57469",
+      "rgbaSha256": "e798c4828ecd50b492b9ad54264427113cfbecd7805dff220def8ddd9569ec77",
+      "sources": [
+        {
+          "source": "Zone_007.png",
+          "sha256": "c12a51cf521ec7ba22f49683ef59feb5274beb11afbfeafaec400f84e4e57469",
+          "rgbaSha256": "e798c4828ecd50b492b9ad54264427113cfbecd7805dff220def8ddd9569ec77"
+        }
+      ],
+      "mergeMethod": "source_bytes",
+      "regions": 8,
+      "file": "Zones/Zone_007.png",
+      "sha256": "c12a51cf521ec7ba22f49683ef59feb5274beb11afbfeafaec400f84e4e57469"
+    },
+    {
+      "id": 8,
+      "source": "Zone_008.png",
+      "color": [
+        137,
+        171,
+        44
+      ],
+      "type": "gradient",
+      "paletteMethod": "opaque_median_nearest",
+      "sourceSha256": "b3c91e351648cdd1e2d506cc84bf245ffdaf95b602eb013d9edd099a7ec181e9",
+      "rgbaSha256": "ee02cd7742d6d600039e84925078792036b5d0e076080b8b760608d1e8cef73b",
+      "sources": [
+        {
+          "source": "Zone_008.png",
+          "sha256": "b3c91e351648cdd1e2d506cc84bf245ffdaf95b602eb013d9edd099a7ec181e9",
+          "rgbaSha256": "ee02cd7742d6d600039e84925078792036b5d0e076080b8b760608d1e8cef73b"
+        }
+      ],
+      "mergeMethod": "source_bytes",
+      "regions": 1,
+      "file": "Zones/Zone_008.png",
+      "sha256": "b3c91e351648cdd1e2d506cc84bf245ffdaf95b602eb013d9edd099a7ec181e9"
+    },
+    {
+      "id": 9,
+      "source": "Zone_009.png",
+      "color": [
+        247,
+        84,
+        96
+      ],
+      "type": "gradient",
+      "paletteMethod": "opaque_median_nearest",
+      "sourceSha256": "35291166f3a971e94fc58eafa7dc286474029dd460bcb5cefa5da378720906c8",
+      "rgbaSha256": "d5436e179df6408b6b7d968bc7698e5660bda901ee5f5aa0c9d2d98fdfe4b0b7",
+      "sources": [
+        {
+          "source": "Zone_009.png",
+          "sha256": "35291166f3a971e94fc58eafa7dc286474029dd460bcb5cefa5da378720906c8",
+          "rgbaSha256": "d5436e179df6408b6b7d968bc7698e5660bda901ee5f5aa0c9d2d98fdfe4b0b7"
+        }
+      ],
+      "mergeMethod": "source_bytes",
+      "regions": 3,
+      "file": "Zones/Zone_009.png",
+      "sha256": "35291166f3a971e94fc58eafa7dc286474029dd460bcb5cefa5da378720906c8"
+    },
+    {
+      "id": 10,
+      "source": "Zone_010.png",
+      "color": [
+        158,
+        214,
+        254
+      ],
+      "type": "gradient",
+      "paletteMethod": "opaque_median_nearest",
+      "sourceSha256": "4b6f8c4083d8ec7f110b70fc6c05db2f098cce7978e74a705bb131a23ed589be",
+      "rgbaSha256": "69fe125973a6684fa52dbf5cb7f281524b04b6d65b9ccfc92d8a734badadf763",
+      "sources": [
+        {
+          "source": "Zone_010.png",
+          "sha256": "4b6f8c4083d8ec7f110b70fc6c05db2f098cce7978e74a705bb131a23ed589be",
+          "rgbaSha256": "69fe125973a6684fa52dbf5cb7f281524b04b6d65b9ccfc92d8a734badadf763"
+        }
+      ],
+      "mergeMethod": "source_bytes",
+      "regions": 1,
+      "file": "Zones/Zone_010.png",
+      "sha256": "4b6f8c4083d8ec7f110b70fc6c05db2f098cce7978e74a705bb131a23ed589be"
+    },
+    {
+      "id": 11,
+      "source": "Zone_011.png",
+      "color": [
+        115,
+        28,
+        234
+      ],
+      "type": "gradient",
+      "paletteMethod": "opaque_median_nearest",
+      "sourceSha256": "36f33b08fa4b74185581c6f81f26c872f269386400e02ac0282bb35df6df0d16",
+      "rgbaSha256": "877fa853699a2fe8c78798c3524f6b797377ea2a29842460d5e00a6cd5ffd67b",
+      "sources": [
+        {
+          "source": "Zone_011.png",
+          "sha256": "36f33b08fa4b74185581c6f81f26c872f269386400e02ac0282bb35df6df0d16",
+          "rgbaSha256": "877fa853699a2fe8c78798c3524f6b797377ea2a29842460d5e00a6cd5ffd67b"
+        }
+      ],
+      "mergeMethod": "source_bytes",
+      "regions": 1,
+      "file": "Zones/Zone_011.png",
+      "sha256": "36f33b08fa4b74185581c6f81f26c872f269386400e02ac0282bb35df6df0d16"
+    },
+    {
+      "id": 12,
+      "source": "Zone_012.png",
+      "color": [
+        250,
+        180,
+        24
+      ],
+      "type": "gradient",
+      "paletteMethod": "opaque_median_nearest",
+      "sourceSha256": "7b36a30247ae6c26fbbbf45a170a1e528927038a26a90ca32e8ed4459787a1dd",
+      "rgbaSha256": "78fd8a1f593c1be5af85bd9f111dab4de5c3f8411dd1292ce7f8ef32b37d7b94",
+      "sources": [
+        {
+          "source": "Zone_012.png",
+          "sha256": "7b36a30247ae6c26fbbbf45a170a1e528927038a26a90ca32e8ed4459787a1dd",
+          "rgbaSha256": "78fd8a1f593c1be5af85bd9f111dab4de5c3f8411dd1292ce7f8ef32b37d7b94"
+        }
+      ],
+      "mergeMethod": "source_bytes",
+      "regions": 2,
+      "file": "Zones/Zone_012.png",
+      "sha256": "7b36a30247ae6c26fbbbf45a170a1e528927038a26a90ca32e8ed4459787a1dd"
+    },
+    {
+      "id": 13,
+      "source": "Zone_013.png",
+      "color": [
+        169,
+        123,
+        71
+      ],
+      "type": "gradient",
+      "paletteMethod": "opaque_median_nearest",
+      "sourceSha256": "be170be82fe079cc84d5c8d89e90f26b69eb88ea19c384f3e2e75e9cbd0c9ed5",
+      "rgbaSha256": "87ff8a484a882d7feca684c4be33418e6fe9b843028ee285d58744b7dd4e6bd3",
+      "sources": [
+        {
+          "source": "Zone_013.png",
+          "sha256": "be170be82fe079cc84d5c8d89e90f26b69eb88ea19c384f3e2e75e9cbd0c9ed5",
+          "rgbaSha256": "87ff8a484a882d7feca684c4be33418e6fe9b843028ee285d58744b7dd4e6bd3"
+        }
+      ],
+      "mergeMethod": "source_bytes",
+      "regions": 2,
+      "file": "Zones/Zone_013.png",
+      "sha256": "be170be82fe079cc84d5c8d89e90f26b69eb88ea19c384f3e2e75e9cbd0c9ed5"
+    },
+    {
+      "id": 14,
+      "source": "Zone_014.png",
+      "color": [
+        45,
+        43,
+        48
+      ],
+      "type": "gradient",
+      "paletteMethod": "opaque_median_nearest",
+      "sourceSha256": "97353db5b1298231aa0d92123b68954011b22955eb1e5d936790a1f18d33987a",
+      "rgbaSha256": "3d96badb3c01b8c75b170b22bb36a3cf6be8de115fecf6bb41f47f819931eab0",
+      "sources": [
+        {
+          "source": "Zone_014.png",
+          "sha256": "97353db5b1298231aa0d92123b68954011b22955eb1e5d936790a1f18d33987a",
+          "rgbaSha256": "3d96badb3c01b8c75b170b22bb36a3cf6be8de115fecf6bb41f47f819931eab0"
+        }
+      ],
+      "mergeMethod": "source_bytes",
+      "regions": 3,
+      "file": "Zones/Zone_014.png",
+      "sha256": "97353db5b1298231aa0d92123b68954011b22955eb1e5d936790a1f18d33987a"
+    },
+    {
+      "id": 15,
+      "source": "Zone_015.png",
+      "color": [
+        136,
+        92,
+        45
+      ],
+      "type": "gradient",
+      "paletteMethod": "opaque_median_nearest",
+      "sourceSha256": "f2d162338d56b0a39b0a295dcc71e9549f1f82bd07bca15dff2bb6832a366c79",
+      "rgbaSha256": "f8efe1ce666a8060baadebcaf6a079feaded63c1a28c8d921ba3bc8d3f2027f5",
+      "sources": [
+        {
+          "source": "Zone_015.png",
+          "sha256": "f2d162338d56b0a39b0a295dcc71e9549f1f82bd07bca15dff2bb6832a366c79",
+          "rgbaSha256": "f8efe1ce666a8060baadebcaf6a079feaded63c1a28c8d921ba3bc8d3f2027f5"
+        }
+      ],
+      "mergeMethod": "source_bytes",
+      "regions": 2,
+      "file": "Zones/Zone_015.png",
+      "sha256": "f2d162338d56b0a39b0a295dcc71e9549f1f82bd07bca15dff2bb6832a366c79"
+    },
+    {
+      "id": 16,
+      "source": "Zone_016.png",
+      "color": [
+        163,
+        127,
+        84
+      ],
+      "type": "gradient",
+      "paletteMethod": "opaque_median_nearest",
+      "sourceSha256": "4fd0006054ddb120c0f0738062d34a1cde12d2579e38647d07891f7648e1c7b7",
+      "rgbaSha256": "649e2a1e7e258c75da7e3c93c75b46d66679a921b3328eed66021aed4f7f79e2",
+      "sources": [
+        {
+          "source": "Zone_016.png",
+          "sha256": "4fd0006054ddb120c0f0738062d34a1cde12d2579e38647d07891f7648e1c7b7",
+          "rgbaSha256": "649e2a1e7e258c75da7e3c93c75b46d66679a921b3328eed66021aed4f7f79e2"
+        }
+      ],
+      "mergeMethod": "source_bytes",
+      "regions": 2,
+      "file": "Zones/Zone_016.png",
+      "sha256": "4fd0006054ddb120c0f0738062d34a1cde12d2579e38647d07891f7648e1c7b7"
+    },
+    {
+      "id": 17,
+      "source": "Zone_017.png",
+      "color": [
+        231,
+        221,
+        201
+      ],
+      "type": "gradient",
+      "paletteMethod": "opaque_median_nearest",
+      "sourceSha256": "fb41028a5ee90e09365b3ac3d93a9f06a0e90301322efdb65571a551f2ddb853",
+      "rgbaSha256": "28fd1d830c671e55597ca0845fc4d573f96c7c6ef500501c01bea9e3e3f12ba8",
+      "sources": [
+        {
+          "source": "Zone_017.png",
+          "sha256": "fb41028a5ee90e09365b3ac3d93a9f06a0e90301322efdb65571a551f2ddb853",
+          "rgbaSha256": "16ec7c14e12cd3d701459770b2d948f4d59c3646adfb3dadf8912de17e901e02"
+        },
+        {
+          "source": "Zone_018.png",
+          "sha256": "f6d36f9ff0842cffdeaeb08c21d629a7844999084b23a4fc5278615e77e82f58",
+          "rgbaSha256": "438c3bc5666b7367c5bafba1bc23522de2c4ffbfe9c77c22d266363574596f8f"
+        }
+      ],
+      "mergeMethod": "disjoint_rgba_union",
+      "regions": 6,
+      "file": "Zones/Zone_017.png",
+      "sha256": "30030a5b9c6c79c0d9d4c33163af8e10160692fea6c36b1434a03cc83f344092"
+    }
+  ],
+  "groupingMode": "layer",
+  "groupConfig": {
+    "groupingMode": "layer",
+    "mergeGroups": [
+      [
+        "Zone_017.png",
+        "Zone_018.png"
+      ]
+    ],
+    "sourceSha256": {
+      "Zone_001.png": "9b8abc0368fda5018db8eab19051f1c06c1e372ee6bee25c07895e7774161210",
+      "Zone_002.png": "ccdcfa05630a2c4bfe7bc7822ef835185db33cca1868d977b19311c3916cfe8f",
+      "Zone_003.png": "5bfa0da255060a0e0811869e7cbc8807ded12b22e8c1f234fcd3dbd92f04046e",
+      "Zone_004.png": "1a378ed25966038e6e54957ea0fdb43302a4d4b836e11360a214b4b35b61edef",
+      "Zone_005.png": "dca02b5fd3228dd0913838278459a90e8ddb5d05c08023afef3ca1c3beefcfa5",
+      "Zone_006.png": "c64560c9f2d8d26ce541aba6f1575b30a01104aa9bd6b1a4f2bb4c64ed8b8934",
+      "Zone_007.png": "c12a51cf521ec7ba22f49683ef59feb5274beb11afbfeafaec400f84e4e57469",
+      "Zone_008.png": "b3c91e351648cdd1e2d506cc84bf245ffdaf95b602eb013d9edd099a7ec181e9",
+      "Zone_009.png": "35291166f3a971e94fc58eafa7dc286474029dd460bcb5cefa5da378720906c8",
+      "Zone_010.png": "4b6f8c4083d8ec7f110b70fc6c05db2f098cce7978e74a705bb131a23ed589be",
+      "Zone_011.png": "36f33b08fa4b74185581c6f81f26c872f269386400e02ac0282bb35df6df0d16",
+      "Zone_012.png": "7b36a30247ae6c26fbbbf45a170a1e528927038a26a90ca32e8ed4459787a1dd",
+      "Zone_013.png": "be170be82fe079cc84d5c8d89e90f26b69eb88ea19c384f3e2e75e9cbd0c9ed5",
+      "Zone_014.png": "97353db5b1298231aa0d92123b68954011b22955eb1e5d936790a1f18d33987a",
+      "Zone_015.png": "f2d162338d56b0a39b0a295dcc71e9549f1f82bd07bca15dff2bb6832a366c79",
+      "Zone_016.png": "4fd0006054ddb120c0f0738062d34a1cde12d2579e38647d07891f7648e1c7b7",
+      "Zone_017.png": "fb41028a5ee90e09365b3ac3d93a9f06a0e90301322efdb65571a551f2ddb853",
+      "Zone_018.png": "f6d36f9ff0842cffdeaeb08c21d629a7844999084b23a4fc5278615e77e82f58"
+    }
+  },
+  "paletteReview": {
+    "metric": "CIE76 sRGB D65 (review candidates, not duplicates)",
+    "minDistance": 6,
+    "closePairs": [],
+    "status": "PASS"
+  }
+}

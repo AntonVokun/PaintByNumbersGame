@@ -235,7 +235,7 @@
     },
     {
       "path": "Assets/_Project/Scenes/Level_003_New.unity",
-      "sha256": "b681a03f0ab4349b9b1f1c34e17a6f65e9cd0ac823462c84dfa95f6775fe3b38",
+      "sha256": "1f83666a7f6422c5bc7ae47bb5b00db835aeadf4259f309b7c7a67c69d1868d8",
       "roots": [
         "Camera",
         "Canvas",
@@ -273,6 +273,56 @@
         14,
         15
       ],
+      "nextScene": "Level_004_New",
+      "prefabGuids": [
+        "15dbe538f5475b34f8e247d0c5140424"
+      ],
+      "levelCards": [],
+      "resetScenes": [],
+      "enabled": true
+    },
+    {
+      "path": "Assets/_Project/Scenes/Level_004_New.unity",
+      "sha256": "7d07551ae22fa01788dba1883f38f01ec02c5ab83ef1f00317b30d09fe29838b",
+      "roots": [
+        "Camera",
+        "Canvas",
+        "EventSystem",
+        "LevelRoot",
+        "Managers"
+      ],
+      "components": [
+        "Assets/_Project/Scripts/BackToMenu.cs",
+        "Assets/_Project/Scripts/CameraZoomAndPan.cs",
+        "Assets/_Project/Scripts/GameSound.cs",
+        "Assets/_Project/Scripts/PaintController.cs",
+        "Assets/_Project/Scripts/PaintZone.cs",
+        "Assets/_Project/Scripts/PaletteDragScroll.cs",
+        "Assets/_Project/Scripts/ProjectScanner.cs",
+        "Assets/_Project/Scripts/SelectColor.cs",
+        "Assets/_Project/Scripts/SoundToggleButton.cs"
+      ],
+      "paintZones": 17,
+      "paletteButtons": 17,
+      "colorIds": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+      ],
       "nextScene": "MainMenu",
       "prefabGuids": [
         "15dbe538f5475b34f8e247d0c5140424"
@@ -283,7 +333,7 @@
     },
     {
       "path": "Assets/_Project/Scenes/MainMenu.unity",
-      "sha256": "fb2cb80274523fa9e8e4f5b44e0ec4f02ea03dce58b4163909294feab742317d",
+      "sha256": "a77f9ccd6bead1f5ecda78030a24ed38ec2ef63c223554ea4b85ef942aa656bd",
       "roots": [
         "Background",
         "Canvas",
@@ -306,12 +356,14 @@
       "levelCards": [
         "Level_003_New",
         "Level_002_New",
-        "Level_001_New"
+        "Level_001_New",
+        "Level_004_New"
       ],
       "resetScenes": [
         "Level_001_New",
         "Level_002_New",
-        "Level_003_New"
+        "Level_003_New",
+        "Level_004_New"
       ],
       "enabled": true
     }
@@ -397,6 +449,26 @@
     "Assets/_Project/Art/Levels/Level_003/Zones/Zone_013.png",
     "Assets/_Project/Art/Levels/Level_003/Zones/Zone_014.png",
     "Assets/_Project/Art/Levels/Level_003/Zones/Zone_015.png",
+    "Assets/_Project/Art/Levels/Level_004/Outline/outlines.png",
+    "Assets/_Project/Art/Levels/Level_004/Previews/Preview_BW.png",
+    "Assets/_Project/Art/Levels/Level_004/Previews/Preview_Color.png",
+    "Assets/_Project/Art/Levels/Level_004/Zones/Zone_001.png",
+    "Assets/_Project/Art/Levels/Level_004/Zones/Zone_002.png",
+    "Assets/_Project/Art/Levels/Level_004/Zones/Zone_003.png",
+    "Assets/_Project/Art/Levels/Level_004/Zones/Zone_004.png",
+    "Assets/_Project/Art/Levels/Level_004/Zones/Zone_005.png",
+    "Assets/_Project/Art/Levels/Level_004/Zones/Zone_006.png",
+    "Assets/_Project/Art/Levels/Level_004/Zones/Zone_007.png",
+    "Assets/_Project/Art/Levels/Level_004/Zones/Zone_008.png",
+    "Assets/_Project/Art/Levels/Level_004/Zones/Zone_009.png",
+    "Assets/_Project/Art/Levels/Level_004/Zones/Zone_010.png",
+    "Assets/_Project/Art/Levels/Level_004/Zones/Zone_011.png",
+    "Assets/_Project/Art/Levels/Level_004/Zones/Zone_012.png",
+    "Assets/_Project/Art/Levels/Level_004/Zones/Zone_013.png",
+    "Assets/_Project/Art/Levels/Level_004/Zones/Zone_014.png",
+    "Assets/_Project/Art/Levels/Level_004/Zones/Zone_015.png",
+    "Assets/_Project/Art/Levels/Level_004/Zones/Zone_016.png",
+    "Assets/_Project/Art/Levels/Level_004/Zones/Zone_017.png",
     "Assets/_Project/Art/UI/Backgrounds/Art_Backgrounds-1.png",
     "Assets/_Project/Art/UI/Backgrounds/Art_Backgrounds.png",
     "Assets/_Project/Art/UI/Backgrounds/BackgroundsLVL.png",
@@ -510,7 +582,7 @@
       "path": "ArtSources/Level_003/level_manifest.json",
       "scene": {
         "path": "Assets/_Project/Scenes/Level_003_New.unity",
-        "sha256": "b681a03f0ab4349b9b1f1c34e17a6f65e9cd0ac823462c84dfa95f6775fe3b38",
+        "sha256": "1f83666a7f6422c5bc7ae47bb5b00db835aeadf4259f309b7c7a67c69d1868d8",
         "roots": [
           "Camera",
           "Canvas",
@@ -548,7 +620,7 @@
           14,
           15
         ],
-        "nextScene": "MainMenu",
+        "nextScene": "Level_004_New",
         "prefabGuids": [
           "15dbe538f5475b34f8e247d0c5140424"
         ],
@@ -575,6 +647,103 @@
         "Assets/_Project/Art/Levels/Level_003/Zones/Zone_013.png",
         "Assets/_Project/Art/Levels/Level_003/Zones/Zone_014.png",
         "Assets/_Project/Art/Levels/Level_003/Zones/Zone_015.png"
+      ],
+      "menuCardPresent": true,
+      "resetRegistered": true,
+      "buildEnabled": true
+    },
+    {
+      "sceneName": "Level_004_New",
+      "displayName": "Кот 7",
+      "artFolder": "Assets/_Project/Art/Levels/Level_004",
+      "originalImage": "ArtSources/Level_004/Original/кот-2.png",
+      "sourceFolder": "C:\\Users\\Public\\Documents\\PaintByNumbers Exchange\\уровни\\7. кот",
+      "width": 1254,
+      "height": 1254,
+      "colors": 17,
+      "regions": 73,
+      "validation": {
+        "preparedFiles": "PASS",
+        "canvas": "PASS",
+        "alpha": "PASS",
+        "overlap": "PASS",
+        "coverage": "PASS",
+        "unityStatic": "run separately",
+        "playMode": "run separately",
+        "androidBuild": "run separately"
+      },
+      "path": "ArtSources/Level_004/level_manifest.json",
+      "scene": {
+        "path": "Assets/_Project/Scenes/Level_004_New.unity",
+        "sha256": "7d07551ae22fa01788dba1883f38f01ec02c5ab83ef1f00317b30d09fe29838b",
+        "roots": [
+          "Camera",
+          "Canvas",
+          "EventSystem",
+          "LevelRoot",
+          "Managers"
+        ],
+        "components": [
+          "Assets/_Project/Scripts/BackToMenu.cs",
+          "Assets/_Project/Scripts/CameraZoomAndPan.cs",
+          "Assets/_Project/Scripts/GameSound.cs",
+          "Assets/_Project/Scripts/PaintController.cs",
+          "Assets/_Project/Scripts/PaintZone.cs",
+          "Assets/_Project/Scripts/PaletteDragScroll.cs",
+          "Assets/_Project/Scripts/ProjectScanner.cs",
+          "Assets/_Project/Scripts/SelectColor.cs",
+          "Assets/_Project/Scripts/SoundToggleButton.cs"
+        ],
+        "paintZones": 17,
+        "paletteButtons": 17,
+        "colorIds": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17
+        ],
+        "nextScene": "MainMenu",
+        "prefabGuids": [
+          "15dbe538f5475b34f8e247d0c5140424"
+        ],
+        "levelCards": [],
+        "resetScenes": [],
+        "enabled": true
+      },
+      "importedResources": [
+        "Assets/_Project/Art/Levels/Level_004/Outline/outlines.png",
+        "Assets/_Project/Art/Levels/Level_004/Previews/Preview_Color.png",
+        "Assets/_Project/Art/Levels/Level_004/Previews/Preview_BW.png",
+        "Assets/_Project/Art/Levels/Level_004/Zones/Zone_001.png",
+        "Assets/_Project/Art/Levels/Level_004/Zones/Zone_002.png",
+        "Assets/_Project/Art/Levels/Level_004/Zones/Zone_003.png",
+        "Assets/_Project/Art/Levels/Level_004/Zones/Zone_004.png",
+        "Assets/_Project/Art/Levels/Level_004/Zones/Zone_005.png",
+        "Assets/_Project/Art/Levels/Level_004/Zones/Zone_006.png",
+        "Assets/_Project/Art/Levels/Level_004/Zones/Zone_007.png",
+        "Assets/_Project/Art/Levels/Level_004/Zones/Zone_008.png",
+        "Assets/_Project/Art/Levels/Level_004/Zones/Zone_009.png",
+        "Assets/_Project/Art/Levels/Level_004/Zones/Zone_010.png",
+        "Assets/_Project/Art/Levels/Level_004/Zones/Zone_011.png",
+        "Assets/_Project/Art/Levels/Level_004/Zones/Zone_012.png",
+        "Assets/_Project/Art/Levels/Level_004/Zones/Zone_013.png",
+        "Assets/_Project/Art/Levels/Level_004/Zones/Zone_014.png",
+        "Assets/_Project/Art/Levels/Level_004/Zones/Zone_015.png",
+        "Assets/_Project/Art/Levels/Level_004/Zones/Zone_016.png",
+        "Assets/_Project/Art/Levels/Level_004/Zones/Zone_017.png"
       ],
       "menuCardPresent": true,
       "resetRegistered": true,
