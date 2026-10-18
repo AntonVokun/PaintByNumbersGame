@@ -69,3 +69,8 @@ desktop.ini
 *.bak
 *.swp
 *.pid
+
+# Operational agent reports, local connector bindings and Python bytecode
+/AgentSync/
+__pycache__/
+*.pyc
