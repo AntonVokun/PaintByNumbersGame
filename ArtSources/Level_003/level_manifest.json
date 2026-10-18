@@ -1,0 +1,368 @@
+{
+  "schema": 1,
+  "sceneName": "Level_003_New",
+  "displayName": "Котик на круге",
+  "width": 1254,
+  "height": 1254,
+  "pixelsPerUnit": 100,
+  "pivot": {
+    "x": 0.5,
+    "y": 0.5
+  },
+  "sourceFolder": "C:\\Users\\Public\\Documents\\PaintByNumbers Exchange\\уровни\\3. КОТИК НА ШИНЕ",
+  "levelNumber": 3,
+  "artFolder": "Assets/_Project/Art/Levels/Level_003",
+  "originalImage": "ArtSources/Level_003/Original/превью-1.png",
+  "outlineFile": "Outline/outlines.png",
+  "colorPreviewFile": "Previews/Preview_Color.png",
+  "bwPreviewFile": "Previews/Preview_BW.png",
+  "hitmaskFile": "ArtSources/Level_003/Working/hitmask.bytes",
+  "geometryFile": "ArtSources/Level_003/Working/geometry.json",
+  "hitmaskBytesPerPixel": 2,
+  "originalFiles": [
+    {
+      "file": "ArtSources/Level_003/Original/outlines.png",
+      "sha256": "2aacaea5b3144ef56bb16b9a022561171620b0b24c835905d713ffd397c8f0cb"
+    },
+    {
+      "file": "ArtSources/Level_003/Original/Zone_001.png",
+      "sha256": "452e482e77df82f055984d249a924d6374b295d3a534ed296a16803a605de283"
+    },
+    {
+      "file": "ArtSources/Level_003/Original/Zone_002.png",
+      "sha256": "964bcebb803bef6c42c6fbb601dbdad760fb621525628926f795a6a9a3175bb4"
+    },
+    {
+      "file": "ArtSources/Level_003/Original/Zone_003.png",
+      "sha256": "1427598872060cdf77c783c34b3554a92d6cd9afc39872ef5808121aa3fe4781"
+    },
+    {
+      "file": "ArtSources/Level_003/Original/Zone_004.png",
+      "sha256": "7ae4eb5085d29d19cfdd278ef66a8a0b829d115b107911e3106a0641718f8edb"
+    },
+    {
+      "file": "ArtSources/Level_003/Original/Zone_005.png",
+      "sha256": "35a82c200227397c415948736afaee771a0ea1d75f8a129f20f00f664c94d2db"
+    },
+    {
+      "file": "ArtSources/Level_003/Original/Zone_006.png",
+      "sha256": "dd1c128524b47938f004b295d8ba6338e772487f680ec9f6eb28567dcade333c"
+    },
+    {
+      "file": "ArtSources/Level_003/Original/Zone_007.png",
+      "sha256": "a0b53e55fa3026f682c6532c1e462f8fb8f41eb7da12533cb6c4024cc1cb6c2a"
+    },
+    {
+      "file": "ArtSources/Level_003/Original/Zone_008.png",
+      "sha256": "80dd24cc09a86f07a09c33d99ce10755942114ea96780947db306268608bc11b"
+    },
+    {
+      "file": "ArtSources/Level_003/Original/Zone_009.png",
+      "sha256": "56fd1a20cc17cadd55d7583d1b9d4e686b99f8723c74d7488825ceac85ab5f02"
+    },
+    {
+      "file": "ArtSources/Level_003/Original/Zone_010.png",
+      "sha256": "551de3d1ceabf3c9d129fe6f99b91b4baaa4cafa06e5a067ef00bd94b1244a81"
+    },
+    {
+      "file": "ArtSources/Level_003/Original/Zone_011.png",
+      "sha256": "53ad42f31c98e1a39f5d2647d9d95f7f929e94a4072805fb17c516cb90a53bd4"
+    },
+    {
+      "file": "ArtSources/Level_003/Original/Zone_012.png",
+      "sha256": "caa864e141de0181e2c4174c3b723a09849e98158422d40d69b7779ffcbd1a56"
+    },
+    {
+      "file": "ArtSources/Level_003/Original/Zone_013.png",
+      "sha256": "99aba6d16864b3cfb2c21d917b3e077391de6b5bdce85f78cdff7500890287ba"
+    },
+    {
+      "file": "ArtSources/Level_003/Original/Zone_014.png",
+      "sha256": "915690c23798ea18254df71be61da3dd9e3c4a95d4725d519f2fa436e9deff80"
+    },
+    {
+      "file": "ArtSources/Level_003/Original/кот 4.ai",
+      "sha256": "833191fe3483897ee5a4dd304b4c96db62b53e14b99856e667ea9f5c643adb8b"
+    },
+    {
+      "file": "ArtSources/Level_003/Original/превью--2.png",
+      "sha256": "141e30603bc6b1238adc9ebc7880d5eaf14732f9b37f3e4be564296ff79d743a"
+    },
+    {
+      "file": "ArtSources/Level_003/Original/превью-1.png",
+      "sha256": "4ee3256d2a0dae8a6065229ab04e48e24d8fd2356d4570352fb1fbc0256ddbc9"
+    }
+  ],
+  "sourceFiles": [
+    {
+      "file": "Zone_001.png",
+      "sha256": "452e482e77df82f055984d249a924d6374b295d3a534ed296a16803a605de283",
+      "opaqueColors": 1
+    },
+    {
+      "file": "Zone_002.png",
+      "sha256": "964bcebb803bef6c42c6fbb601dbdad760fb621525628926f795a6a9a3175bb4",
+      "opaqueColors": 1
+    },
+    {
+      "file": "Zone_003.png",
+      "sha256": "1427598872060cdf77c783c34b3554a92d6cd9afc39872ef5808121aa3fe4781",
+      "opaqueColors": 1
+    },
+    {
+      "file": "Zone_004.png",
+      "sha256": "7ae4eb5085d29d19cfdd278ef66a8a0b829d115b107911e3106a0641718f8edb",
+      "opaqueColors": 1
+    },
+    {
+      "file": "Zone_005.png",
+      "sha256": "35a82c200227397c415948736afaee771a0ea1d75f8a129f20f00f664c94d2db",
+      "opaqueColors": 1
+    },
+    {
+      "file": "Zone_006.png",
+      "sha256": "dd1c128524b47938f004b295d8ba6338e772487f680ec9f6eb28567dcade333c",
+      "opaqueColors": 1
+    },
+    {
+      "file": "Zone_007.png",
+      "sha256": "a0b53e55fa3026f682c6532c1e462f8fb8f41eb7da12533cb6c4024cc1cb6c2a",
+      "opaqueColors": 1
+    },
+    {
+      "file": "Zone_008.png",
+      "sha256": "80dd24cc09a86f07a09c33d99ce10755942114ea96780947db306268608bc11b",
+      "opaqueColors": 1
+    },
+    {
+      "file": "Zone_009.png",
+      "sha256": "56fd1a20cc17cadd55d7583d1b9d4e686b99f8723c74d7488825ceac85ab5f02",
+      "opaqueColors": 1
+    },
+    {
+      "file": "Zone_010.png",
+      "sha256": "551de3d1ceabf3c9d129fe6f99b91b4baaa4cafa06e5a067ef00bd94b1244a81",
+      "opaqueColors": 2
+    },
+    {
+      "file": "Zone_011.png",
+      "sha256": "53ad42f31c98e1a39f5d2647d9d95f7f929e94a4072805fb17c516cb90a53bd4",
+      "opaqueColors": 1
+    },
+    {
+      "file": "Zone_012.png",
+      "sha256": "caa864e141de0181e2c4174c3b723a09849e98158422d40d69b7779ffcbd1a56",
+      "opaqueColors": 1
+    },
+    {
+      "file": "Zone_013.png",
+      "sha256": "99aba6d16864b3cfb2c21d917b3e077391de6b5bdce85f78cdff7500890287ba",
+      "opaqueColors": 1
+    },
+    {
+      "file": "Zone_014.png",
+      "sha256": "915690c23798ea18254df71be61da3dd9e3c4a95d4725d519f2fa436e9deff80",
+      "opaqueColors": 1
+    },
+    {
+      "file": "outlines.png",
+      "sha256": "2aacaea5b3144ef56bb16b9a022561171620b0b24c835905d713ffd397c8f0cb"
+    }
+  ],
+  "colors": 15,
+  "regions": 77,
+  "solidOverlapPixels": 0,
+  "uncoveredPixels": 0,
+  "validation": {
+    "preparedFiles": "PASS",
+    "canvas": "PASS",
+    "alpha": "PASS",
+    "overlap": "PASS",
+    "coverage": "PASS",
+    "unityStatic": "run separately",
+    "playMode": "run separately",
+    "androidBuild": "run separately"
+  },
+  "groups": [
+    {
+      "id": 1,
+      "source": "Zone_001.png",
+      "color": [
+        251,
+        152,
+        128
+      ],
+      "regions": 8,
+      "file": "Zones/Zone_001.png",
+      "sha256": "f42a1fb2e3a9fcf9fb04171b0784912e6f2f0334595f7646171129c1988cb230"
+    },
+    {
+      "id": 2,
+      "source": "Zone_002.png",
+      "color": [
+        247,
+        77,
+        92
+      ],
+      "regions": 3,
+      "file": "Zones/Zone_002.png",
+      "sha256": "909d8f64c456199370d675e062372a7d86d35a14f59de7a2e2306a08ef248c3b"
+    },
+    {
+      "id": 3,
+      "source": "Zone_003.png",
+      "color": [
+        20,
+        127,
+        198
+      ],
+      "regions": 15,
+      "file": "Zones/Zone_003.png",
+      "sha256": "e5ddeebc95e7029a798a7367e07ee3e31c4e6e47fbf8926aac7316854e11e505"
+    },
+    {
+      "id": 4,
+      "source": "Zone_004.png",
+      "color": [
+        112,
+        195,
+        248
+      ],
+      "regions": 14,
+      "file": "Zones/Zone_004.png",
+      "sha256": "823150d34effe086808de75db09e75e7efb5f9574850ccc514fbc5c3978e0567"
+    },
+    {
+      "id": 5,
+      "source": "Zone_005.png",
+      "color": [
+        141,
+        61,
+        234
+      ],
+      "regions": 1,
+      "file": "Zones/Zone_005.png",
+      "sha256": "15c146738efd7b453704f9d5a6fbb03658668b3938d9491fa7f5b6523f755ce5"
+    },
+    {
+      "id": 6,
+      "source": "Zone_006.png",
+      "color": [
+        44,
+        7,
+        104
+      ],
+      "regions": 1,
+      "file": "Zones/Zone_006.png",
+      "sha256": "794491670ebadee701a599027d9b53fdbf1a0a35899b23dd673f34abbac26084"
+    },
+    {
+      "id": 7,
+      "source": "Zone_007.png",
+      "color": [
+        43,
+        41,
+        45
+      ],
+      "regions": 1,
+      "file": "Zones/Zone_007.png",
+      "sha256": "103ffc452691f78c2aea91eaba7b7b99a2f1334ee2ceb19de1ccc9a4adeb91ca"
+    },
+    {
+      "id": 8,
+      "source": "Zone_008.png",
+      "color": [
+        251,
+        212,
+        29
+      ],
+      "regions": 3,
+      "file": "Zones/Zone_008.png",
+      "sha256": "1526f25fe444aefe17bd44be6218228ba5cf151a885c07fc626c8cedacbf3abb"
+    },
+    {
+      "id": 9,
+      "source": "Zone_009.png",
+      "color": [
+        237,
+        64,
+        33
+      ],
+      "regions": 3,
+      "file": "Zones/Zone_009.png",
+      "sha256": "1a5fa997debb51aaa0a54d0824c35a9f5fc86ed2e0e6799ae1e00383d53b807b"
+    },
+    {
+      "id": 10,
+      "source": "Zone_010.png",
+      "color": [
+        182,
+        226,
+        255
+      ],
+      "regions": 2,
+      "file": "Zones/Zone_010.png",
+      "sha256": "b2ea3c76e342a110732e1044c114330dffe34882b243df367c3bf3589506781b"
+    },
+    {
+      "id": 11,
+      "source": "Zone_010.png",
+      "color": [
+        223,
+        236,
+        244
+      ],
+      "regions": 3,
+      "file": "Zones/Zone_011.png",
+      "sha256": "aa4e8dd1aecf4b74250eba29105c11c5027c101168958bf19f7bc4908e082975"
+    },
+    {
+      "id": 12,
+      "source": "Zone_011.png",
+      "color": [
+        249,
+        140,
+        19
+      ],
+      "regions": 6,
+      "file": "Zones/Zone_012.png",
+      "sha256": "a97f603f6b41f59dcb627b8c6db1c0b23f8ef6905d6a1dda9977776c20fca818"
+    },
+    {
+      "id": 13,
+      "source": "Zone_012.png",
+      "color": [
+        197,
+        180,
+        239
+      ],
+      "regions": 4,
+      "file": "Zones/Zone_013.png",
+      "sha256": "cba28488a00adf8e1ed25a62cbdcc76ee58cc4a6d749edac758868f18df1657d"
+    },
+    {
+      "id": 14,
+      "source": "Zone_013.png",
+      "color": [
+        132,
+        123,
+        158
+      ],
+      "regions": 10,
+      "file": "Zones/Zone_014.png",
+      "sha256": "e3bb2f28f5c585ab404930e87ce644d5f2af2938fb521b42c315c2576f922e37"
+    },
+    {
+      "id": 15,
+      "source": "Zone_014.png",
+      "color": [
+        229,
+        79,
+        72
+      ],
+      "regions": 3,
+      "file": "Zones/Zone_015.png",
+      "sha256": "db61e457ee3f169aa7432a04efab4814e861a4fef26de219363790303025b78a"
+    }
+  ]
+}
