@@ -4,11 +4,14 @@
 
 | Сцена | В сборке | Зоны / палитра | Следующая |
 |---|---|---|---|
-| [MainMenu](../Assets/_Project/Scenes/MainMenu.unity) | Да | 4 разные карточки LevelCardUI, сетка 2×2 | Выбранная сцена |
+| [MainMenu](../Assets/_Project/Scenes/MainMenu.unity) | Да | 7 разных карточек LevelCardUI, прокручиваемая сетка в2 колонки | Выбранная сцена |
 | [Level_001_New](../Assets/_Project/Scenes/Level_001_New.unity) | Да | 16 / 16 | Level_002_New |
 | [Level_002_New](../Assets/_Project/Scenes/Level_002_New.unity) | Да | 17 / 17 | Level_003_New |
 | [Level_003_New](../Assets/_Project/Scenes/Level_003_New.unity) | Да | 15 / 15 | Level_004_New |
-| [Level_004_New](../Assets/_Project/Scenes/Level_004_New.unity) | Да | 17 / 17, «7. кот» | MainMenu |
+| [Level_004_New](../Assets/_Project/Scenes/Level_004_New.unity) | Да | 17 / 17, «7. кот» | Level_005_New |
+| [Level_005_New](../Assets/_Project/Scenes/Level_005_New.unity) | Да | 38 / 38, «Медуза» | Level_006_New |
+| [Level_006_New](../Assets/_Project/Scenes/Level_006_New.unity) | Да | 25 / 25, «Домик» | Level_007_New |
+| [Level_007_New](../Assets/_Project/Scenes/Level_007_New.unity) | Да | 23 / 23, «Чаепитие» | MainMenu |
 | [Level_001](../Assets/_Project/Scenes/Level_001.unity) | Нет | 16 групп; legacy-иерархия | Не использовать вместо New |
 | [Level_002](../Assets/_Project/Scenes/Level_002.unity) | Нет | 17 групп; legacy-иерархия | Не использовать вместо New |
 
@@ -28,13 +31,13 @@ CameraZoomAndPan получает явные ссылки на GameplayViewport 
 ## Главное меню
 
 Корни: Main Camera, EventSystem, Canvas, Managers, Background.
-Карточки LevelCard_001/002/003/004 находятся в
+Карточки LevelCard_001/002/003/004/005/006/007 находятся в
 `Canvas/LevelsScrollView/Viewport/Content`; GridLayoutGroup + ContentSizeFitter.
 Каждая карточка связывает LevelCardUI с Button, Preview, двумя Sprite и именем New-сцены.
 MainMenuController содержит список levelSceneNames для сброса и levelCards для Refresh.
 Старые поля level001Preview/level002Preview сохранены, но основная система — массив карточек.
 ResetProgressButton вызывает сброс зарегистрированных сцен. Дизайн меню не перестраивать при добавлении карточки.
-Имена карточек последовательно «Уровень 1»–«Уровень 4»; первые три превью сохранены.
+Имена карточек последовательно «Уровень 1»–«Уровень 7»; первые три превью сохранены.
 Четвёртая карточка показывает новый контур «7. кот», прежний повтор рисунка второго уровня заменён.
 Отдельной системы блокировки уровней нет: карточки открывают любую зарегистрированную сцену.
 

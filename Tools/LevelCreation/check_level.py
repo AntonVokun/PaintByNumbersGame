@@ -3,7 +3,7 @@ from pathlib import Path
 import argparse, hashlib, json
 import numpy as np
 from PIL import Image
-from prepare_level import interior_uncovered, representative_color, review_palette, runs_and_samples, contours
+from prepare_level import interior_uncovered, representative_color, review_palette, runs_and_samples, contours, geometry_paths
 
 
 def verify(manifest):
@@ -93,7 +93,7 @@ def verify(manifest):
             mask=(alpha[index]>=128)&(owner==index)
             shape=next(v for v in geometry['groups'] if v['id']==g['id'])
             assert shape['samples']==runs_and_samples(mask) and len(shape['samples'])==g['regions'], 'Gradient islands changed'
-            assert shape['paths']==[dict(points=p) for p in contours(mask)], 'Gradient alpha geometry mismatch'
+            assert shape['paths']==[dict(points=p) for p in geometry_paths(mask,m.get('groupConfig',{}).get('geometryMaxEdgePixels',{}).get(g['source']),g['source'] in m.get('groupConfig',{}).get('geometryRectangles',[]))], 'Gradient alpha geometry mismatch'
     result=dict(status='PASS',canvas=[m['width'],m['height']],colors=m['colors'],regions=m['regions'],
                 originals=len(m['originalFiles']),gamePngs=len(expected),scope='files only; Editor/Play/Android separate')
     print(json.dumps(result,ensure_ascii=False))

@@ -61,3 +61,8 @@
 Наблюдалось предупреждение `Account API did not become accessible within 30 seconds` из Unity AI Toolkit.
 Оно не доказало проблему уровня; Play Mode и проверки работали. Причина/исправление не подтверждены.
 Текущие счётчики Console брать из свежего STATE, старое предупреждение не считать текущим без проверки.
+
+## P0: ввод и screen capture
+
+Не брать позицию тестового нажатия из Mouse.current между внешними запросами: в наблюдавшейся среде она становилась (0,0). Использовать сохранённую точку/test device, move + кадр + press + кадр + release; перед кнопкой — прокрутка. Три contract-проверки выполняются RunReadOnly без Play. Реальный palette suite требует разрешения на gameplay и snapshot/restore.
+CaptureScreen в LevelCreationBatch пишет PNG напрямую в Logs. Предыдущий capture_game_view перенаправлял save_path в Assets; ручное перемещение без .meta вызвало orphan warnings. Новый adapter не импортирует диагностические PNG.

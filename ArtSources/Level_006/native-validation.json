@@ -1,0 +1,20 @@
+{
+  "name": "Домик",
+  "status": "PASS",
+  "groups": 25,
+  "paths": 1631,
+  "regions": 1472,
+  "regionMisses": 0,
+  "crossHits": 0,
+  "pixels": 1402421,
+  "misses": 0,
+  "extras": 0,
+  "precisionCases": 388,
+  "localQueryRegistered": true,
+  "target654_0Direct": true,
+  "durationMs": 3848.2217,
+  "removedShapeGroups": [
+    15
+  ],
+  "failures": []
+}

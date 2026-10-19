@@ -14319,7 +14319,7 @@ MonoBehaviour:
   - {fileID: 432720158}
   - {fileID: 909623235}
   winPanel: {fileID: 1590718288}
-  nextLevelSceneName: MainMenu
+  nextLevelSceneName: Level_005_New
 --- !u!4 &952490494
 Transform:
   m_ObjectHideFlags: 0

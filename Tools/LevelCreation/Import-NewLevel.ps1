@@ -6,6 +6,8 @@ param(
     [ValidateSet('rgb','layer')][string]$GroupingMode = 'rgb',
     [string]$GroupConfig,
     [switch]$ReplaceExisting,
+    [switch]$GenerateReport,
+    [switch]$VerboseOutput,
     [string]$Python = (Join-Path $env:USERPROFILE '.cache\codex-runtimes\codex-primary-runtime\dependencies\python\python.exe')
 )
 $ErrorActionPreference = 'Stop'
@@ -21,14 +23,24 @@ try {
     $manifest = "ArtSources/$levelName/level_manifest.json"
     $gitState = & git status --short --branch
     if ($LASTEXITCODE -ne 0) { throw 'Git status failed.' }
-    Write-Output ($gitState -join "`n")
+    $diagnosticRoot=Join-Path $projectRoot ("Logs/LevelCreation/diagnostics-"+[Guid]::NewGuid().ToString('N'))
+    New-Item -ItemType Directory -Path $diagnosticRoot -Force | Out-Null
+    [IO.File]::WriteAllText((Join-Path $diagnosticRoot 'git-before.txt'),($gitState -join "`n"),[Text.UTF8Encoding]::new($false))
+    $script:P0UnityCalls=0
+    if($VerboseOutput){Write-Output ($gitState -join "`n")}
 
     function Invoke-UnityJson([string[]]$Arguments) {
-        $raw = & unity @Arguments
-        if ($LASTEXITCODE -ne 0) { throw ($raw -join "`n") }
+        $script:P0UnityCalls++
+        $callName='unity-'+$script:P0UnityCalls
+        $watch=[Diagnostics.Stopwatch]::StartNew()
+        $raw = & unity @Arguments 2> (Join-Path $diagnosticRoot ($callName+'.stderr.log'))
+        $exit=$LASTEXITCODE
+        [IO.File]::WriteAllText((Join-Path $diagnosticRoot ($callName+'.stdout.log')),($raw -join "`n"),[Text.UTF8Encoding]::new($false))
+        $row=@{stage=$Arguments[0];attempt=1;unityCalls=1;exitCode=$exit;durationMs=$watch.Elapsed.TotalMilliseconds;stdoutBytes=[Text.Encoding]::UTF8.GetByteCount(($raw -join "`n"));diagnostic=$callName;cacheHit=$false}
+        Add-Content -LiteralPath (Join-Path $diagnosticRoot 'metrics.jsonl') -Value ($row|ConvertTo-Json -Compress)
+        if ($exit -ne 0) { throw "UNITY_COMMAND_FAILED: see $diagnosticRoot/$callName.stdout.log" }
         $envelope = ($raw -join "`n") | ConvertFrom-Json
-        if (!$envelope.success) { throw (($envelope.errors | ConvertTo-Json -Compress)) }
-        if ($null -ne $envelope.notifications) { Write-Warning ($envelope.notifications | ConvertTo-Json -Compress) }
+        if (!$envelope.success) { throw "UNITY_COMMAND_FAILED: see $diagnosticRoot/$callName.stdout.log" }
         return $envelope.data
     }
     $null = Invoke-UnityJson @('status','--until-ready','--project-path',$projectRoot,'--format','json')
@@ -98,15 +110,10 @@ try {
     }
     & $Python "$PSScriptRoot/check_level.py" $manifest
     if ($LASTEXITCODE -ne 0) { throw 'Prepared-file checks failed.' }
-    foreach ($code in @(
-        "return LevelCreationTools.Import(`"$artFolder`");",
-        "return LevelCreationTools.Create(`"$artFolder`",`"$PreviousScene`",$($ReplaceExisting.ToString().ToLowerInvariant()));",
-        "UnityEditor.SceneManagement.EditorSceneManager.OpenScene(`"Assets/_Project/Scenes/$sceneName.unity`"); return LevelCreationTools.ValidatePixels(`"$artFolder`",4);"
-    )) {
-        $data = Invoke-UnityJson @('command','eval','--project-path',$projectRoot,'--caller','plugin','--skill','unity-cli','--format','json','--timeout','120','--','--code',$code,'--timeout','60000')
-        if ($data.result.success -ne $true) { throw ($data.result | ConvertTo-Json -Compress -Depth 8) }
-        Write-Output $data.result.result
-    }
+    $code="return LevelCreationTools.ImportCreateValidate(`"$artFolder`",`"$PreviousScene`",$($ReplaceExisting.ToString().ToLowerInvariant()));"
+    $data = Invoke-UnityJson @('command','eval','--project-path',$projectRoot,'--caller','plugin','--skill','unity-cli','--format','json','--timeout','120','--','--code',$code,'--timeout','60000')
+    if ($data.result.success -ne $true) { throw "UNITY_BATCH_FAILED: see $diagnosticRoot" }
+    if($VerboseOutput){Write-Output $data.result.result}
     $receiptDirectory=Join-Path $projectRoot 'AgentSync/level-imports'
     New-Item -ItemType Directory -Path $receiptDirectory -Force | Out-Null
     $artifactHashes=@{}
@@ -126,7 +133,7 @@ try {
     }
     $factsPath=Join-Path $receiptDirectory "$sceneName-observations.json"
     [IO.File]::WriteAllText($factsPath,($facts|ConvertTo-Json -Depth 10),[Text.UTF8Encoding]::new($false))
-    & (Join-Path $projectRoot 'Tools/Generate-AgentReport.ps1') -Task "Import $sceneName" -Status static_import_passed -Observations $factsPath -Python $Python
-    Write-Output "STATIC IMPORT COMPLETE: $sceneName. Local report prepared; the host agent publishes it through Drive. Play Mode and Android validation remain separate. Backup: $backupRoot"
+    if($GenerateReport){ & (Join-Path $projectRoot 'Tools/Generate-AgentReport.ps1') -Task "Import $sceneName" -Status static_import_passed -Observations $factsPath -Python $Python }
+    Write-Output (@{status="STATIC_IMPORT_COMPLETE";scene=$sceneName;unityCalls=$script:P0UnityCalls;diagnostic=$diagnosticRoot;backup=$backupRoot;playMode="NOT_RUN";reportGenerated=[bool]$GenerateReport}|ConvertTo-Json -Compress)
 }
 finally { Pop-Location }

@@ -13,11 +13,9 @@ using UnityEngine.InputSystem.LowLevel;
 public static class LevelCreationVerification
 {
     static Mouse testMouse;
-    static int phase, nextFrame, activeId;
+    static int nextFrame;
     static float nextTime;
-    static Queue<int> colorQueue;
     public static string InputStatus = "idle";
-    static Vector2 pointer;
     static Mouse TestMouse()
     {
         if(!SessionState.GetBool("LevelCreationInputOverride",false))
@@ -51,41 +49,80 @@ public static class LevelCreationVerification
         var world=z.transform.TransformPoint(new Vector3((s.x+.5f-m.width*.5f)/m.pixelsPerUnit,(m.height*.5f-s.y-.5f)/m.pixelsPerUnit,0));
         return UnityEngine.Object.FindFirstObjectByType<CameraZoomAndPan>().GetComponent<Camera>().WorldToScreenPoint(world);
     }
+    static LevelCreationBatch.PointerSequence sweep;
+    static DateTime deadline;
+    static string ownedProgress, ownedOutput;
+    public static string RunPaletteSuite(string scene, string output, bool allowGameplay=false)
+    {
+        if(!allowGameplay||!EditorApplication.isPlaying||SceneManager.GetActiveScene().name!=scene)
+            throw new InvalidOperationException("GAMEPLAY_NOT_AUTHORISED");
+        var root=Path.GetFullPath("Logs/LevelCreation")+Path.DirectorySeparatorChar;
+        output=Path.GetFullPath(output);
+        if(!output.StartsWith(root,StringComparison.OrdinalIgnoreCase))throw new InvalidOperationException("DIAGNOSTIC_OUTSIDE_LOGS");
+        if(InputStatus=="running")throw new InvalidOperationException("SUITE_ALREADY_RUNNING");
+        ownedOutput=output;ownedProgress=Path.Combine(Path.GetDirectoryName(output),"prefs-"+Guid.NewGuid().ToString("N")+".json");
+        Directory.CreateDirectory(Path.GetDirectoryName(output));
+        BackupProgress(ownedProgress);
+        SessionState.SetString("P0SweepProgress",ownedProgress);SessionState.SetString("P0SweepOutput",ownedOutput);
+        try {return AutoPaint();}catch{FinishSweep("FAILED_START");throw;}
+    }
     public static string AutoPaint()
     {
-        colorQueue=new Queue<int>(PaintController.Instance.zones.Where(z=>!z.IsPainted).OrderBy(z=>z.colorId).Select(z=>z.colorId));
-        phase=0;nextTime=Time.time;nextFrame=Time.frameCount;
-        InputStatus="running";
-        EditorApplication.update-=Tick;
-        EditorApplication.update+=Tick;
-        return "Input System auto-paint started: "+colorQueue.Count+" remaining colors";
+        if(!EditorApplication.isPlaying||PaintController.Instance==null)throw new InvalidOperationException("PLAY_REQUIRED");
+        if(InputStatus=="running")throw new InvalidOperationException("SUITE_ALREADY_RUNNING");
+        if(!File.Exists(SessionState.GetString("LevelCreationProgressBackup","")))throw new InvalidOperationException("PROGRESS_BACKUP_REQUIRED");
+        var ids=PaintController.Instance.zones.Where(z=>!z.IsPainted).OrderBy(z=>z.colorId).Select(z=>z.colorId).ToArray();
+        sweep=new LevelCreationBatch.PointerSequence(ids,EnsureButtonVisible,ButtonPoint,ZonePoint,
+            (p,b)=>QueuePointer(p,b),id=>SelectColor.CurrentColorId==id,
+            id=>PaintController.Instance.zones.Single(z=>z.colorId==id).IsPainted);
+        deadline=DateTime.UtcNow.AddMinutes(3);nextFrame=Time.frameCount;nextTime=Time.time;
+        InputStatus="running";EditorApplication.update-=Tick;EditorApplication.update+=Tick;
+        return "Input System suite started: "+ids.Length+" remaining colors";
+    }
+    static void EnsureButtonVisible(int id)
+    {
+        var button=PaintController.Instance.paletteButtons.Single(b=>b.colorId==id).GetComponent<RectTransform>();
+        var scroll=button.GetComponentInParent<UnityEngine.UI.ScrollRect>();
+        if(scroll==null)return;
+        Canvas.ForceUpdateCanvases();
+        var viewport=scroll.viewport!=null?scroll.viewport:scroll.GetComponent<RectTransform>();
+        var center=viewport.InverseTransformPoint(button.TransformPoint(button.rect.center));
+        float width=scroll.content.rect.width-viewport.rect.width;
+        if(scroll.horizontal&&width>0&&!viewport.rect.Contains(new Vector2(center.x,viewport.rect.center.y)))
+            scroll.horizontalNormalizedPosition=Mathf.Clamp01(scroll.horizontalNormalizedPosition+(center.x-viewport.rect.center.x)/width);
+        Canvas.ForceUpdateCanvases();
     }
     static void Tick()
     {
-        if(!EditorApplication.isPlaying){EditorApplication.update-=Tick;InputStatus="stopped";return;}
+        if(!EditorApplication.isPlaying){FinishSweep("STOPPED_PLAY_EXIT");return;}
+        if(DateTime.UtcNow>deadline){FinishSweep("FAILED_SUITE_TIMEOUT");return;}
         if(Time.frameCount<nextFrame||Time.time<nextTime)return;
         try
         {
-            if(phase==0)
-            {
-                if(colorQueue.Count==0){EditorApplication.update-=Tick;InputStatus="PASS: all colors painted through Input System pointer events";return;}
-                activeId=colorQueue.Dequeue();pointer=ButtonPoint(activeId);QueuePointer(pointer,1);phase=1;
-            }
-            else if(phase==1){QueuePointer(pointer);phase=2;}
-            else if(phase==2)
-            {
-                if(SelectColor.CurrentColorId!=activeId)throw new InvalidOperationException("Palette click did not select "+activeId);
-                pointer=ZonePoint(activeId);QueuePointer(pointer,1);phase=3;
-            }
-            else if(phase==3){QueuePointer(pointer);phase=4;nextTime=Time.time+.35f;}
-            else
-            {
-                if(!PaintController.Instance.zones.Single(z=>z.colorId==activeId).IsPainted)throw new InvalidOperationException("Zone click did not paint "+activeId);
-                phase=0;
-            }
-            nextFrame=Time.frameCount+3;
+            if(sweep.Advance()){FinishSweep("PASS: all colors painted through Input System pointer events");return;}
+            nextFrame=Time.frameCount+3;nextTime=Time.time+(sweep.AwaitAnimation?.35f:.06f);
         }
-        catch(Exception e){InputStatus="FAIL: "+e.Message;EditorApplication.update-=Tick;}
+        catch(Exception error){FinishSweep("FAIL: "+error.Message);}
+    }
+    public static void CancelPaletteSuite(){FinishSweep("STOPPED_BY_USER");}
+    static void FinishSweep(string status)
+    {
+        InputStatus=status;
+        try {RemoveTestInput();}catch(Exception error){InputStatus="RESTORE_FAILED: "+error.Message;}
+        if(!string.IsNullOrEmpty(ownedProgress))
+        {
+            try {RestoreProgress(ownedProgress);}
+            catch(Exception error){InputStatus="RESTORE_FAILED: "+error.Message;}
+            if(!string.IsNullOrEmpty(ownedOutput))File.WriteAllText(ownedOutput,InputStatus+"\nProgress snapshot retained: "+ownedProgress);
+            if(!InputStatus.StartsWith("RESTORE_FAILED"))
+            {SessionState.EraseString("P0SweepProgress");SessionState.EraseString("P0SweepOutput");ownedProgress=null;ownedOutput=null;}
+        }
+    }
+    [InitializeOnLoadMethod] static void RestoreInterruptedSweep()
+    {
+        ownedProgress=SessionState.GetString("P0SweepProgress","");ownedOutput=SessionState.GetString("P0SweepOutput","");
+        if(!string.IsNullOrEmpty(ownedProgress))FinishSweep("STOPPED_DOMAIN_RELOAD");
+        AssemblyReloadEvents.beforeAssemblyReload+=()=>{if(InputStatus=="running")FinishSweep("STOPPED_DOMAIN_RELOAD");};
     }
     public static void RemoveTestInput()
     {

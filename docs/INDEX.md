@@ -18,3 +18,5 @@
 Не читать весь JSON по умолчанию; `Tools/Update-ProjectInventory.ps1` печатает только количества.
 Собрать выбранный контекст: `Tools/Get-AgentContext.ps1 -Topic levels -IncludeStatus`.
 Короткий промт следующего уровня: [LEVEL_CREATION_PROMPT](../LEVEL_CREATION_PROMPT.md).
+
+P0-вход: `Tools/Get-AgentContext.ps1 -Compact` (опционально `-WithUnity`). Не печатать STATE/однострочные baseline целиком. Source-only подготовка трёх наборов и контракт проверок — раздел P0 в [LEVEL_PIPELINE](LEVEL_PIPELINE.md).

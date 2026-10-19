@@ -1,0 +1,24 @@
+{
+  "name": "Медуза",
+  "status": "PASS",
+  "groups": 38,
+  "paths": 3882,
+  "regions": 780,
+  "regionMisses": 0,
+  "crossHits": 0,
+  "pixels": 1417965,
+  "misses": 0,
+  "extras": 0,
+  "precisionCases": 377,
+  "localQueryRegistered": true,
+  "target654_0Direct": false,
+  "durationMs": 7417.2376,
+  "removedShapeGroups": [
+    1,
+    2,
+    29,
+    30,
+    37
+  ],
+  "failures": []
+}

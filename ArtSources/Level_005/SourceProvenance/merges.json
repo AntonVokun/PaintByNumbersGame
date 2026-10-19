@@ -1,0 +1,24 @@
+[
+  {
+    "sources": [
+      "Zone_014.png",
+      "Zone_017.png"
+    ],
+    "newColorId": 16,
+    "reason": "same sand/brown artistic color",
+    "allVisibleRGBAExact": true,
+    "fullCompositeByteExact": true,
+    "sourceFragmentsLost": 0
+  },
+  {
+    "sources": [
+      "Zone_007.png",
+      "Zone_020.png"
+    ],
+    "newColorId": 7,
+    "reason": "same light-blue highlights/bubbles",
+    "allVisibleRGBAExact": true,
+    "fullCompositeByteExact": true,
+    "sourceFragmentsLost": 0
+  }
+]

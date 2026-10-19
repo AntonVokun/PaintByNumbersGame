@@ -1,0 +1,821 @@
+{
+  "groupingMode": "layer",
+  "oneFullCanvasSpritePerGroup": true,
+  "sourceArchive": "SourceProvenance/OriginalSources",
+  "inputSnapshot": "SourceProvenance/CorrectedSources",
+  "groups": [
+    {
+      "colorId": 1,
+      "file": "Zone_001.png",
+      "palette": [
+        235,
+        104,
+        173
+      ],
+      "sources": [
+        {
+          "file": "Zone_001.png",
+          "correctedSha256": "e2b2dfbdb34a68e4d64cc3cd302ecf199c5de83aeecbda28a2c05e51bf3ec0aa",
+          "beforeSha256": "35d1ccca7c54c22a11d1c9d5d0ee31e3daebcfb32e56b81cf3cad88f418f6bb2",
+          "originalSha256": "9c37b729dcc0d6a901ced6f588b217acab80ab58a23257563992659fb91ff27f",
+          "rgbaSha256": "cbe5824aaf19b61b1c2d7e402e1d4f7c8a05d4bb54c928e1384e248192e8cb21"
+        }
+      ],
+      "merge": "single source bytes",
+      "layerOrderAnchorOriginalGroup": 1,
+      "sha256": "e2b2dfbdb34a68e4d64cc3cd302ecf199c5de83aeecbda28a2c05e51bf3ec0aa"
+    },
+    {
+      "colorId": 2,
+      "file": "Zone_002.png",
+      "palette": [
+        251,
+        171,
+        210
+      ],
+      "sources": [
+        {
+          "file": "Zone_002.png",
+          "correctedSha256": "8580cc1454e0a8fc67ce88ad8ae629fa05d0f09143c54a261e7cf5de676586e6",
+          "beforeSha256": "84d08c156c10e4b9b7a5134c1b175576b8e9c4205bb9435bddc1d1f8148b0457",
+          "originalSha256": "d2157cf205ae7573278030a04c91b19e85038725a58bdf6a0d3e6beb01974e34",
+          "rgbaSha256": "35d179a95d84cd123297c024deb80a3bebba20e8736662ac7e6b47146f1c43e6"
+        }
+      ],
+      "merge": "single source bytes",
+      "layerOrderAnchorOriginalGroup": 2,
+      "sha256": "8580cc1454e0a8fc67ce88ad8ae629fa05d0f09143c54a261e7cf5de676586e6"
+    },
+    {
+      "colorId": 3,
+      "file": "Zone_003.png",
+      "palette": [
+        190,
+        77,
+        148
+      ],
+      "sources": [
+        {
+          "file": "Zone_003.png",
+          "correctedSha256": "d119213924ee57b423f0d50e193699f6daf8583b1b089a94678c9ff7c1d3758b",
+          "beforeSha256": "d119213924ee57b423f0d50e193699f6daf8583b1b089a94678c9ff7c1d3758b",
+          "originalSha256": "1117a219abfae8acd4e7f9d177f3a1d5327c81920dabcd415030496295f0ff53",
+          "rgbaSha256": "5f90023c06fc05e8b5336bd516a9be182b5eca57e13a1a27b302cf62ba286a65"
+        }
+      ],
+      "merge": "single source bytes",
+      "layerOrderAnchorOriginalGroup": 3,
+      "sha256": "d119213924ee57b423f0d50e193699f6daf8583b1b089a94678c9ff7c1d3758b"
+    },
+    {
+      "colorId": 4,
+      "file": "Zone_004.png",
+      "palette": [
+        60,
+        165,
+        251
+      ],
+      "sources": [
+        {
+          "file": "Zone_004.png",
+          "correctedSha256": "42b8f5fd5ebed51e3b2532536675f12091d5a36feb01b2af3ecf1c05ab1717d7",
+          "beforeSha256": "60c55112ae3161d94ae4ad680e5b920313ee8a151e2478d37a9f32a256da2344",
+          "originalSha256": "1f2b83c8d691595dd666a160afa496ddea8b35f0e8dc978e7f19eec3973ca37a",
+          "rgbaSha256": "2098435c17e693ff91d262b72dd575e49415821a70ef37184d3aa7f2278afa72"
+        }
+      ],
+      "merge": "single source bytes",
+      "layerOrderAnchorOriginalGroup": 4,
+      "sha256": "42b8f5fd5ebed51e3b2532536675f12091d5a36feb01b2af3ecf1c05ab1717d7"
+    },
+    {
+      "colorId": 5,
+      "file": "Zone_005.png",
+      "palette": [
+        13,
+        143,
+        214
+      ],
+      "sources": [
+        {
+          "file": "Zone_005.png",
+          "correctedSha256": "d6305c40fc419414eece67ed4d5eac7ba87ca871721a6a823d71eb6b529030a4",
+          "beforeSha256": "6095f0c06187e88592b59601b382bea67dd17e792e8e995c6e0529c2673ee24e",
+          "originalSha256": "b2479879f88f5504cc52b85bbd0a6642618b2c1c1722062102ecac1431c47573",
+          "rgbaSha256": "f3db1a3a9014422d9c4fff608c76587cbe6a759f4bc614714302a314dbe7f3b0"
+        }
+      ],
+      "merge": "single source bytes",
+      "layerOrderAnchorOriginalGroup": 5,
+      "sha256": "d6305c40fc419414eece67ed4d5eac7ba87ca871721a6a823d71eb6b529030a4"
+    },
+    {
+      "colorId": 6,
+      "file": "Zone_006.png",
+      "palette": [
+        9,
+        107,
+        187
+      ],
+      "sources": [
+        {
+          "file": "Zone_006.png",
+          "correctedSha256": "b93b1652a03920998ec501cab64d97f9addf2a4180277e51b1254be69f9fe104",
+          "beforeSha256": "04792200e3d2bd239840a63f3263d41e986d7df26b60c9fcc512a94850a25b52",
+          "originalSha256": "2cbb69616776140cc34eec81194a493fbb6fbd7fcbd08b066a541171292e0681",
+          "rgbaSha256": "30aa46dc8acd815166c2f2d7da0f93dd3cf325c9a1660b788efa16903df861ba"
+        }
+      ],
+      "merge": "single source bytes",
+      "layerOrderAnchorOriginalGroup": 6,
+      "sha256": "b93b1652a03920998ec501cab64d97f9addf2a4180277e51b1254be69f9fe104"
+    },
+    {
+      "colorId": 7,
+      "file": "Zone_007.png",
+      "palette": [
+        182,
+        228,
+        249
+      ],
+      "sources": [
+        {
+          "file": "Zone_007.png",
+          "correctedSha256": "2f7a237a1c68aac19c160173eefb1c46f515992632dd6ecf7db09b9909ac61d5",
+          "beforeSha256": "a0e00807ce407ca9cb956faf064ced346cbe0a14f7e22857a8d06c1db5a306f8",
+          "originalSha256": "c0691081e8fde3e6a93fb422b67f7c9138c47f6dc89ba4946a0195b047fc8264",
+          "rgbaSha256": "f58e4c5a220bed162a8297baac2e4a60414d2fdb4af5aa5c2be7e1c453deb41e"
+        },
+        {
+          "file": "Zone_020.png",
+          "correctedSha256": "70c9634bc3bc7c4dab43b1c6992bd5e579cffe732d210cc76584ea90e6ce51ef",
+          "beforeSha256": "70c9634bc3bc7c4dab43b1c6992bd5e579cffe732d210cc76584ea90e6ce51ef",
+          "originalSha256": "70c9634bc3bc7c4dab43b1c6992bd5e579cffe732d210cc76584ea90e6ce51ef",
+          "rgbaSha256": "b6dbc7f053e74a0a9eb108f94a19b554a64cc2e723e5c2afea598352d1341ead"
+        }
+      ],
+      "merge": "disjoint RGBA union, original RGBA exact",
+      "layerOrderAnchorOriginalGroup": 7,
+      "sha256": "5495a1022a6190cc2ee6b8501adea1e9aea1443cc7417e2e727cecefaa2a1d79"
+    },
+    {
+      "colorId": 8,
+      "file": "Zone_008.png",
+      "palette": [
+        149,
+        218,
+        228
+      ],
+      "sources": [
+        {
+          "file": "Zone_008.png",
+          "correctedSha256": "41a5e5b888979202e5afd771143e479f2cdab77f0b041e8d164e996288cf11b8",
+          "beforeSha256": "e932ac88796c680d03b3f1f5a83fb44c5543064fbce3c79cea50f44ad2416b40",
+          "originalSha256": "d9eec692950e905ba46800b731352fd07d8aeb8e120ddb0fe68a64d3b62c3964",
+          "rgbaSha256": "d5eee35e3fde7de381674fd36771939df2b7758e7bf7e1e1042d3d85adbd4a4a"
+        }
+      ],
+      "merge": "single source bytes",
+      "layerOrderAnchorOriginalGroup": 8,
+      "sha256": "41a5e5b888979202e5afd771143e479f2cdab77f0b041e8d164e996288cf11b8"
+    },
+    {
+      "colorId": 9,
+      "file": "Zone_009.png",
+      "palette": [
+        106,
+        192,
+        74
+      ],
+      "sources": [
+        {
+          "file": "Zone_009.png",
+          "correctedSha256": "6fcfbf2a745eec183aef9fdd3b3fd2ae9707d387a49ae45b7c7af4ffd2fca034",
+          "beforeSha256": "6fcfbf2a745eec183aef9fdd3b3fd2ae9707d387a49ae45b7c7af4ffd2fca034",
+          "originalSha256": "6fcfbf2a745eec183aef9fdd3b3fd2ae9707d387a49ae45b7c7af4ffd2fca034",
+          "rgbaSha256": "270e49490bb04b324e174369a5e3d0e7d0ce03d9e95da299d378a038b39f10a2"
+        }
+      ],
+      "merge": "single source bytes",
+      "layerOrderAnchorOriginalGroup": 9,
+      "sha256": "6fcfbf2a745eec183aef9fdd3b3fd2ae9707d387a49ae45b7c7af4ffd2fca034"
+    },
+    {
+      "colorId": 10,
+      "file": "Zone_010.png",
+      "palette": [
+        65,
+        140,
+        57
+      ],
+      "sources": [
+        {
+          "file": "Zone_010.png",
+          "correctedSha256": "d345b6fae338b8ffafb3285b0dfdb63615efcb21e2b3cf876afa57f0004e8faf",
+          "beforeSha256": "d345b6fae338b8ffafb3285b0dfdb63615efcb21e2b3cf876afa57f0004e8faf",
+          "originalSha256": "d345b6fae338b8ffafb3285b0dfdb63615efcb21e2b3cf876afa57f0004e8faf",
+          "rgbaSha256": "2aa8234ee521c3de53890824bdb32e6f8e74f41bcc42647bd36204e9798a24fe"
+        }
+      ],
+      "merge": "single source bytes",
+      "layerOrderAnchorOriginalGroup": 10,
+      "sha256": "d345b6fae338b8ffafb3285b0dfdb63615efcb21e2b3cf876afa57f0004e8faf"
+    },
+    {
+      "colorId": 11,
+      "file": "Zone_011.png",
+      "palette": [
+        220,
+        229,
+        245
+      ],
+      "sources": [
+        {
+          "file": "Zone_011.png",
+          "correctedSha256": "b636200f7a1dfb1bcfafab475776314586501696b6970ec285b3ad3e0ab1951b",
+          "beforeSha256": "b636200f7a1dfb1bcfafab475776314586501696b6970ec285b3ad3e0ab1951b",
+          "originalSha256": "b636200f7a1dfb1bcfafab475776314586501696b6970ec285b3ad3e0ab1951b",
+          "rgbaSha256": "9580c084fa974d903272a0624742ab6dccdd7ac4194ea6e5f59ea3d9186b8794"
+        }
+      ],
+      "merge": "single source bytes",
+      "layerOrderAnchorOriginalGroup": 11,
+      "sha256": "b636200f7a1dfb1bcfafab475776314586501696b6970ec285b3ad3e0ab1951b"
+    },
+    {
+      "colorId": 12,
+      "file": "Zone_012.png",
+      "palette": [
+        154,
+        177,
+        222
+      ],
+      "sources": [
+        {
+          "file": "Zone_012.png",
+          "correctedSha256": "7168dcf5c6415aafc014aac34fc37b2688a9303d11a43c1ed5da6036f727bb56",
+          "beforeSha256": "7168dcf5c6415aafc014aac34fc37b2688a9303d11a43c1ed5da6036f727bb56",
+          "originalSha256": "7168dcf5c6415aafc014aac34fc37b2688a9303d11a43c1ed5da6036f727bb56",
+          "rgbaSha256": "70064719cf6297d338eec200abd8ce1fb797da5c5ee1d8e08ff33ea0a7460a63"
+        }
+      ],
+      "merge": "single source bytes",
+      "layerOrderAnchorOriginalGroup": 12,
+      "sha256": "7168dcf5c6415aafc014aac34fc37b2688a9303d11a43c1ed5da6036f727bb56"
+    },
+    {
+      "colorId": 13,
+      "file": "Zone_013.png",
+      "palette": [
+        104,
+        125,
+        188
+      ],
+      "sources": [
+        {
+          "file": "Zone_013.png",
+          "correctedSha256": "c93a1aca3c176192785cc73d5c56618b18fd1caa04a4531951332a73084bdf93",
+          "beforeSha256": "c93a1aca3c176192785cc73d5c56618b18fd1caa04a4531951332a73084bdf93",
+          "originalSha256": "c93a1aca3c176192785cc73d5c56618b18fd1caa04a4531951332a73084bdf93",
+          "rgbaSha256": "6bffe783556960bf5790ecefe56d5371c1c0066f59fd670f606002da19439df5"
+        }
+      ],
+      "merge": "single source bytes",
+      "layerOrderAnchorOriginalGroup": 13,
+      "sha256": "c93a1aca3c176192785cc73d5c56618b18fd1caa04a4531951332a73084bdf93"
+    },
+    {
+      "colorId": 14,
+      "file": "Zone_014.png",
+      "palette": [
+        237,
+        198,
+        140
+      ],
+      "sources": [
+        {
+          "file": "Zone_015.png",
+          "correctedSha256": "a62731a42baa33d7c34a4321932306738ed14bdbaaabfae2121a6ac3cb86c774",
+          "beforeSha256": "a62731a42baa33d7c34a4321932306738ed14bdbaaabfae2121a6ac3cb86c774",
+          "originalSha256": "a62731a42baa33d7c34a4321932306738ed14bdbaaabfae2121a6ac3cb86c774",
+          "rgbaSha256": "bee70a91d83438d3ed9a0141c5ab10826a10cef690e1b686ac60f91a21877833"
+        }
+      ],
+      "merge": "single source bytes",
+      "layerOrderAnchorOriginalGroup": 15,
+      "sha256": "a62731a42baa33d7c34a4321932306738ed14bdbaaabfae2121a6ac3cb86c774"
+    },
+    {
+      "colorId": 15,
+      "file": "Zone_015.png",
+      "palette": [
+        227,
+        176,
+        95
+      ],
+      "sources": [
+        {
+          "file": "Zone_016.png",
+          "correctedSha256": "baa98f593a3b642cf9494083333009e5f1eac9ac2653a591831b42c5dc34ab66",
+          "beforeSha256": "529627b9560383defbd70f8a15c941a3d65a8d0ff275bbcffacc5790486b66fe",
+          "originalSha256": "ec1fc92a0bce258d89829dbe7b44562514a7cb7c3210e381bed0bce2e04d18eb",
+          "rgbaSha256": "926166a180c5674ac13a807978abce9bcb6882cee248e04e10b887f61a3d366c"
+        }
+      ],
+      "merge": "single source bytes",
+      "layerOrderAnchorOriginalGroup": 16,
+      "sha256": "baa98f593a3b642cf9494083333009e5f1eac9ac2653a591831b42c5dc34ab66"
+    },
+    {
+      "colorId": 16,
+      "file": "Zone_016.png",
+      "palette": [
+        203,
+        143,
+        78
+      ],
+      "sources": [
+        {
+          "file": "Zone_014.png",
+          "correctedSha256": "52479001e81d3c249374babb0f51a69d5acd110db9973f72bc0bf336e440ffaa",
+          "beforeSha256": "52479001e81d3c249374babb0f51a69d5acd110db9973f72bc0bf336e440ffaa",
+          "originalSha256": "6a47d60627b728784e7f2e0c698ff112a17253b36475a03f1920970e9021acd9",
+          "rgbaSha256": "b7353c5c23b9d0d75651e7b2cb18adde6eb11c017215fa7e76bde77e86ead338"
+        },
+        {
+          "file": "Zone_017.png",
+          "correctedSha256": "00ece4a270aafdb13e7021f8f26ccca66eedccf49e0fc9bffc45d6686ffff914",
+          "beforeSha256": "b0c8a6e32a86a28d715def119a8e1ccbaf82704897dd98d19417263744a0d3d9",
+          "originalSha256": "3bf3a7717cf6b8ceab0e28bbe44016a0f5d36d617ceb98ae96510be94ec56ba7",
+          "rgbaSha256": "e690dd088786a1888beaddafdcb9ea94280e74b72ada0ee87b153b1c8276309f"
+        }
+      ],
+      "merge": "disjoint RGBA union, original RGBA exact",
+      "layerOrderAnchorOriginalGroup": 17,
+      "sha256": "7500e11c0248990cee6dc4f2bf83f731211c11ddc67f53dbd447ce84be3d9b69"
+    },
+    {
+      "colorId": 17,
+      "file": "Zone_017.png",
+      "palette": [
+        249,
+        225,
+        249
+      ],
+      "sources": [
+        {
+          "file": "Zone_018.png",
+          "correctedSha256": "442b2bd079e8bccb8350469039b9583bc59d27bd7a285d148e2ae0b0b10dcf42",
+          "beforeSha256": "442b2bd079e8bccb8350469039b9583bc59d27bd7a285d148e2ae0b0b10dcf42",
+          "originalSha256": "442b2bd079e8bccb8350469039b9583bc59d27bd7a285d148e2ae0b0b10dcf42",
+          "rgbaSha256": "e01c0f74dd7f72b4d7da93dcd5224056dc2797a41600c4269b23a12213a5603e"
+        }
+      ],
+      "merge": "single source bytes",
+      "layerOrderAnchorOriginalGroup": 18,
+      "sha256": "442b2bd079e8bccb8350469039b9583bc59d27bd7a285d148e2ae0b0b10dcf42"
+    },
+    {
+      "colorId": 18,
+      "file": "Zone_018.png",
+      "palette": [
+        239,
+        195,
+        234
+      ],
+      "sources": [
+        {
+          "file": "Zone_019.png",
+          "correctedSha256": "9621acdf033d3b8aad37ac6f33b424c74408d440011b388b026259e2737828b2",
+          "beforeSha256": "9621acdf033d3b8aad37ac6f33b424c74408d440011b388b026259e2737828b2",
+          "originalSha256": "9621acdf033d3b8aad37ac6f33b424c74408d440011b388b026259e2737828b2",
+          "rgbaSha256": "7164cd6c2e822f987b8e6d5f58ac3395274d8b6d46ccf1069bcaddcd0f97fa48"
+        }
+      ],
+      "merge": "single source bytes",
+      "layerOrderAnchorOriginalGroup": 19,
+      "sha256": "9621acdf033d3b8aad37ac6f33b424c74408d440011b388b026259e2737828b2"
+    },
+    {
+      "colorId": 19,
+      "file": "Zone_019.png",
+      "palette": [
+        139,
+        204,
+        243
+      ],
+      "sources": [
+        {
+          "file": "Zone_021.png",
+          "correctedSha256": "03074f21bbfac1d318b08689198a344392e89538b7ecfb324ab069d821b91022",
+          "beforeSha256": "03074f21bbfac1d318b08689198a344392e89538b7ecfb324ab069d821b91022",
+          "originalSha256": "03074f21bbfac1d318b08689198a344392e89538b7ecfb324ab069d821b91022",
+          "rgbaSha256": "b8cf0e4b7821ec722862222ccbf9e43a141e6d818beecfbbb06a48ddc6683da5"
+        }
+      ],
+      "merge": "single source bytes",
+      "layerOrderAnchorOriginalGroup": 21,
+      "sha256": "03074f21bbfac1d318b08689198a344392e89538b7ecfb324ab069d821b91022"
+    },
+    {
+      "colorId": 20,
+      "file": "Zone_020.png",
+      "palette": [
+        220,
+        200,
+        246
+      ],
+      "sources": [
+        {
+          "file": "Zone_022.png",
+          "correctedSha256": "5eb52dd873cd174977f0b35ae999a755b9dc183824fb53f60e0f6505608db6e6",
+          "beforeSha256": "5eb52dd873cd174977f0b35ae999a755b9dc183824fb53f60e0f6505608db6e6",
+          "originalSha256": "5eb52dd873cd174977f0b35ae999a755b9dc183824fb53f60e0f6505608db6e6",
+          "rgbaSha256": "aaf6b339f50dc273337e846ce88fe0d56e426657876cb0dbcda8a118f3a203a1"
+        }
+      ],
+      "merge": "single source bytes",
+      "layerOrderAnchorOriginalGroup": 22,
+      "sha256": "5eb52dd873cd174977f0b35ae999a755b9dc183824fb53f60e0f6505608db6e6"
+    },
+    {
+      "colorId": 21,
+      "file": "Zone_021.png",
+      "palette": [
+        175,
+        126,
+        224
+      ],
+      "sources": [
+        {
+          "file": "Zone_023.png",
+          "correctedSha256": "63abd090298355f430bbe456fdf5a1800858ecc578a34baba3f286dcb398eaf7",
+          "beforeSha256": "63abd090298355f430bbe456fdf5a1800858ecc578a34baba3f286dcb398eaf7",
+          "originalSha256": "63abd090298355f430bbe456fdf5a1800858ecc578a34baba3f286dcb398eaf7",
+          "rgbaSha256": "7c98aba51aaacc02b83717f664d309904b3f4271fcf2268bd739489e1b5f4b33"
+        }
+      ],
+      "merge": "single source bytes",
+      "layerOrderAnchorOriginalGroup": 23,
+      "sha256": "63abd090298355f430bbe456fdf5a1800858ecc578a34baba3f286dcb398eaf7"
+    },
+    {
+      "colorId": 22,
+      "file": "Zone_022.png",
+      "palette": [
+        145,
+        89,
+        202
+      ],
+      "sources": [
+        {
+          "file": "Zone_024.png",
+          "correctedSha256": "6550e5430cc3dd4ed76da69b8b60d9f4a7928ffc18d979971da04c0e82291e5d",
+          "beforeSha256": "6550e5430cc3dd4ed76da69b8b60d9f4a7928ffc18d979971da04c0e82291e5d",
+          "originalSha256": "6550e5430cc3dd4ed76da69b8b60d9f4a7928ffc18d979971da04c0e82291e5d",
+          "rgbaSha256": "7e88c462cb4a75d19d11c7120d0ada5399ce1a3152282f16e9a2ae8a61feb8d7"
+        }
+      ],
+      "merge": "single source bytes",
+      "layerOrderAnchorOriginalGroup": 24,
+      "sha256": "6550e5430cc3dd4ed76da69b8b60d9f4a7928ffc18d979971da04c0e82291e5d"
+    },
+    {
+      "colorId": 23,
+      "file": "Zone_023.png",
+      "palette": [
+        84,
+        40,
+        147
+      ],
+      "sources": [
+        {
+          "file": "Zone_025.png",
+          "correctedSha256": "e8d79d00bde8384ea1d594b59cc94b4cfef39ebaa4616a8b929be6248015f4c6",
+          "beforeSha256": "e8d79d00bde8384ea1d594b59cc94b4cfef39ebaa4616a8b929be6248015f4c6",
+          "originalSha256": "e8d79d00bde8384ea1d594b59cc94b4cfef39ebaa4616a8b929be6248015f4c6",
+          "rgbaSha256": "a68f235dc47eaafe7f6dba4f26be544a78f68aacf964f3ce8b7897c1ab61bd5e"
+        }
+      ],
+      "merge": "single source bytes",
+      "layerOrderAnchorOriginalGroup": 25,
+      "sha256": "e8d79d00bde8384ea1d594b59cc94b4cfef39ebaa4616a8b929be6248015f4c6"
+    },
+    {
+      "colorId": 24,
+      "file": "Zone_024.png",
+      "palette": [
+        255,
+        186,
+        151
+      ],
+      "sources": [
+        {
+          "file": "Zone_026.png",
+          "correctedSha256": "c9784ee088eb0a07508876078af3c3d2d80f6983846aebd1af84d405799c0143",
+          "beforeSha256": "c9784ee088eb0a07508876078af3c3d2d80f6983846aebd1af84d405799c0143",
+          "originalSha256": "c9784ee088eb0a07508876078af3c3d2d80f6983846aebd1af84d405799c0143",
+          "rgbaSha256": "9ed16d3c35f461e823246ee9a1ea4c4d6c0e677a48f635e8eeb17abaa7e8896f"
+        }
+      ],
+      "merge": "single source bytes",
+      "layerOrderAnchorOriginalGroup": 26,
+      "sha256": "c9784ee088eb0a07508876078af3c3d2d80f6983846aebd1af84d405799c0143"
+    },
+    {
+      "colorId": 25,
+      "file": "Zone_025.png",
+      "palette": [
+        249,
+        162,
+        111
+      ],
+      "sources": [
+        {
+          "file": "Zone_027.png",
+          "correctedSha256": "05a9873e0119890ddfd22cc78d0c2520f24e75b5b57bcad9b1d51c42d6ab5a63",
+          "beforeSha256": "05a9873e0119890ddfd22cc78d0c2520f24e75b5b57bcad9b1d51c42d6ab5a63",
+          "originalSha256": "05a9873e0119890ddfd22cc78d0c2520f24e75b5b57bcad9b1d51c42d6ab5a63",
+          "rgbaSha256": "7388041d49e395a55f43ea376e0b409f457fea56d48567e30fc2ab1169faeac1"
+        }
+      ],
+      "merge": "single source bytes",
+      "layerOrderAnchorOriginalGroup": 27,
+      "sha256": "05a9873e0119890ddfd22cc78d0c2520f24e75b5b57bcad9b1d51c42d6ab5a63"
+    },
+    {
+      "colorId": 26,
+      "file": "Zone_026.png",
+      "palette": [
+        238,
+        120,
+        75
+      ],
+      "sources": [
+        {
+          "file": "Zone_028.png",
+          "correctedSha256": "7d7de6c78fb5fce4f0615119bf40993c0bd655777284ce3318c2f031187caadd",
+          "beforeSha256": "7d7de6c78fb5fce4f0615119bf40993c0bd655777284ce3318c2f031187caadd",
+          "originalSha256": "7d7de6c78fb5fce4f0615119bf40993c0bd655777284ce3318c2f031187caadd",
+          "rgbaSha256": "b62e92c766a8fb16cf10b86ac24172a97fcfc06968f03eb7fe0ef649a262291c"
+        }
+      ],
+      "merge": "single source bytes",
+      "layerOrderAnchorOriginalGroup": 28,
+      "sha256": "7d7de6c78fb5fce4f0615119bf40993c0bd655777284ce3318c2f031187caadd"
+    },
+    {
+      "colorId": 27,
+      "file": "Zone_027.png",
+      "palette": [
+        150,
+        34,
+        111
+      ],
+      "sources": [
+        {
+          "file": "Zone_029.png",
+          "correctedSha256": "1452db28074a013635b11298cc33bca75de30faaac72d84b635c9ae9d34360df",
+          "beforeSha256": "c9b9dd75cb22cf3ba2783fe84b1d7bb9bd8668567528bd83d786e76451bb3eab",
+          "originalSha256": "262214b6e52318384219ed1db93972dd519643fbb6646fa7d6f9bffe1447e15a",
+          "rgbaSha256": "1e28059f95e00d7d7e089766211b144e932a161f2c29e6e942ca38e3c11fd193"
+        }
+      ],
+      "merge": "single source bytes",
+      "layerOrderAnchorOriginalGroup": 29,
+      "sha256": "1452db28074a013635b11298cc33bca75de30faaac72d84b635c9ae9d34360df"
+    },
+    {
+      "colorId": 28,
+      "file": "Zone_028.png",
+      "palette": [
+        251,
+        200,
+        120
+      ],
+      "sources": [
+        {
+          "file": "Zone_030.png",
+          "correctedSha256": "61b91ea90e24ef30605b79cd6bd1fabc0db7f860d84fcdee0b7e54aab3dcc358",
+          "beforeSha256": "fa663a5acff5e89276cfddafe31ca6031b48375fbad5b68787d9aadb4c343887",
+          "originalSha256": "6507c5ce9b03d43a482be6eda4eb0eee0f924ed04928b8b8d7377c9f8b693823",
+          "rgbaSha256": "b7da0f834d27c6de51801d577bed980596bb2198658d76dd900c660b9f93a2f1"
+        }
+      ],
+      "merge": "single source bytes",
+      "layerOrderAnchorOriginalGroup": 30,
+      "sha256": "61b91ea90e24ef30605b79cd6bd1fabc0db7f860d84fcdee0b7e54aab3dcc358"
+    },
+    {
+      "colorId": 29,
+      "file": "Zone_029.png",
+      "palette": [
+        252,
+        124,
+        34
+      ],
+      "sources": [
+        {
+          "file": "Zone_031.png",
+          "correctedSha256": "eaeb67b2e81c03f99aa136fd491f6006f22a39e2e71f342f3e78b279bbad479a",
+          "beforeSha256": "089bfa2fd6a699ac580c298fb34ab6504dd392e4e490460bfc8337e8369f7a30",
+          "originalSha256": "f191f26d4c6c0e97ffd44f3b33784fa2e12c199c271be73f1ede8d75b36ee53a",
+          "rgbaSha256": "a8816e00dc10ba79cba67e4bf5acb4b3fd1e3f54325a5c3147a01951f8956702"
+        }
+      ],
+      "merge": "single source bytes",
+      "layerOrderAnchorOriginalGroup": 31,
+      "sha256": "eaeb67b2e81c03f99aa136fd491f6006f22a39e2e71f342f3e78b279bbad479a"
+    },
+    {
+      "colorId": 30,
+      "file": "Zone_030.png",
+      "palette": [
+        226,
+        98,
+        33
+      ],
+      "sources": [
+        {
+          "file": "Zone_032.png",
+          "correctedSha256": "ebd3da2ab0c239602eb326fce1a0b2d11374b51358e91ac944509f6a21681442",
+          "beforeSha256": "ebd3da2ab0c239602eb326fce1a0b2d11374b51358e91ac944509f6a21681442",
+          "originalSha256": "ebd3da2ab0c239602eb326fce1a0b2d11374b51358e91ac944509f6a21681442",
+          "rgbaSha256": "9ce6b1db7441fc469ecea0dc05550a43c73c6fa3303e6b89220562a0d4c559eb"
+        }
+      ],
+      "merge": "single source bytes",
+      "layerOrderAnchorOriginalGroup": 32,
+      "sha256": "ebd3da2ab0c239602eb326fce1a0b2d11374b51358e91ac944509f6a21681442"
+    },
+    {
+      "colorId": 31,
+      "file": "Zone_031.png",
+      "palette": [
+        236,
+        183,
+        235
+      ],
+      "sources": [
+        {
+          "file": "Zone_033.png",
+          "correctedSha256": "0baeca77e44b13d797f54a43e27ba86d1d673f0b9d8bc2af5f97f4fdd619cd92",
+          "beforeSha256": "0baeca77e44b13d797f54a43e27ba86d1d673f0b9d8bc2af5f97f4fdd619cd92",
+          "originalSha256": "0baeca77e44b13d797f54a43e27ba86d1d673f0b9d8bc2af5f97f4fdd619cd92",
+          "rgbaSha256": "72cfcaf25f3da9221341f5ab4a4078f6bd0869308eb89c957663f9efdea02f0f"
+        }
+      ],
+      "merge": "single source bytes",
+      "layerOrderAnchorOriginalGroup": 33,
+      "sha256": "0baeca77e44b13d797f54a43e27ba86d1d673f0b9d8bc2af5f97f4fdd619cd92"
+    },
+    {
+      "colorId": 32,
+      "file": "Zone_032.png",
+      "palette": [
+        204,
+        127,
+        216
+      ],
+      "sources": [
+        {
+          "file": "Zone_034.png",
+          "correctedSha256": "ccc61fcd8f98bb263183a024650c75ba59d26bc9de7735c915c5ffc1d3090919",
+          "beforeSha256": "5214615b7f7fb4d0e578f458b5b938721690d195323cd9e5d1cf2d2acb153ad2",
+          "originalSha256": "a3e66993e6a240918c3bfce0f1aee29429b27025598840061f2e12f6b992700e",
+          "rgbaSha256": "dbc7fabbdb31af218eb79c96962fa2b0bd4c75bccc075f7a633d57d7f5f01e55"
+        }
+      ],
+      "merge": "single source bytes",
+      "layerOrderAnchorOriginalGroup": 34,
+      "sha256": "ccc61fcd8f98bb263183a024650c75ba59d26bc9de7735c915c5ffc1d3090919"
+    },
+    {
+      "colorId": 33,
+      "file": "Zone_033.png",
+      "palette": [
+        149,
+        95,
+        183
+      ],
+      "sources": [
+        {
+          "file": "Zone_035.png",
+          "correctedSha256": "2d5e5b7608513ef339ac77417df8a637e48ad7ecfc2f039e05ad819813891b5c",
+          "beforeSha256": "2d5e5b7608513ef339ac77417df8a637e48ad7ecfc2f039e05ad819813891b5c",
+          "originalSha256": "2d5e5b7608513ef339ac77417df8a637e48ad7ecfc2f039e05ad819813891b5c",
+          "rgbaSha256": "b5a454ee0003401c6ed84d4ad60402adf133a05d66d9c44688ba16e983e3293f"
+        }
+      ],
+      "merge": "single source bytes",
+      "layerOrderAnchorOriginalGroup": 35,
+      "sha256": "2d5e5b7608513ef339ac77417df8a637e48ad7ecfc2f039e05ad819813891b5c"
+    },
+    {
+      "colorId": 34,
+      "file": "Zone_034.png",
+      "palette": [
+        100,
+        47,
+        147
+      ],
+      "sources": [
+        {
+          "file": "Zone_036.png",
+          "correctedSha256": "d6e5cf942411c52c90ed799962ee0aa93795f4ec7a17e7a33e257a8b51d071dd",
+          "beforeSha256": "81e04272196403b4886c8464d5281ede5b5673386759e9870d15b24fcbc7e462",
+          "originalSha256": "4617e46e01a0116d9a32c6c82477add40f88f14efdc41de47938d61e3bdad7ce",
+          "rgbaSha256": "8c475cde22377a072481bff315f2654de222978ab63a6e43b7c70a24e3bcdeb2"
+        }
+      ],
+      "merge": "single source bytes",
+      "layerOrderAnchorOriginalGroup": 36,
+      "sha256": "d6e5cf942411c52c90ed799962ee0aa93795f4ec7a17e7a33e257a8b51d071dd"
+    },
+    {
+      "colorId": 35,
+      "file": "Zone_035.png",
+      "palette": [
+        71,
+        30,
+        114
+      ],
+      "sources": [
+        {
+          "file": "Zone_037.png",
+          "correctedSha256": "cba102faee2f52ba62b3adc2e073a389449849afce86d703d180c35ff8743dd9",
+          "beforeSha256": "cba102faee2f52ba62b3adc2e073a389449849afce86d703d180c35ff8743dd9",
+          "originalSha256": "cba102faee2f52ba62b3adc2e073a389449849afce86d703d180c35ff8743dd9",
+          "rgbaSha256": "134bdd4b697ef562914d8fb2dd38a80358f691b27dd2dd063acb5af159cf0ba2"
+        }
+      ],
+      "merge": "single source bytes",
+      "layerOrderAnchorOriginalGroup": 37,
+      "sha256": "cba102faee2f52ba62b3adc2e073a389449849afce86d703d180c35ff8743dd9"
+    },
+    {
+      "colorId": 36,
+      "file": "Zone_036.png",
+      "palette": [
+        200,
+        128,
+        192
+      ],
+      "sources": [
+        {
+          "file": "Zone_038.png",
+          "correctedSha256": "306944252c8b11d56c234cff7a1acaf627e8ce5a0d2a9b73fb11a12b9f2ef9d9",
+          "beforeSha256": "c2562bdcb3d3336b9a0b30d058495a30448bcddaf93026434837dc89f7eb3433",
+          "originalSha256": "68377c31682adfab477c96a5a79d653d20c57f89268e6e70a065cb9d726bb602",
+          "rgbaSha256": "c1150413a754df0784b0bf2803e9c75ef6b2866b0b408dac2ffb7108be02c962"
+        }
+      ],
+      "merge": "single source bytes",
+      "layerOrderAnchorOriginalGroup": 38,
+      "sha256": "306944252c8b11d56c234cff7a1acaf627e8ce5a0d2a9b73fb11a12b9f2ef9d9"
+    },
+    {
+      "colorId": 37,
+      "file": "Zone_037.png",
+      "palette": [
+        241,
+        87,
+        151
+      ],
+      "sources": [
+        {
+          "file": "Zone_039.png",
+          "correctedSha256": "143e69d7880d8a832b6f8fad3de78b885d83346d864194123a3d76cb47e7e1f2",
+          "beforeSha256": "4bd865142cbd3d39cc5302c36cb41daddca88fb0462f9ad1d307501a9d8f6bd5",
+          "originalSha256": "698ce91454929e17b563add46289c8cd6b4618b0e96f10aef26830d9b1e54f86",
+          "rgbaSha256": "bb70e32780fc949e40ee705d344f8308e9bc8edd856e03ced0c771f9be385949"
+        }
+      ],
+      "merge": "single source bytes",
+      "layerOrderAnchorOriginalGroup": 39,
+      "sha256": "143e69d7880d8a832b6f8fad3de78b885d83346d864194123a3d76cb47e7e1f2"
+    },
+    {
+      "colorId": 38,
+      "file": "Zone_038.png",
+      "palette": [
+        233,
+        234,
+        171
+      ],
+      "sources": [
+        {
+          "file": "Zone_040.png",
+          "correctedSha256": "9e258532af61010a7dec9b281343fcf23c4986dd2cf5574118fb3ffd7ecca97b",
+          "beforeSha256": "fdc0f03743968a493100f5ce7d284fb787380f11db995aefacc11bb3d7773b52",
+          "originalSha256": "2c788410086b9f995e10930385fc7934ce28ec2c482a503be067ad7671693b58",
+          "rgbaSha256": "b137af000034c8002336d9cea8c48b4d40a448a45f26a33523349b50c03bd783"
+        }
+      ],
+      "merge": "single source bytes",
+      "layerOrderAnchorOriginalGroup": 40,
+      "sha256": "9e258532af61010a7dec9b281343fcf23c4986dd2cf5574118fb3ffd7ecca97b"
+    }
+  ],
+  "orderEvidence": "All candidate insertion positions tested; anchor17 for14/17 and anchor7 for7/20 keep full RGBA composite byte-exact"
+}

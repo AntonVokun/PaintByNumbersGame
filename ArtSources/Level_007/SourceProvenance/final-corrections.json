@@ -1,0 +1,243 @@
+[
+  {
+    "x": 1028,
+    "y": 576,
+    "ownerOriginalGroup": 16,
+    "basis": "Inverse-outline reference RGB uniquely matches purple group16; adjacent group geometry + existing alpha",
+    "oldRGBA": [
+      [
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        138,
+        59,
+        229,
+        239
+      ],
+      [
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        44,
+        7,
+        104,
+        207
+      ],
+      [
+        0,
+        0,
+        0,
+        0
+      ]
+    ],
+    "oldOutlineRGBA": [
+      0,
+      0,
+      0,
+      223
+    ],
+    "newOwnerRGBA": [
+      135,
+      64,
+      231,
+      255
+    ],
+    "newOutlineRGBA": [
+      0,
+      0,
+      0,
+      223
+    ],
+    "referenceRGB": [
+      17,
+      8,
+      29
+    ],
+    "beforeCompositeRGB": [
+      8,
+      2,
+      16
+    ],
+    "expectedCompositeRGB": [
+      17,
+      8,
+      29
+    ],
+    "maxReferenceError": 0,
+    "afterCompositeRGB": [
+      17,
+      8,
+      29
+    ]
+  },
+  {
+    "x": 341,
+    "y": 568,
+    "owner": "fixed outline white detail",
+    "oldOutlineRGBA": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "newOutlineRGBA": [
+      255,
+      255,
+      255,
+      255
+    ],
+    "referenceRGB": [
+      255,
+      255,
+      255
+    ],
+    "basis": "Original white reference + no source color layer covers pixel; fixed white artwork supported by outline; no palette group",
+    "afterCompositeRGB": [
+      255,
+      255,
+      255
+    ]
+  },
+  {
+    "x": 340,
+    "y": 569,
+    "owner": "fixed outline white detail",
+    "oldOutlineRGBA": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "newOutlineRGBA": [
+      255,
+      255,
+      255,
+      255
+    ],
+    "referenceRGB": [
+      255,
+      255,
+      255
+    ],
+    "basis": "Original white reference + no source color layer covers pixel; fixed white artwork supported by outline; no palette group",
+    "afterCompositeRGB": [
+      255,
+      255,
+      255
+    ]
+  }
+]

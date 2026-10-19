@@ -1,0 +1,30 @@
+{
+  "status": "PASS",
+  "key": "Meduza",
+  "colors": 38,
+  "regions": 780,
+  "overlaps": 0,
+  "gaps": 0,
+  "fileVerifier": {
+    "status": "PASS",
+    "canvas": [
+      1254,
+      1254
+    ],
+    "colors": 38,
+    "regions": 780,
+    "originals": 40,
+    "gamePngs": 41,
+    "scope": "files only; Editor/Play/Android separate"
+  },
+  "independentRaster": {
+    "status": "PASS",
+    "missing": 0,
+    "extra": 0,
+    "coveredPixels": 1417965
+  },
+  "allArtisticSourcesMapped": true,
+  "fullCanvas": true,
+  "singleSpriteSingleColorId": true,
+  "allPriorCorrectionsPreserved": true
+}

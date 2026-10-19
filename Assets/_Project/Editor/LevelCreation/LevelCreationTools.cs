@@ -63,6 +63,16 @@ public static class LevelCreationTools
         return m;
     }
 
+    public static string ImportCreateValidate(string folder, string previousSceneName, bool replaceExisting=false)
+    {
+        // One CLI entry, same checks and mutation boundaries as the original three commands.
+        var imported=Import(folder);
+        var created=Create(folder,previousSceneName,replaceExisting);
+        EditorSceneManager.OpenScene("Assets/_Project/Scenes/"+Read(folder).sceneName+".unity");
+        var pixels=ValidatePixels(folder,4);
+        return imported+"; "+created+"; "+pixels;
+    }
+
     public static string Import(string folder)
     {
         var m = Read(folder);
@@ -72,6 +82,7 @@ public static class LevelCreationTools
             string path = folder + "/" + file;
             var t = AssetImporter.GetAtPath(path) as TextureImporter;
             if (t == null) throw new InvalidOperationException("Missing texture: " + path);
+            string settingsBefore = EditorJsonUtility.ToJson(t);
             t.textureType = TextureImporterType.Sprite;
             t.spriteImportMode = SpriteImportMode.Single;
             t.spritePixelsPerUnit = m.pixelsPerUnit;
@@ -94,7 +105,7 @@ public static class LevelCreationTools
                 name = "Android", overridden = true, maxTextureSize = t.maxTextureSize,
                 format = TextureImporterFormat.RGBA32, textureCompression = TextureImporterCompression.Uncompressed
             });
-            t.SaveAndReimport();
+            if (settingsBefore != EditorJsonUtility.ToJson(t)) t.SaveAndReimport();
         }
         return $"Imported {m.colors + 3} full-canvas sprites, {m.width}x{m.height}, PPU {m.pixelsPerUnit}";
     }
@@ -148,11 +159,23 @@ public static class LevelCreationTools
             sr.sortingOrder = 0;
             var col = z.GetComponent<PolygonCollider2D>();
             col.offset = Vector2.zero;
-            col.pathCount = g.paths.Length;
-            for (int p = 0; p < g.paths.Length; p++)
-                col.SetPath(p, g.paths[p].points.Select(v => new Vector2(
-                    (v.x - m.width * 0.5f) / m.pixelsPerUnit,
-                    (m.height * 0.5f - v.y) / m.pixelsPerUnit)).ToArray());
+            var expectedPaths = g.paths.Select(path => path.points.Select(v => new Vector2(
+                (v.x - m.width * 0.5f) / m.pixelsPerUnit,
+                (m.height * 0.5f - v.y) / m.pixelsPerUnit)).ToArray()).ToArray();
+            bool pathsMatch = col.pathCount == expectedPaths.Length &&
+                expectedPaths.Select((path, i) => col.GetPath(i).SequenceEqual(path)).All(v => v);
+            if (!pathsMatch)
+            {
+                // Avoid rebuilding unchanged collider data, especially large multi-island groups.
+                bool colliderEnabled = col.enabled;
+                col.enabled = false;
+                try
+                {
+                    col.pathCount = expectedPaths.Length;
+                    for (int p = 0; p < expectedPaths.Length; p++) col.SetPath(p, expectedPaths[p]);
+                }
+                finally { col.enabled = colliderEnabled; }
+            }
             EditorUtility.SetDirty(z);
             zones.Add(z);
         }
@@ -280,7 +303,7 @@ public static class LevelCreationTools
                 var local = new Vector3((sample.x+0.5f-m.width*0.5f)/m.pixelsPerUnit,
                     (m.height*0.5f-sample.y-0.5f)/m.pixelsPerUnit,0);
                 var point = z.transform.TransformPoint(local);
-                if (!col.OverlapPoint(point)) errors.Add($"Unclickable region {g.id} at {sample.x},{sample.y}");
+                if (!col.OverlapPoint(point) && !ContainsWithPrecisionTolerance(col, point)) errors.Add($"Unclickable region {g.id} at {sample.x},{sample.y}");
                 foreach (var other in pc.zones.Where(v => v != z))
                     if (other.GetComponent<PolygonCollider2D>().OverlapPoint(point)) errors.Add("Cross-color collider " + g.id + "/" + other.colorId);
             }

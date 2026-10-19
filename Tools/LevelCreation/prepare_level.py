@@ -165,6 +165,45 @@ def contours(mask):
     return paths
 
 
+def geometry_paths(mask, max_edge_pixels=None, rectangles=False):
+    """Opt-in native geometry repairs; preserve every source pixel center.
+
+    Long, nearly parallel edges can produce native sliver triangles. Use only
+    for explicitly reviewed source layers; the legacy path list stays exact
+    when this option is absent. No pixels, islands or group IDs are changed.
+    """
+    if rectangles:
+        # Maximal equal horizontal runs, inset .01px to avoid native touching-path artefacts.
+        # PNGs are untouched; every occupied pixel center remains inside its rectangle.
+        active = {}; result = []
+        for y in range(mask.shape[0] + 1):
+            row = mask[y] if y < mask.shape[0] else np.zeros(mask.shape[1], bool)
+            edges = np.flatnonzero(np.diff(np.r_[False, row, False].astype(np.int8)))
+            current = {(int(a), int(b)) for a, b in zip(edges[::2], edges[1::2])}
+            for (a, b), top in list(active.items()):
+                if (a, b) not in current:
+                    result.append([dict(x=a+.01,y=top+.01),dict(x=b-.01,y=top+.01),dict(x=b-.01,y=y-.01),dict(x=a+.01,y=y-.01)])
+                    del active[(a, b)]
+            for run in sorted(current):
+                active.setdefault(run, y)
+        return result
+    paths = contours(mask)
+    if max_edge_pixels is None:
+        return paths
+    if type(max_edge_pixels) is not int or not 1 <= max_edge_pixels <= 256:
+        raise ValueError('geometryMaxEdgePixels must be an integer in 1..256')
+    result = []
+    for path in paths:
+        points = []
+        for a, b in zip(path, path[1:] + path[:1]):
+            count = max(1, int(np.ceil(np.hypot(b['x'] - a['x'], b['y'] - a['y']) / max_edge_pixels)))
+            for i in range(count):
+                points.append(dict(x=a['x'] + (b['x'] - a['x']) * i / count,
+                                   y=a['y'] + (b['y'] - a['y']) * i / count))
+        result.append(points)
+    return result
+
+
 def palette_rgb(value):
     if not isinstance(value, list) or len(value) != 3 or any(type(v) is not int or not 0 <= v <= 255 for v in value):
         raise ValueError('Palette RGB must contain three integers in 0..255')
@@ -225,7 +264,7 @@ def review_palette(groups, config):
 
 def prepare(source, output, scene_name, display_name, validate_only=False, grouping_mode=None, group_config=None):
     config = {} if group_config is None else group_config
-    if not isinstance(config, dict) or set(config) - {'groupingMode', 'colors', 'approvedClosePairs', 'sourceSha256', 'mergeGroups'}:
+    if not isinstance(config, dict) or set(config) - {'groupingMode', 'colors', 'approvedClosePairs', 'sourceSha256', 'mergeGroups', 'geometryMaxEdgePixels', 'geometryRectangles'}:
         raise ValueError('Invalid group configuration')
     grouping_mode = grouping_mode or config.get('groupingMode', 'rgb')
     if grouping_mode not in ('rgb', 'layer'):
@@ -243,6 +282,14 @@ def prepare(source, output, scene_name, display_name, validate_only=False, group
     if not zone_files:
         raise ValueError('Expected outlines.png and Zone_*.png; single-image segmentation needs reviewed masks first.')
     names = {f.relative_to(source).as_posix() for f in zone_files}
+    geometry_edges = config.get('geometryMaxEdgePixels', {})
+    if not isinstance(geometry_edges, dict) or set(geometry_edges) - names:
+        raise ValueError('Geometry subdivision must name existing source layers')
+    if any(type(v) is not int or not 1 <= v <= 256 for v in geometry_edges.values()):
+        raise ValueError('geometryMaxEdgePixels must contain integers in 1..256')
+    rectangle_sources = config.get('geometryRectangles', [])
+    if not isinstance(rectangle_sources, list) or any(not isinstance(n, str) or n not in names for n in rectangle_sources) or len(set(rectangle_sources)) != len(rectangle_sources):
+        raise ValueError('geometryRectangles must list distinct existing source layers')
     overrides = config.get('colors', {})
     if not isinstance(overrides, dict) or set(overrides) - names:
         raise ValueError('Palette overrides must name existing source layers')
@@ -267,6 +314,8 @@ def prepare(source, output, scene_name, display_name, validate_only=False, group
         merged_names.update(members)
     if set(overrides).intersection(merged_names - {v[0] for v in merge_groups}):
         raise ValueError('A merged palette override must use its first source layer')
+    if (set(geometry_edges) | set(rectangle_sources)).intersection(merged_names - {v[0] for v in merge_groups}):
+        raise ValueError('Merged geometry setting must use its first source layer')
     outline = np.array(Image.open(outline_path).convert('RGBA'))
     h, w = outline.shape[:2]
     groups, sources = [], []
@@ -336,7 +385,7 @@ def prepare(source, output, scene_name, display_name, validate_only=False, group
         mask = (image[:, :, 3] >= 128) & (owner == index)
         samples = runs_and_samples(mask)
         group.update(regions=len(samples), samples=samples,
-                     paths=[dict(points=p) for p in contours(mask)])
+                     paths=[dict(points=p) for p in geometry_paths(mask, geometry_edges.get(group['source']), group['source'] in rectangle_sources)])
     composed = Image.new('RGBA', (w, h), 'white')
     for image, _ in groups:
         composed = Image.alpha_composite(composed, Image.fromarray(image))
