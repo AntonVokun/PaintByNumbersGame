@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class PaintZone : MonoBehaviour
@@ -11,6 +12,9 @@ public class PaintZone : MonoBehaviour
 
     private Coroutine paintCoroutine;
     private Coroutine hintCoroutine;
+    private SpriteRenderer highlight;
+    private List<ZoneFocusTargets.Target> targets;
+    public Collider2D HitCollider { get; private set; }
 
     [SerializeField] private float paintAnimationTime = 0.25f;
 
@@ -19,6 +23,7 @@ public class PaintZone : MonoBehaviour
     private void Awake()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
+        HitCollider = GetComponent<Collider2D>();
 
         if (spriteRenderer == null)
         {
@@ -58,6 +63,44 @@ public class PaintZone : MonoBehaviour
         Color newColor = originalColor;
         newColor.a = value ? 0.55f : 0f;
         spriteRenderer.color = newColor;
+        if (value) EnsureHighlight();
+        SetHintVisible(value);
+    }
+
+    public bool TryGetFocusPoint(int index, out Vector2 point, out float size)
+    {
+        point = transform.position; size = 0f;
+        var polygon = HitCollider as PolygonCollider2D;
+        if (polygon == null || !polygon.enabled) return false;
+        if (targets == null) targets = ZoneFocusTargets.Build(polygon);
+        if (targets.Count == 0) return false;
+        int focusIndex = (index % targets.Count + targets.Count) % targets.Count;
+        var target = targets[focusIndex];
+        point = transform.TransformPoint(target.localPoint);
+        size = target.size * Mathf.Max(Mathf.Abs(transform.lossyScale.x), Mathf.Abs(transform.lossyScale.y));
+        return polygon.OverlapPoint(point);
+    }
+
+    private void EnsureHighlight()
+    {
+        if (highlight != null) return;
+        var material = Resources.Load<Material>("SelectedZoneHighlight");
+        if (material != null)
+        {
+            var go = new GameObject("SelectionHighlight");
+            go.transform.SetParent(transform, false);
+            highlight = go.AddComponent<SpriteRenderer>();
+            highlight.sprite = spriteRenderer.sprite;
+            highlight.flipX = spriteRenderer.flipX; highlight.flipY = spriteRenderer.flipY;
+            highlight.sharedMaterial = material;
+            highlight.sortingLayerID = spriteRenderer.sortingLayerID;
+            highlight.sortingOrder = spriteRenderer.sortingOrder + 1;
+        }
+    }
+
+    private void SetHintVisible(bool visible)
+    {
+        if (highlight != null) highlight.enabled = visible;
     }
 
     public void Paint()
@@ -94,6 +137,7 @@ public class PaintZone : MonoBehaviour
     public void SetPaintedInstant()
     {
         painted = true;
+        SetHintVisible(false);
 
         if (paintCoroutine != null)
             StopCoroutine(paintCoroutine);
@@ -112,6 +156,7 @@ public class PaintZone : MonoBehaviour
     private void SetPaintedWithAnimation()
     {
         painted = true;
+        SetHintVisible(false);
 
         if (paintCoroutine != null)
             StopCoroutine(paintCoroutine);
@@ -156,11 +201,13 @@ public class PaintZone : MonoBehaviour
         if (hintCoroutine != null)
             StopCoroutine(hintCoroutine);
 
+        SetHighlight(true);
         hintCoroutine = StartCoroutine(HintPulse());
     }
 
     public void StopHintPulse()
     {
+        SetHintVisible(false);
         if (hintCoroutine != null)
         {
             StopCoroutine(hintCoroutine);
@@ -221,8 +268,4 @@ public class PaintZone : MonoBehaviour
         paintCoroutine = StartCoroutine(PaintAnimation());
     }
 
-    private void OnMouseDown()
-    {
-        Paint();
-    }
 }

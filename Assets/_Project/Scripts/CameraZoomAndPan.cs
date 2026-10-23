@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.Controls;
 using UnityEngine.SceneManagement;
 
 public class CameraZoomAndPan : MonoBehaviour
@@ -33,9 +34,24 @@ public class CameraZoomAndPan : MonoBehaviour
 
     private Vector2 lastPanPosition;
     private bool isPanning;
-    private bool touch0StartedOverUi;
-    private bool touch1StartedOverUi;
     private bool singleTouchActive;
+    private bool touchGestureActive;
+    private int gestureTouchId;
+    private readonly HashSet<int> blockedTouches = new HashSet<int>();
+
+    // Screen-space slop scaled for high-density Android displays. Painting commits on release.
+    private const float TapMovementPixels = 12f;
+    private const float MaxTapSeconds = 0.5f;
+    private sealed class TapGesture
+    {
+        public bool active, cancelled;
+        public Vector2 start;
+        public float time;
+        public PaintZone zone;
+        public void Clear() { active = false; cancelled = false; zone = null; }
+    }
+    private readonly TapGesture mouseTap = new TapGesture();
+    private readonly TapGesture touchTap = new TapGesture();
     private bool initialFitCompleted;
     private bool artworkBoundsReady;
     private bool viewportReferenceErrorReported;
@@ -47,6 +63,11 @@ public class CameraZoomAndPan : MonoBehaviour
     private int fittedScreenHeight;
     private float fittedOrthographicSize;
     private Bounds artworkBounds;
+    private float targetZoom, zoomVelocity;
+    private Vector2 zoomAnchor;
+    private bool hasZoomAnchor;
+    private Coroutine focusRoutine;
+    private int searchColor = -1, searchIndex;
 
     private const string ViewportBackgroundLayerName =
         "ViewportBackground";
@@ -231,7 +252,10 @@ public class CameraZoomAndPan : MonoBehaviour
             initialFitCompleted = TryFitArtworkToAvailableArea();
 
             if (initialFitCompleted)
+            {
+                SelectColor.CreateSearchButton(this);
                 yield break;
+            }
 
             attempts++;
 
@@ -258,16 +282,24 @@ public class CameraZoomAndPan : MonoBehaviour
             TryFitArtworkToAvailableArea();
         }
 
-        HandleMouse();
-        HandleTouch();
+        bool touchInput = HandleTouch();
+        HandleMouse(touchInput);
 
     }
 
 
-    private void HandleMouse()
+    private void HandleMouse(bool touchInput)
     {
         if (Mouse.current == null)
             return;
+
+        // A touch-generated mouse stream must not become a second paint action.
+        if (touchInput || touchGestureActive)
+        {
+            mouseTap.Clear();
+            isPanning = false;
+            return;
+        }
 
         Vector2 mousePosition = Mouse.current.position.ReadValue();
 
@@ -277,11 +309,14 @@ public class CameraZoomAndPan : MonoBehaviour
 
         if (!pointerBlocked && Mathf.Abs(scroll) > 0.01f)
         {
-            ZoomCamera(-scroll * mouseZoomSpeed * Time.deltaTime);
+            CancelFocus();
+            ZoomCamera(-scroll * mouseZoomSpeed * .001f);
         }
 
         if (Mouse.current.rightButton.wasPressedThisFrame)
         {
+            CancelFocus();
+            mouseTap.cancelled = true;
             lastPanPosition = mousePosition;
             isPanning = !pointerBlocked;
         }
@@ -293,82 +328,248 @@ public class CameraZoomAndPan : MonoBehaviour
 
         if (isPanning && Mouse.current.rightButton.isPressed)
         {
-            PanCamera(mousePosition);
+            if (!pointerBlocked)
+                PanCamera(mousePosition);
+            else
+                isPanning = false;
         }
+
+        if (Mouse.current.leftButton.wasPressedThisFrame && !Mouse.current.rightButton.isPressed)
+            BeginTap(mouseTap, mousePosition, -1);
+        if (mouseTap.active)
+            TrackTap(mouseTap, mousePosition, -1);
+        if (Mouse.current.leftButton.wasReleasedThisFrame)
+            FinishTap(mouseTap, mousePosition, -1);
     }
 
-    private void HandleTouch()
+    private bool HandleTouch()
     {
         if (Touchscreen.current == null)
-            return;
+            return false;
 
-        var touch0 = Touchscreen.current.touches[0];
-        var touch1 = Touchscreen.current.touches[1];
-
-        bool touch0Pressed = touch0.press.isPressed;
-        bool touch1Pressed = touch1.press.isPressed;
-
-        if (touch0.press.wasPressedThisFrame)
+        TouchControl first = null, second = null, tracked = null;
+        int count = 0;
+        bool inputThisFrame = false;
+        foreach (var touch in Touchscreen.current.touches)
         {
-            touch0StartedOverUi = IsPointerBlockedForCamera(
-                touch0.position.ReadValue(),
-                touch0.touchId.ReadValue()
-            );
+            int id = touch.touchId.ReadValue();
+            if (touchGestureActive && id == gestureTouchId)
+                tracked = touch;
+            if (touch.press.wasPressedThisFrame)
+            {
+                CancelFocus();
+                blockedTouches.Remove(id);
+                if (IsPointerBlockedForCamera(touch.position.ReadValue(), id))
+                    blockedTouches.Add(id);
+            }
+            inputThisFrame |= touch.press.isPressed || touch.press.wasReleasedThisFrame;
+            if (!touch.press.isPressed)
+                continue;
+            if (count == 0) first = touch;
+            if (count == 1) second = touch;
+            count++;
         }
 
-        if (touch1.press.wasPressedThisFrame)
+        if (!touchGestureActive && count > 0)
         {
-            touch1StartedOverUi = IsPointerBlockedForCamera(
-                touch1.position.ReadValue(),
-                touch1.touchId.ReadValue()
-            );
+            touchGestureActive = true;
+            gestureTouchId = first.touchId.ReadValue();
+            tracked = first;
+            lastPanPosition = first.position.ReadValue();
+            singleTouchActive = true;
+            BeginTap(touchTap, lastPanPosition, gestureTouchId);
+            if (!first.press.wasPressedThisFrame)
+                touchTap.cancelled = true;
         }
 
-        if (touch0Pressed && !touch1Pressed && !touch0StartedOverUi)
+        if (count > 1)
         {
-            Vector2 position = touch0.position.ReadValue();
-
-            if (!singleTouchActive || touch0.press.wasPressedThisFrame)
+            // Cancellation is sticky until every finger lifts, including the last finger after a pinch.
+            touchTap.cancelled = true;
+            singleTouchActive = false;
+            Vector2 pos0 = first.position.ReadValue(), pos1 = second.position.ReadValue();
+            if (count == 2 && !blockedTouches.Contains(first.touchId.ReadValue()) &&
+                !blockedTouches.Contains(second.touchId.ReadValue()) &&
+                !first.press.wasPressedThisFrame && !second.press.wasPressedThisFrame &&
+                !IsPointerBlockedForCamera(pos0, first.touchId.ReadValue()) &&
+                !IsPointerBlockedForCamera(pos1, second.touchId.ReadValue()))
+            {
+                float previous = Vector2.Distance(pos0 - first.delta.ReadValue(), pos1 - second.delta.ReadValue());
+                float distance = Vector2.Distance(pos0, pos1);
+                if (previous > 8f && distance > 8f)
+                {
+                    // Relative distance is independent of device DPI; damp fast changes.
+                    float ratio = Mathf.Clamp(previous / distance, .85f, 1.18f);
+                    targetZoom = Mathf.Clamp(targetZoom * Mathf.Pow(ratio, .55f), minZoom, fittedOrthographicSize);
+                    zoomAnchor = (pos0 + pos1) * .5f;
+                    hasZoomAnchor = true;
+                }
+            }
+        }
+        else if (count == 1)
+        {
+            Vector2 position = first.position.ReadValue();
+            int id = first.touchId.ReadValue();
+            if (id != gestureTouchId || blockedTouches.Contains(id))
+                touchTap.cancelled = true;
+            bool wasCancelled = touchTap.cancelled;
+            TrackTap(touchTap, position, id);
+            if (!wasCancelled && touchTap.cancelled)
+                lastPanPosition = touchTap.start + (position-touchTap.start).normalized * Mathf.Sqrt(TapSlopSquared);
+            if (!singleTouchActive)
             {
                 lastPanPosition = position;
                 singleTouchActive = true;
             }
-            else
-            {
+            if (!blockedTouches.Contains(id) && !IsPointerBlockedForCamera(position, id) &&
+                (touchTap.cancelled || (position - touchTap.start).sqrMagnitude > TapSlopSquared))
                 PanCamera(position);
+        }
+        else if (touchGestureActive)
+        {
+            if (tracked != null && tracked.phase.ReadValue() == UnityEngine.InputSystem.TouchPhase.Ended)
+                FinishTap(touchTap, tracked.position.ReadValue(), gestureTouchId);
+            touchTap.Clear();
+            touchGestureActive = false;
+            singleTouchActive = false;
+            blockedTouches.Clear();
+        }
+        return inputThisFrame;
+    }
+
+    private float TapSlopSquared
+    {
+        get
+        {
+            float pixels = TapMovementPixels * Mathf.Max(1f, Screen.dpi / 160f);
+            return pixels * pixels;
+        }
+    }
+
+    private void BeginTap(TapGesture tap, Vector2 position, int pointerId)
+    {
+        tap.Clear();
+        tap.active = true;
+        tap.start = position;
+        tap.time = Time.unscaledTime;
+        tap.cancelled = IsPointerBlockedForCamera(position, pointerId);
+        var controller = PaintController.Instance;
+        if (tap.cancelled || controller == null || controller.zones == null)
+            return;
+        foreach (var zone in controller.zones)
+        {
+            if (zone == null || !zone.isActiveAndEnabled || zone.IsPainted ||
+                zone.colorId != SelectColor.CurrentColorId)
+                continue;
+            if (HitsZone(zone, position, pointerId >= 0))
+            {
+                tap.zone = zone;
+                break;
             }
         }
-        else
+    }
+
+    private void TrackTap(TapGesture tap, Vector2 position, int pointerId)
+    {
+        if (tap.active && ((position - tap.start).sqrMagnitude > TapSlopSquared ||
+            IsPointerBlockedForCamera(position, pointerId)))
+            tap.cancelled = true;
+    }
+
+    private void FinishTap(TapGesture tap, Vector2 position, int pointerId)
+    {
+        TrackTap(tap, position, pointerId);
+        if (tap.active && !tap.cancelled && tap.zone != null &&
+            Time.unscaledTime - tap.time <= MaxTapSeconds &&
+            HitsZone(tap.zone, position, pointerId >= 0))
+            tap.zone.Paint();
+        tap.Clear();
+    }
+
+    private bool HitsZone(PaintZone zone, Vector2 screen, bool assist)
+    {
+        var collider = zone.HitCollider;
+        if (collider == null || !collider.enabled || zone.IsPainted || zone.colorId != SelectColor.CurrentColorId) return false;
+        Vector2 world = cam.ScreenToWorldPoint(screen);
+        if (collider.OverlapPoint(world)) return true;
+        if (!assist) return false;
+        float radius = 12f * Mathf.Clamp(Screen.dpi / 160f, 1f, 3f);
+        Vector2 nearest = cam.WorldToScreenPoint(collider.ClosestPoint(world));
+        return (nearest - screen).sqrMagnitude <= radius * radius;
+    }
+
+    public bool FindSelectedColor()
+    {
+        var controller = PaintController.Instance;
+        if (controller == null || controller.zones == null || controller.winPanel != null && controller.winPanel.activeInHierarchy) return false;
+        int color = SelectColor.CurrentColorId;
+        if (searchColor != color) { searchColor = color; searchIndex = 0; }
+        foreach (var zone in controller.zones)
         {
-            singleTouchActive = false;
+            if (zone == null || zone.IsPainted || zone.colorId != color) continue;
+            if (!zone.TryGetFocusPoint(searchIndex, out Vector2 point, out float size)) continue;
+            searchIndex++;
+            zone.SetHighlight(true);
+            zone.StartHintPulse();
+            CancelFocus();
+            focusRoutine = StartCoroutine(FocusOn(point, Mathf.Min(cam.orthographicSize, Mathf.Clamp(size*1.25f,minZoom,fittedOrthographicSize))));
+            return true;
         }
+        return false;
+    }
 
-        if (touch0Pressed && touch1Pressed &&
-            !touch0StartedOverUi && !touch1StartedOverUi)
+    private IEnumerator FocusOn(Vector2 point, float size)
+    {
+        Vector3 start = transform.position;
+        Vector3 end = new Vector3(point.x, point.y, start.z);
+        float initial = cam.orthographicSize;
+        for (float t=0f;t<.4f;t+=Time.unscaledDeltaTime)
         {
-            Vector2 pos0 = touch0.position.ReadValue();
-            Vector2 pos1 = touch1.position.ReadValue();
-
-            Vector2 prevPos0 = pos0 - touch0.delta.ReadValue();
-            Vector2 prevPos1 = pos1 - touch1.delta.ReadValue();
-
-            float previousDistance =
-                Vector2.Distance(prevPos0, prevPos1);
-
-            float currentDistance =
-                Vector2.Distance(pos0, pos1);
-
-            float difference =
-                previousDistance - currentDistance;
-
-            ZoomCamera(difference * zoomSpeed);
+            float f = Mathf.SmoothStep(0f,1f,t/.4f);
+            cam.orthographicSize = Mathf.Lerp(initial,size,f);
+            transform.position = Vector3.Lerp(start,end,f);
+            ClampCameraPosition();
+            targetZoom = cam.orthographicSize;
+            yield return null;
         }
+        cam.orthographicSize = targetZoom = size;
+        transform.position = end; ClampCameraPosition();
+        focusRoutine = null;
+    }
 
-        if (touch0.press.wasReleasedThisFrame)
-            touch0StartedOverUi = false;
+    private void CancelFocus()
+    {
+        if (focusRoutine != null) StopCoroutine(focusRoutine);
+        focusRoutine = null;
+    }
 
-        if (touch1.press.wasReleasedThisFrame)
-            touch1StartedOverUi = false;
+    private void LateUpdate()
+    {
+        if (!initialFitCompleted || focusRoutine != null || Mathf.Abs(targetZoom-cam.orthographicSize)<.00001f) return;
+        Vector3 anchorBefore = hasZoomAnchor ? cam.ScreenToWorldPoint(zoomAnchor) : Vector3.zero;
+        cam.orthographicSize = Mathf.SmoothDamp(cam.orthographicSize,targetZoom,ref zoomVelocity,.09f,Mathf.Infinity,Time.unscaledDeltaTime);
+        if (hasZoomAnchor) transform.position += anchorBefore-cam.ScreenToWorldPoint(zoomAnchor);
+        ClampCameraPosition();
+    }
+
+    private void OnDisable()
+    {
+        CancelFocus();
+        mouseTap.Clear();
+        touchTap.Clear();
+        touchGestureActive = false;
+        singleTouchActive = false;
+        isPanning = false;
+        blockedTouches.Clear();
+        if (cam != null) targetZoom = cam.orthographicSize;
+        zoomVelocity = 0f;
+        hasZoomAnchor = false;
+    }
+
+    private void OnApplicationFocus(bool focused)
+    {
+        if (!focused)
+            OnDisable();
     }
 
     private bool IsPointerOverBlockingUi(
@@ -376,6 +577,9 @@ public class CameraZoomAndPan : MonoBehaviour
         int pointerId
     )
     {
+        if (PaintController.Instance != null && PaintController.Instance.winPanel != null &&
+            PaintController.Instance.winPanel.activeInHierarchy)
+            return true;
         if (EventSystem.current == null)
             return false;
 
@@ -391,18 +595,9 @@ public class CameraZoomAndPan : MonoBehaviour
 
         foreach (RaycastResult result in uiRaycastResults)
         {
-            Transform current = result.gameObject.transform;
-
-            while (current != null)
-            {
-                if (current.name == "PaletteWindow" ||
-                    current.name == "TopBar")
-                {
-                    return true;
-                }
-
-                current = current.parent;
-            }
+            // Ignore world/physics raycasters and the gameplay viewport container itself.
+            if (result.module is UnityEngine.UI.GraphicRaycaster && result.gameObject.transform != gameplayViewport)
+                return true;
         }
 
         return false;
@@ -453,7 +648,7 @@ public class CameraZoomAndPan : MonoBehaviour
 
         foreach (Renderer renderer in artRenderers)
         {
-            if (!renderer.enabled)
+            if (!renderer.enabled || renderer is LineRenderer)
                 continue;
 
             if (!hasBounds)
@@ -484,6 +679,8 @@ public class CameraZoomAndPan : MonoBehaviour
         float fittedSize = Mathf.Max(sizeForWidth, sizeForHeight) * 1.01f;
 
         cam.orthographicSize = fittedSize;
+        targetZoom = fittedSize;
+        zoomVelocity = 0f;
         maxZoom = Mathf.Max(maxZoom, fittedSize);
         fittedOrthographicSize = fittedSize;
 
@@ -642,13 +839,13 @@ public class CameraZoomAndPan : MonoBehaviour
             ? fittedOrthographicSize
             : maxZoom;
 
-        cam.orthographicSize = Mathf.Clamp(
-            cam.orthographicSize + increment,
+        targetZoom = Mathf.Clamp(
+            targetZoom + increment,
             minZoom,
             zoomOutLimit
         );
 
-        ClampCameraPosition();
+        hasZoomAnchor = false;
     }
 
     private void ClampCameraPosition()

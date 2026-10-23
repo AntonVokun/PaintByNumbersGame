@@ -8,6 +8,24 @@ public class SelectColor : MonoBehaviour
     public static int CurrentColorId { get; private set; } = -1;
 
     private static SelectColor selectedButton;
+    private static UnityEngine.UI.Button searchButton;
+
+    public static void CreateSearchButton(CameraZoomAndPan camera)
+    {
+        if (searchButton != null) return;
+        foreach (var button in FindObjectsByType<UnityEngine.UI.Button>(FindObjectsSortMode.None))
+        {
+            if (button.name != "HintButton" || button.gameObject.scene != camera.gameObject.scene)
+                continue;
+
+            searchButton = button;
+            break;
+        }
+
+        if (searchButton == null) return;
+        searchButton.interactable = CurrentColorId != -1;
+        searchButton.onClick.AddListener(()=>camera.FindSelectedColor());
+    }
 
     private Vector3 normalScale;
     private Vector3 selectedScale;
@@ -15,6 +33,26 @@ public class SelectColor : MonoBehaviour
     private float hintTimer = 0f;
     private float hintDelay = 10f;
     private bool hintStarted = false;
+
+    [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)]
+    private static void ResetSelection()
+    {
+        selectedButton = null;
+        CurrentColorId = -1;
+        if (searchButton != null) searchButton.interactable=false;
+    }
+
+    private void OnDisable()
+    {
+        if (selectedButton != this)
+            return;
+
+        StopAllHints();
+        transform.localScale = normalScale;
+        hintTimer = 0f;
+        hintStarted = false;
+        ResetSelection();
+    }
 
     private void Awake()
     {
@@ -71,6 +109,7 @@ public class SelectColor : MonoBehaviour
         transform.localScale = selectedScale;
 
         CurrentColorId = colorId;
+        if (searchButton != null) searchButton.interactable=true;
 
         hintTimer = 0f;
         hintStarted = false;

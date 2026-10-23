@@ -69,7 +69,7 @@
     },
     {
       "path": "Assets/_Project/Scenes/Level_001_New.unity",
-      "sha256": "1bc71928b2c6e8ec27da0cd20271042d2c9642224d57242f09e133effa66d2ed",
+      "sha256": "b2537a3ae402c4e47201106c8b854a6ab121124739da44e92495f8ce5bf24908",
       "roots": [
         "Camera",
         "Canvas",
@@ -85,8 +85,7 @@
         "Assets/_Project/Scripts/PaintZone.cs",
         "Assets/_Project/Scripts/PaletteDragScroll.cs",
         "Assets/_Project/Scripts/ProjectScanner.cs",
-        "Assets/_Project/Scripts/SelectColor.cs",
-        "Assets/_Project/Scripts/SoundToggleButton.cs"
+        "Assets/_Project/Scripts/SelectColor.cs"
       ],
       "paintZones": 16,
       "paletteButtons": 16,
@@ -185,7 +184,7 @@
     },
     {
       "path": "Assets/_Project/Scenes/Level_002_New.unity",
-      "sha256": "2d9b50892a90cc3e03e08514fc6ad5624e604c14b82971d29d6b483f06f2bd28",
+      "sha256": "6e32d05179cf8f1d27332c12004e95c7d3d301be887f521253dade24b8d9973f",
       "roots": [
         "Camera",
         "Canvas",
@@ -201,8 +200,7 @@
         "Assets/_Project/Scripts/PaintZone.cs",
         "Assets/_Project/Scripts/PaletteDragScroll.cs",
         "Assets/_Project/Scripts/ProjectScanner.cs",
-        "Assets/_Project/Scripts/SelectColor.cs",
-        "Assets/_Project/Scripts/SoundToggleButton.cs"
+        "Assets/_Project/Scripts/SelectColor.cs"
       ],
       "paintZones": 17,
       "paletteButtons": 17,
@@ -235,7 +233,7 @@
     },
     {
       "path": "Assets/_Project/Scenes/Level_003_New.unity",
-      "sha256": "1f83666a7f6422c5bc7ae47bb5b00db835aeadf4259f309b7c7a67c69d1868d8",
+      "sha256": "bf98a2517ba166f2410285d70b63bf5dc0b00f4b3e0af4b6d46bd5804be84329",
       "roots": [
         "Camera",
         "Canvas",
@@ -251,8 +249,7 @@
         "Assets/_Project/Scripts/PaintZone.cs",
         "Assets/_Project/Scripts/PaletteDragScroll.cs",
         "Assets/_Project/Scripts/ProjectScanner.cs",
-        "Assets/_Project/Scripts/SelectColor.cs",
-        "Assets/_Project/Scripts/SoundToggleButton.cs"
+        "Assets/_Project/Scripts/SelectColor.cs"
       ],
       "paintZones": 15,
       "paletteButtons": 15,
@@ -283,7 +280,7 @@
     },
     {
       "path": "Assets/_Project/Scenes/Level_004_New.unity",
-      "sha256": "3e285400bdc2f0577eb82a7c268000b3fac0d7e591013e3a2c5a81f87c48344a",
+      "sha256": "830f07eb6b1c9bdc3e464d5d86a1211895213db4ace6716f97b1fc7ad5bd8c59",
       "roots": [
         "Camera",
         "Canvas",
@@ -299,8 +296,7 @@
         "Assets/_Project/Scripts/PaintZone.cs",
         "Assets/_Project/Scripts/PaletteDragScroll.cs",
         "Assets/_Project/Scripts/ProjectScanner.cs",
-        "Assets/_Project/Scripts/SelectColor.cs",
-        "Assets/_Project/Scripts/SoundToggleButton.cs"
+        "Assets/_Project/Scripts/SelectColor.cs"
       ],
       "paintZones": 17,
       "paletteButtons": 17,
@@ -333,7 +329,7 @@
     },
     {
       "path": "Assets/_Project/Scenes/Level_005_New.unity",
-      "sha256": "1bab42664a9aaddad8fc86e40754412a49813fb09e9036bf2ef28e333e37a69e",
+      "sha256": "de5897f49cb5ad3164c4a8efacf6b57c035a549f9a173173cf51eac53a200bac",
       "roots": [
         "Camera",
         "Canvas",
@@ -349,8 +345,7 @@
         "Assets/_Project/Scripts/PaintZone.cs",
         "Assets/_Project/Scripts/PaletteDragScroll.cs",
         "Assets/_Project/Scripts/ProjectScanner.cs",
-        "Assets/_Project/Scripts/SelectColor.cs",
-        "Assets/_Project/Scripts/SoundToggleButton.cs"
+        "Assets/_Project/Scripts/SelectColor.cs"
       ],
       "paintZones": 38,
       "paletteButtons": 38,
@@ -404,7 +399,7 @@
     },
     {
       "path": "Assets/_Project/Scenes/Level_006_New.unity",
-      "sha256": "b242ee47f55ceb2f5de0625d1db154ca2cba84440d70b8bb8371bfdcdf6317cc",
+      "sha256": "b7284543974b3e1986de540a69ae5aae1cf3be3494c3692cd1d1880f77d0eea0",
       "roots": [
         "Camera",
         "Canvas",
@@ -420,8 +415,7 @@
         "Assets/_Project/Scripts/PaintZone.cs",
         "Assets/_Project/Scripts/PaletteDragScroll.cs",
         "Assets/_Project/Scripts/ProjectScanner.cs",
-        "Assets/_Project/Scripts/SelectColor.cs",
-        "Assets/_Project/Scripts/SoundToggleButton.cs"
+        "Assets/_Project/Scripts/SelectColor.cs"
       ],
       "paintZones": 25,
       "paletteButtons": 25,
@@ -462,7 +456,7 @@
     },
     {
       "path": "Assets/_Project/Scenes/Level_007_New.unity",
-      "sha256": "0beaa5289079582f937688bd9bfaa025c04717a809173dff7d8b161b9175b9ba",
+      "sha256": "ff493d153418e10dcc85393c181e4377ae505486ecd55e69d6887f87fa4a1044",
       "roots": [
         "Camera",
         "Canvas",
@@ -478,8 +472,7 @@
         "Assets/_Project/Scripts/PaintZone.cs",
         "Assets/_Project/Scripts/PaletteDragScroll.cs",
         "Assets/_Project/Scripts/ProjectScanner.cs",
-        "Assets/_Project/Scripts/SelectColor.cs",
-        "Assets/_Project/Scripts/SoundToggleButton.cs"
+        "Assets/_Project/Scripts/SelectColor.cs"
       ],
       "paintZones": 23,
       "paletteButtons": 23,
@@ -568,6 +561,7 @@
     "Assets/_Project/Scripts/GameSound.cs",
     "Assets/_Project/Scripts/LevelCardUI.cs",
     "Assets/_Project/Scripts/LevelPreviewCard.cs",
+    "Assets/_Project/Scripts/LevelTransition.cs",
     "Assets/_Project/Scripts/MainMenuController.cs",
     "Assets/_Project/Scripts/PaintController.cs",
     "Assets/_Project/Scripts/PaintZone.cs",
@@ -577,6 +571,7 @@
     "Assets/_Project/Scripts/SelectColor.cs",
     "Assets/_Project/Scripts/SoundToggleButton.cs",
     "Assets/_Project/Scripts/UIButtonPressAnimation.cs",
+    "Assets/_Project/Scripts/ZoneFocusTargets.cs",
     "Assets/_Project/UI/WinPanel/Scripts/WinPanelUI.cs"
   ],
   "prefabs": [
@@ -763,6 +758,7 @@
     "Assets/_Project/Art/UI/Backgrounds/Backgrounds_LVL.png",
     "Assets/_Project/Art/UI/Backgrounds/Меню подложка.png",
     "Assets/_Project/Art/UI/Backgrounds/фон для меню 2.png",
+    "Assets/_Project/Art/UI/Buttons/HintBulb.png",
     "Assets/_Project/Art/UI/Buttons/Выход.png",
     "Assets/_Project/Art/UI/Buttons/Далее-2-без-тени.png",
     "Assets/_Project/Art/UI/Buttons/далее-1-без-тени.png",
@@ -778,6 +774,8 @@
     "Assets/_Project/Art/UI/Buttons/стрелка-2 назад.png",
     "Assets/_Project/Art/UI/Buttons/стрелка-2-с-тенью назад.png",
     "Assets/_Project/Art/UI/Buttons/стрелка-с-тенью назад.png",
+    "Assets/_Project/Art/UI/Icons/AppIcon_CatApples.png",
+    "Assets/_Project/Art/UI/Icons/AppIcon_CatApples_Adaptive.png",
     "Assets/_Project/Art/UI/Icons/Сheckmark2.png",
     "Assets/_Project/Art/UI/Icons/Сheckmarkbuttom.png",
     "Assets/_Project/Art/UI/Icons/дом-с-окном---без-тени.png",
@@ -869,7 +867,7 @@
       "path": "ArtSources/Level_003/level_manifest.json",
       "scene": {
         "path": "Assets/_Project/Scenes/Level_003_New.unity",
-        "sha256": "1f83666a7f6422c5bc7ae47bb5b00db835aeadf4259f309b7c7a67c69d1868d8",
+        "sha256": "bf98a2517ba166f2410285d70b63bf5dc0b00f4b3e0af4b6d46bd5804be84329",
         "roots": [
           "Camera",
           "Canvas",
@@ -885,8 +883,7 @@
           "Assets/_Project/Scripts/PaintZone.cs",
           "Assets/_Project/Scripts/PaletteDragScroll.cs",
           "Assets/_Project/Scripts/ProjectScanner.cs",
-          "Assets/_Project/Scripts/SelectColor.cs",
-          "Assets/_Project/Scripts/SoundToggleButton.cs"
+          "Assets/_Project/Scripts/SelectColor.cs"
         ],
         "paintZones": 15,
         "paletteButtons": 15,
@@ -962,7 +959,7 @@
       "path": "ArtSources/Level_004/level_manifest.json",
       "scene": {
         "path": "Assets/_Project/Scenes/Level_004_New.unity",
-        "sha256": "3e285400bdc2f0577eb82a7c268000b3fac0d7e591013e3a2c5a81f87c48344a",
+        "sha256": "830f07eb6b1c9bdc3e464d5d86a1211895213db4ace6716f97b1fc7ad5bd8c59",
         "roots": [
           "Camera",
           "Canvas",
@@ -978,8 +975,7 @@
           "Assets/_Project/Scripts/PaintZone.cs",
           "Assets/_Project/Scripts/PaletteDragScroll.cs",
           "Assets/_Project/Scripts/ProjectScanner.cs",
-          "Assets/_Project/Scripts/SelectColor.cs",
-          "Assets/_Project/Scripts/SoundToggleButton.cs"
+          "Assets/_Project/Scripts/SelectColor.cs"
         ],
         "paintZones": 17,
         "paletteButtons": 17,
@@ -1060,7 +1056,7 @@
       "path": "ArtSources/Level_005/level_manifest.json",
       "scene": {
         "path": "Assets/_Project/Scenes/Level_005_New.unity",
-        "sha256": "1bab42664a9aaddad8fc86e40754412a49813fb09e9036bf2ef28e333e37a69e",
+        "sha256": "de5897f49cb5ad3164c4a8efacf6b57c035a549f9a173173cf51eac53a200bac",
         "roots": [
           "Camera",
           "Canvas",
@@ -1076,8 +1072,7 @@
           "Assets/_Project/Scripts/PaintZone.cs",
           "Assets/_Project/Scripts/PaletteDragScroll.cs",
           "Assets/_Project/Scripts/ProjectScanner.cs",
-          "Assets/_Project/Scripts/SelectColor.cs",
-          "Assets/_Project/Scripts/SoundToggleButton.cs"
+          "Assets/_Project/Scripts/SelectColor.cs"
         ],
         "paintZones": 38,
         "paletteButtons": 38,
@@ -1200,7 +1195,7 @@
       "path": "ArtSources/Level_006/level_manifest.json",
       "scene": {
         "path": "Assets/_Project/Scenes/Level_006_New.unity",
-        "sha256": "b242ee47f55ceb2f5de0625d1db154ca2cba84440d70b8bb8371bfdcdf6317cc",
+        "sha256": "b7284543974b3e1986de540a69ae5aae1cf3be3494c3692cd1d1880f77d0eea0",
         "roots": [
           "Camera",
           "Canvas",
@@ -1216,8 +1211,7 @@
           "Assets/_Project/Scripts/PaintZone.cs",
           "Assets/_Project/Scripts/PaletteDragScroll.cs",
           "Assets/_Project/Scripts/ProjectScanner.cs",
-          "Assets/_Project/Scripts/SelectColor.cs",
-          "Assets/_Project/Scripts/SoundToggleButton.cs"
+          "Assets/_Project/Scripts/SelectColor.cs"
         ],
         "paintZones": 25,
         "paletteButtons": 25,
@@ -1314,7 +1308,7 @@
       "path": "ArtSources/Level_007/level_manifest.json",
       "scene": {
         "path": "Assets/_Project/Scenes/Level_007_New.unity",
-        "sha256": "0beaa5289079582f937688bd9bfaa025c04717a809173dff7d8b161b9175b9ba",
+        "sha256": "ff493d153418e10dcc85393c181e4377ae505486ecd55e69d6887f87fa4a1044",
         "roots": [
           "Camera",
           "Canvas",
@@ -1330,8 +1324,7 @@
           "Assets/_Project/Scripts/PaintZone.cs",
           "Assets/_Project/Scripts/PaletteDragScroll.cs",
           "Assets/_Project/Scripts/ProjectScanner.cs",
-          "Assets/_Project/Scripts/SelectColor.cs",
-          "Assets/_Project/Scripts/SoundToggleButton.cs"
+          "Assets/_Project/Scripts/SelectColor.cs"
         ],
         "paintZones": 23,
         "paletteButtons": 23,

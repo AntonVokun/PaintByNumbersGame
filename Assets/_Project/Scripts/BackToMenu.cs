@@ -5,6 +5,9 @@ public class BackToMenu : MonoBehaviour
 {
     public void GoToMenu()
     {
-        SceneManager.LoadScene("MainMenu");
+        if (SceneManager.GetActiveScene().name == "MainMenu")
+            Application.Quit();
+        else
+            LevelTransition.Load("MainMenu");
     }
 }

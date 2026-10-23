@@ -5,7 +5,11 @@ param(
     [string]$ApkPath,
 
     [Parameter(Mandatory = $false)]
-    [string]$Caption
+    [string]$Caption,
+
+    [Parameter(Mandatory = $false)]
+    [ValidateRange(30, 3600)]
+    [int]$TimeoutSeconds = 600
 )
 
 $ErrorActionPreference = 'Stop'
@@ -57,6 +61,7 @@ try {
 
     Add-Type -AssemblyName System.Net.Http
     $httpClient = New-Object System.Net.Http.HttpClient
+    $httpClient.Timeout = [TimeSpan]::FromSeconds($TimeoutSeconds)
     $multipart = New-Object System.Net.Http.MultipartFormDataContent
 
     $multipart.Add((New-Object System.Net.Http.StringContent($chatId)), 'chat_id')

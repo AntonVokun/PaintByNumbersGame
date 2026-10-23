@@ -24,6 +24,7 @@ Managers содержит PaintController, Scanner и SoundManager.
 
 Canvas — Screen Space Overlay, Scale With Screen Size, 1080×1920, Match Width.
 Его основные части — TopBar, PaletteWindow/Palette, GameplayViewport, WinPanel.
+TopBar содержит BackButton и HintButton с лампочкой; HintButton заменяет звук только в New-уровнях.
 CameraZoomAndPan получает явные ссылки на GameplayViewport и фоновый SpriteRenderer.
 В Play создаётся дополнительная ViewportBackgroundCamera; её нет в сохранённой иерархии.
 Не путать общий экранный фон и двигаемый рисунок. При fit учитываются Art и WhitePaper.
@@ -47,7 +48,9 @@ ResetProgressButton вызывает сброс зарегистрированн
 После завершения и replay контроллер ждёт нового нажатия, затем показывает панель.
 NextButton → WinPanelUI.LoadNextLevel → PaintController.nextLevelSceneName.
 MenuButton → WinPanelUI.GoToMenu → BackToMenu.GoToMenu.
-Дизайн, иллюстрации и расположение кнопок сохранять.
+Фон и украшения общие; MenuButton и NextButton используют готовые мятные кнопки с домиком/стрелкой
+из Art/UI и подписи «В меню»/«Вперёд». Старые дочерние MenuIcon/NextIcon выключены, чтобы не накладываться.
+Обработчики и порядок завершения сохранены.
 Вспомогательные [NumberPrefab](../Assets/_Project/Prefabs/NumberPrefab.prefab) и
 [NumberPrefab_3D](../Assets/_Project/Prefabs/NumberPrefab_3D.prefab) существуют, но их наличие не означает видимые номера в уровнях.
 

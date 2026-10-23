@@ -191,16 +191,17 @@ public static class LevelCreationVerification
             viewport=cam==null?"":cam.GetComponent<Camera>().pixelRect.ToString(),
             ortho=cam==null?0:cam.GetComponent<Camera>().orthographicSize };
     }
+    [Obsolete("Logic-only helper; use RunPaletteSuite for pointer input checks.")]
     public static string PaintThroughCollider(int colorId)
     {
         var pc=PaintController.Instance;
         var button=pc.paletteButtons.Single(b=>b.colorId==colorId);
         button.GetComponent<UnityEngine.UI.Button>().onClick.Invoke();
         var z=pc.zones.Single(v=>v.colorId==colorId);
-        // Calls the existing click entry point, after checking the native collider.
+        // Retained for legacy logic checks; does not exercise the tap/drag/pinch gate.
         if(z.GetComponent<PolygonCollider2D>().pathCount==0)throw new InvalidOperationException("No hit area");
-        z.SendMessage("OnMouseDown",SendMessageOptions.RequireReceiver);
-        return "Invoked palette + existing OnMouseDown: " + colorId;
+        z.Paint();
+        return "Logic-only palette + Paint: " + colorId + "; pointer input not checked";
     }
     public static string AssertRuntime()
     {
