@@ -1,0 +1,18 @@
+{
+  "name": "Чаепитие",
+  "status": "PASS",
+  "groups": 23,
+  "paths": 1221,
+  "regions": 1172,
+  "regionMisses": 0,
+  "crossHits": 0,
+  "pixels": 1428216,
+  "misses": 0,
+  "extras": 0,
+  "precisionCases": 286,
+  "localQueryRegistered": true,
+  "target654_0Direct": false,
+  "durationMs": 3007.1651,
+  "removedShapeGroups": [],
+  "failures": []
+}

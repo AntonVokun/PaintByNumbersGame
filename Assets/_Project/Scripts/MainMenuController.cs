@@ -87,7 +87,7 @@ public class MainMenuController : MonoBehaviour
     {
         if (Application.CanStreamedLevelBeLoaded(sceneName))
         {
-            SceneManager.LoadScene(sceneName);
+            LevelTransition.Load(sceneName);
         }
         else
         {

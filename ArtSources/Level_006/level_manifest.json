@@ -1,0 +1,1127 @@
+{
+  "schema": 1,
+  "sceneName": "Level_006_New",
+  "displayName": "Домик",
+  "width": 1254,
+  "height": 1254,
+  "pixelsPerUnit": 100,
+  "pivot": {
+    "x": 0.5,
+    "y": 0.5
+  },
+  "sourceFolder": "ArtSources/Level_006/Original",
+  "levelNumber": 6,
+  "artFolder": "Assets/_Project/Art/Levels/Level_006",
+  "originalImage": "ArtSources/Level_006/Original/reference.png",
+  "outlineFile": "Outline/outlines.png",
+  "colorPreviewFile": "Previews/Preview_Color.png",
+  "bwPreviewFile": "Previews/Preview_BW.png",
+  "hitmaskFile": "ArtSources/Level_006/Working/hitmask.bytes",
+  "geometryFile": "ArtSources/Level_006/Working/geometry.json",
+  "hitmaskBytesPerPixel": 2,
+  "originalFiles": [
+    {
+      "file": "ArtSources/Level_006/Original/outlines.png",
+      "sha256": "b27f6b165e21a18a077cdc27efe85662335a2f63d7744fe5769e49849fd5439e"
+    },
+    {
+      "file": "ArtSources/Level_006/Original/reference.png",
+      "sha256": "45c95605ae1f71160d407607d6e739b450a399b2075d98136b53d19d1736260c"
+    },
+    {
+      "file": "ArtSources/Level_006/Original/Zone_001.png",
+      "sha256": "79b57ae8559c00837a7b8f8ee9e606d0c1d5dbed6041721698d96f04238507a9"
+    },
+    {
+      "file": "ArtSources/Level_006/Original/Zone_002.png",
+      "sha256": "8d0f36f336426df49341a99652a387f18567a057396fa995cc9b85b1066e171d"
+    },
+    {
+      "file": "ArtSources/Level_006/Original/Zone_003.png",
+      "sha256": "e1da4d8ae7a0fb70972ce1bb67e6f6101d163834e79614072b115f7080647d6a"
+    },
+    {
+      "file": "ArtSources/Level_006/Original/Zone_004.png",
+      "sha256": "975c862a5b1fa5a9014738b1a5ac608beea9d9d1b2f65c0e450850e90e5c2325"
+    },
+    {
+      "file": "ArtSources/Level_006/Original/Zone_005.png",
+      "sha256": "adb7662ab5ee267ad04bf8bbe8303db03f0023c44354e619352d6a64c02f44f6"
+    },
+    {
+      "file": "ArtSources/Level_006/Original/Zone_006.png",
+      "sha256": "645738a5c4793a6510647fcb7f518f63e33861150cd8ec14278b9244b8bbdb74"
+    },
+    {
+      "file": "ArtSources/Level_006/Original/Zone_007.png",
+      "sha256": "7213512643bc7bff27774e869b28f770b2d949a1900c9ae0ce1f186c2b574f48"
+    },
+    {
+      "file": "ArtSources/Level_006/Original/Zone_008.png",
+      "sha256": "4d9d450ce90a504cdef88ad9cd4401843abdb6d5415b5f7490c92a0862b96ae0"
+    },
+    {
+      "file": "ArtSources/Level_006/Original/Zone_009.png",
+      "sha256": "1d5293bb59228688c8f5cdf89131dd0dae3268026a75930093316e2d53b8ec19"
+    },
+    {
+      "file": "ArtSources/Level_006/Original/Zone_010.png",
+      "sha256": "91428565db41e74ca790214f760fcbcda5648a233cb029c3f3a0186c96396de0"
+    },
+    {
+      "file": "ArtSources/Level_006/Original/Zone_011.png",
+      "sha256": "8b8b2ae35b8cdbbc026dffabf79711c1656f02ed2617d866dfcc81fb3804c17e"
+    },
+    {
+      "file": "ArtSources/Level_006/Original/Zone_012.png",
+      "sha256": "2e172393c1bb57dd7966a589458cdd132089c06ba658cc7b4f49308f3f773f4b"
+    },
+    {
+      "file": "ArtSources/Level_006/Original/Zone_013.png",
+      "sha256": "b50d4c0f28696e4b779f61863b06d0be6b8661dd7992c1bf0d60e49374e825e7"
+    },
+    {
+      "file": "ArtSources/Level_006/Original/Zone_014.png",
+      "sha256": "0c14e2d57b1938ebb2337cb31486a5d50944fb1092123c47ae3c8678c4e53916"
+    },
+    {
+      "file": "ArtSources/Level_006/Original/Zone_015.png",
+      "sha256": "3d8d855b1e83e746f5bcf3078df1f555354bb00b76912fd5a8a069c00608134d"
+    },
+    {
+      "file": "ArtSources/Level_006/Original/Zone_016.png",
+      "sha256": "b396676d9463039ac4f732582dcfbd6eb82b9605ddfee60c5613bd1fb4fb31ef"
+    },
+    {
+      "file": "ArtSources/Level_006/Original/Zone_017.png",
+      "sha256": "d9cda606bdf57aee0577887573f4eef088740054af83677fed82528fd5b96aba"
+    },
+    {
+      "file": "ArtSources/Level_006/Original/Zone_018.png",
+      "sha256": "755109d47d0a2a91b5dcd859538819f4f32e9bd9d3d1a6e4f9d9c0b82146d7b6"
+    },
+    {
+      "file": "ArtSources/Level_006/Original/Zone_019.png",
+      "sha256": "e59c0011376135cc17317ab88406cd5b1aae9633ee5fb589f881f7e2df67c3a5"
+    },
+    {
+      "file": "ArtSources/Level_006/Original/Zone_020.png",
+      "sha256": "4c62d2e9ae44afb0c4e2ab272492be4a3271819aab075762837c8d75f72388f0"
+    },
+    {
+      "file": "ArtSources/Level_006/Original/Zone_021.png",
+      "sha256": "c0326bc870006bc9504d3d7abae17b8db94a528becafa0bd3b1beae2218cc00a"
+    },
+    {
+      "file": "ArtSources/Level_006/Original/Zone_022.png",
+      "sha256": "3e908e20258d6240de1668ea2039681c0030602bc4d06c1b19368d40454bc652"
+    },
+    {
+      "file": "ArtSources/Level_006/Original/Zone_023.png",
+      "sha256": "eb9c232ab13842f4ddae348b1a18ba46d40d7b0e667939b9e5eb5748fc8608e2"
+    },
+    {
+      "file": "ArtSources/Level_006/Original/Zone_024.png",
+      "sha256": "771f285117df9fa9f2138b81fdcd80c9beac61f2d1fbe80c9bce12f7f76f1343"
+    },
+    {
+      "file": "ArtSources/Level_006/Original/Zone_025.png",
+      "sha256": "94fd47d6d28936580c3da12cd0fe8d77dd33b88158a13bd50120d1564caf53b8"
+    }
+  ],
+  "sourceFiles": [
+    {
+      "file": "Zone_001.png",
+      "sha256": "79b57ae8559c00837a7b8f8ee9e606d0c1d5dbed6041721698d96f04238507a9",
+      "opaqueColors": 12
+    },
+    {
+      "file": "Zone_002.png",
+      "sha256": "8d0f36f336426df49341a99652a387f18567a057396fa995cc9b85b1066e171d",
+      "opaqueColors": 4
+    },
+    {
+      "file": "Zone_003.png",
+      "sha256": "e1da4d8ae7a0fb70972ce1bb67e6f6101d163834e79614072b115f7080647d6a",
+      "opaqueColors": 17
+    },
+    {
+      "file": "Zone_004.png",
+      "sha256": "975c862a5b1fa5a9014738b1a5ac608beea9d9d1b2f65c0e450850e90e5c2325",
+      "opaqueColors": 258
+    },
+    {
+      "file": "Zone_005.png",
+      "sha256": "adb7662ab5ee267ad04bf8bbe8303db03f0023c44354e619352d6a64c02f44f6",
+      "opaqueColors": 92
+    },
+    {
+      "file": "Zone_006.png",
+      "sha256": "645738a5c4793a6510647fcb7f518f63e33861150cd8ec14278b9244b8bbdb74",
+      "opaqueColors": 227
+    },
+    {
+      "file": "Zone_007.png",
+      "sha256": "7213512643bc7bff27774e869b28f770b2d949a1900c9ae0ce1f186c2b574f48",
+      "opaqueColors": 103
+    },
+    {
+      "file": "Zone_008.png",
+      "sha256": "4d9d450ce90a504cdef88ad9cd4401843abdb6d5415b5f7490c92a0862b96ae0",
+      "opaqueColors": 123
+    },
+    {
+      "file": "Zone_009.png",
+      "sha256": "1d5293bb59228688c8f5cdf89131dd0dae3268026a75930093316e2d53b8ec19",
+      "opaqueColors": 283
+    },
+    {
+      "file": "Zone_010.png",
+      "sha256": "91428565db41e74ca790214f760fcbcda5648a233cb029c3f3a0186c96396de0",
+      "opaqueColors": 3
+    },
+    {
+      "file": "Zone_011.png",
+      "sha256": "8b8b2ae35b8cdbbc026dffabf79711c1656f02ed2617d866dfcc81fb3804c17e",
+      "opaqueColors": 251
+    },
+    {
+      "file": "Zone_012.png",
+      "sha256": "2e172393c1bb57dd7966a589458cdd132089c06ba658cc7b4f49308f3f773f4b",
+      "opaqueColors": 277
+    },
+    {
+      "file": "Zone_013.png",
+      "sha256": "b50d4c0f28696e4b779f61863b06d0be6b8661dd7992c1bf0d60e49374e825e7",
+      "opaqueColors": 15
+    },
+    {
+      "file": "Zone_014.png",
+      "sha256": "0c14e2d57b1938ebb2337cb31486a5d50944fb1092123c47ae3c8678c4e53916",
+      "opaqueColors": 1
+    },
+    {
+      "file": "Zone_015.png",
+      "sha256": "3d8d855b1e83e746f5bcf3078df1f555354bb00b76912fd5a8a069c00608134d",
+      "opaqueColors": 1
+    },
+    {
+      "file": "Zone_016.png",
+      "sha256": "b396676d9463039ac4f732582dcfbd6eb82b9605ddfee60c5613bd1fb4fb31ef",
+      "opaqueColors": 1
+    },
+    {
+      "file": "Zone_017.png",
+      "sha256": "d9cda606bdf57aee0577887573f4eef088740054af83677fed82528fd5b96aba",
+      "opaqueColors": 2
+    },
+    {
+      "file": "Zone_018.png",
+      "sha256": "755109d47d0a2a91b5dcd859538819f4f32e9bd9d3d1a6e4f9d9c0b82146d7b6",
+      "opaqueColors": 1
+    },
+    {
+      "file": "Zone_019.png",
+      "sha256": "e59c0011376135cc17317ab88406cd5b1aae9633ee5fb589f881f7e2df67c3a5",
+      "opaqueColors": 7
+    },
+    {
+      "file": "Zone_020.png",
+      "sha256": "4c62d2e9ae44afb0c4e2ab272492be4a3271819aab075762837c8d75f72388f0",
+      "opaqueColors": 1
+    },
+    {
+      "file": "Zone_021.png",
+      "sha256": "c0326bc870006bc9504d3d7abae17b8db94a528becafa0bd3b1beae2218cc00a",
+      "opaqueColors": 33
+    },
+    {
+      "file": "Zone_022.png",
+      "sha256": "3e908e20258d6240de1668ea2039681c0030602bc4d06c1b19368d40454bc652",
+      "opaqueColors": 17
+    },
+    {
+      "file": "Zone_023.png",
+      "sha256": "eb9c232ab13842f4ddae348b1a18ba46d40d7b0e667939b9e5eb5748fc8608e2",
+      "opaqueColors": 2
+    },
+    {
+      "file": "Zone_024.png",
+      "sha256": "771f285117df9fa9f2138b81fdcd80c9beac61f2d1fbe80c9bce12f7f76f1343",
+      "opaqueColors": 130
+    },
+    {
+      "file": "Zone_025.png",
+      "sha256": "94fd47d6d28936580c3da12cd0fe8d77dd33b88158a13bd50120d1564caf53b8",
+      "opaqueColors": 1
+    },
+    {
+      "file": "outlines.png",
+      "sha256": "b27f6b165e21a18a077cdc27efe85662335a2f63d7744fe5769e49849fd5439e"
+    }
+  ],
+  "colors": 25,
+  "regions": 1472,
+  "solidOverlapPixels": 0,
+  "uncoveredPixels": 0,
+  "validation": {
+    "preparedFiles": "PASS",
+    "canvas": "PASS",
+    "alpha": "PASS",
+    "overlap": "PASS",
+    "coverage": "PASS",
+    "unityStatic": "PASS_SCENE_AND_COLLIDER_STRIDE_4",
+    "playMode": "PASS_INPUT_ALL_COLORS_COMPLETION_NAVIGATION",
+    "androidBuild": "NOT_RUN_USER_REQUEST",
+    "sourcePreflight": "PASS"
+  },
+  "groups": [
+    {
+      "id": 1,
+      "source": "Zone_001.png",
+      "color": [
+        241,
+        87,
+        151
+      ],
+      "type": "gradient",
+      "paletteMethod": "opaque_median_nearest",
+      "sourceSha256": "79b57ae8559c00837a7b8f8ee9e606d0c1d5dbed6041721698d96f04238507a9",
+      "rgbaSha256": "02e3f7e203031ccafc2370a133854ef5e26bccbba1093b45a4a75f0816702d12",
+      "sources": [
+        {
+          "source": "Zone_001.png",
+          "sha256": "79b57ae8559c00837a7b8f8ee9e606d0c1d5dbed6041721698d96f04238507a9",
+          "rgbaSha256": "02e3f7e203031ccafc2370a133854ef5e26bccbba1093b45a4a75f0816702d12"
+        }
+      ],
+      "mergeMethod": "source_bytes",
+      "regions": 117,
+      "file": "Zones/Zone_001.png",
+      "sha256": "79b57ae8559c00837a7b8f8ee9e606d0c1d5dbed6041721698d96f04238507a9",
+      "artisticSources": [
+        {
+          "file": "ArtSources/Level_006/SourceProvenance/CorrectedSources/Zone_001.png",
+          "sha256": "79b57ae8559c00837a7b8f8ee9e606d0c1d5dbed6041721698d96f04238507a9",
+          "originalFile": "ArtSources/Level_006/SourceProvenance/OriginalSources/Zone_001.png",
+          "originalSha256": "25ef8b8ca885d2a931637fb8924dde85f6004080316b0089f58c0d55d6ca8bed"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "source": "Zone_002.png",
+      "color": [
+        222,
+        25,
+        117
+      ],
+      "type": "gradient",
+      "paletteMethod": "opaque_median_nearest",
+      "sourceSha256": "8d0f36f336426df49341a99652a387f18567a057396fa995cc9b85b1066e171d",
+      "rgbaSha256": "ba586f66eba9d6d5fc19c928ed78d271b248f3d86e7cb11c15f3b4d0b0c24f31",
+      "sources": [
+        {
+          "source": "Zone_002.png",
+          "sha256": "8d0f36f336426df49341a99652a387f18567a057396fa995cc9b85b1066e171d",
+          "rgbaSha256": "ba586f66eba9d6d5fc19c928ed78d271b248f3d86e7cb11c15f3b4d0b0c24f31"
+        }
+      ],
+      "mergeMethod": "source_bytes",
+      "regions": 700,
+      "file": "Zones/Zone_002.png",
+      "sha256": "8d0f36f336426df49341a99652a387f18567a057396fa995cc9b85b1066e171d",
+      "artisticSources": [
+        {
+          "file": "ArtSources/Level_006/SourceProvenance/CorrectedSources/Zone_002.png",
+          "sha256": "8d0f36f336426df49341a99652a387f18567a057396fa995cc9b85b1066e171d",
+          "originalFile": "ArtSources/Level_006/SourceProvenance/OriginalSources/Zone_002.png",
+          "originalSha256": "3475bc9342e1a9e7316fe8b05789cf8e0646cdcef79e8eff2575681b006acb11"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "source": "Zone_003.png",
+      "color": [
+        251,
+        162,
+        207
+      ],
+      "type": "gradient",
+      "paletteMethod": "opaque_median_nearest",
+      "sourceSha256": "e1da4d8ae7a0fb70972ce1bb67e6f6101d163834e79614072b115f7080647d6a",
+      "rgbaSha256": "c0c9722ec7a652602b95bd626d379d5feba4997c13284df7087841994de4182b",
+      "sources": [
+        {
+          "source": "Zone_003.png",
+          "sha256": "e1da4d8ae7a0fb70972ce1bb67e6f6101d163834e79614072b115f7080647d6a",
+          "rgbaSha256": "c0c9722ec7a652602b95bd626d379d5feba4997c13284df7087841994de4182b"
+        }
+      ],
+      "mergeMethod": "source_bytes",
+      "regions": 34,
+      "file": "Zones/Zone_003.png",
+      "sha256": "e1da4d8ae7a0fb70972ce1bb67e6f6101d163834e79614072b115f7080647d6a",
+      "artisticSources": [
+        {
+          "file": "ArtSources/Level_006/SourceProvenance/CorrectedSources/Zone_003.png",
+          "sha256": "e1da4d8ae7a0fb70972ce1bb67e6f6101d163834e79614072b115f7080647d6a",
+          "originalFile": "ArtSources/Level_006/SourceProvenance/OriginalSources/Zone_003.png",
+          "originalSha256": "9f53d28e6b1180ade46d035a847e3794fb4e2b2235e065654dbc84baf4f51b7a"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "source": "Zone_004.png",
+      "color": [
+        252,
+        238,
+        143
+      ],
+      "type": "gradient",
+      "paletteMethod": "opaque_median_nearest",
+      "sourceSha256": "975c862a5b1fa5a9014738b1a5ac608beea9d9d1b2f65c0e450850e90e5c2325",
+      "rgbaSha256": "456f809aaca8329aef2a0cdabc8f3f2b49a3568267f9283bcb5c3436e129f2e7",
+      "sources": [
+        {
+          "source": "Zone_004.png",
+          "sha256": "975c862a5b1fa5a9014738b1a5ac608beea9d9d1b2f65c0e450850e90e5c2325",
+          "rgbaSha256": "456f809aaca8329aef2a0cdabc8f3f2b49a3568267f9283bcb5c3436e129f2e7"
+        }
+      ],
+      "mergeMethod": "source_bytes",
+      "regions": 21,
+      "file": "Zones/Zone_004.png",
+      "sha256": "975c862a5b1fa5a9014738b1a5ac608beea9d9d1b2f65c0e450850e90e5c2325",
+      "artisticSources": [
+        {
+          "file": "ArtSources/Level_006/SourceProvenance/CorrectedSources/Zone_004.png",
+          "sha256": "975c862a5b1fa5a9014738b1a5ac608beea9d9d1b2f65c0e450850e90e5c2325",
+          "originalFile": "ArtSources/Level_006/SourceProvenance/OriginalSources/Zone_004.png",
+          "originalSha256": "28ee550f51c0e671ffd07a0ebb4b97cc062f4e520bedb7dba8aaaac747697503"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "source": "Zone_005.png",
+      "color": [
+        237,
+        64,
+        33
+      ],
+      "type": "gradient",
+      "paletteMethod": "opaque_median_nearest",
+      "sourceSha256": "adb7662ab5ee267ad04bf8bbe8303db03f0023c44354e619352d6a64c02f44f6",
+      "rgbaSha256": "8620bf7c1c6d73efa05141855f5f8f2dcc1ecde6b3de458161201cdb1d249a3d",
+      "sources": [
+        {
+          "source": "Zone_005.png",
+          "sha256": "adb7662ab5ee267ad04bf8bbe8303db03f0023c44354e619352d6a64c02f44f6",
+          "rgbaSha256": "8620bf7c1c6d73efa05141855f5f8f2dcc1ecde6b3de458161201cdb1d249a3d"
+        }
+      ],
+      "mergeMethod": "source_bytes",
+      "regions": 21,
+      "file": "Zones/Zone_005.png",
+      "sha256": "adb7662ab5ee267ad04bf8bbe8303db03f0023c44354e619352d6a64c02f44f6",
+      "artisticSources": [
+        {
+          "file": "ArtSources/Level_006/SourceProvenance/CorrectedSources/Zone_005.png",
+          "sha256": "adb7662ab5ee267ad04bf8bbe8303db03f0023c44354e619352d6a64c02f44f6",
+          "originalFile": "ArtSources/Level_006/SourceProvenance/OriginalSources/Zone_005.png",
+          "originalSha256": "adb7662ab5ee267ad04bf8bbe8303db03f0023c44354e619352d6a64c02f44f6"
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "source": "Zone_006.png",
+      "color": [
+        193,
+        19,
+        4
+      ],
+      "type": "gradient",
+      "paletteMethod": "opaque_median_nearest",
+      "sourceSha256": "645738a5c4793a6510647fcb7f518f63e33861150cd8ec14278b9244b8bbdb74",
+      "rgbaSha256": "86e85b22a7b2aa172f29791373d2ea3022a65ed5d0646b7d21f29c251203e371",
+      "sources": [
+        {
+          "source": "Zone_006.png",
+          "sha256": "645738a5c4793a6510647fcb7f518f63e33861150cd8ec14278b9244b8bbdb74",
+          "rgbaSha256": "86e85b22a7b2aa172f29791373d2ea3022a65ed5d0646b7d21f29c251203e371"
+        }
+      ],
+      "mergeMethod": "source_bytes",
+      "regions": 5,
+      "file": "Zones/Zone_006.png",
+      "sha256": "645738a5c4793a6510647fcb7f518f63e33861150cd8ec14278b9244b8bbdb74",
+      "artisticSources": [
+        {
+          "file": "ArtSources/Level_006/SourceProvenance/CorrectedSources/Zone_006.png",
+          "sha256": "645738a5c4793a6510647fcb7f518f63e33861150cd8ec14278b9244b8bbdb74",
+          "originalFile": "ArtSources/Level_006/SourceProvenance/OriginalSources/Zone_006.png",
+          "originalSha256": "645738a5c4793a6510647fcb7f518f63e33861150cd8ec14278b9244b8bbdb74"
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "source": "Zone_007.png",
+      "color": [
+        60,
+        165,
+        251
+      ],
+      "type": "gradient",
+      "paletteMethod": "opaque_median_nearest",
+      "sourceSha256": "7213512643bc7bff27774e869b28f770b2d949a1900c9ae0ce1f186c2b574f48",
+      "rgbaSha256": "b040305eae58002899c8373224f8d16e82258675e59b002d3326cd66ef98549e",
+      "sources": [
+        {
+          "source": "Zone_007.png",
+          "sha256": "7213512643bc7bff27774e869b28f770b2d949a1900c9ae0ce1f186c2b574f48",
+          "rgbaSha256": "b040305eae58002899c8373224f8d16e82258675e59b002d3326cd66ef98549e"
+        }
+      ],
+      "mergeMethod": "source_bytes",
+      "regions": 14,
+      "file": "Zones/Zone_007.png",
+      "sha256": "7213512643bc7bff27774e869b28f770b2d949a1900c9ae0ce1f186c2b574f48",
+      "artisticSources": [
+        {
+          "file": "ArtSources/Level_006/SourceProvenance/CorrectedSources/Zone_007.png",
+          "sha256": "7213512643bc7bff27774e869b28f770b2d949a1900c9ae0ce1f186c2b574f48",
+          "originalFile": "ArtSources/Level_006/SourceProvenance/OriginalSources/Zone_007.png",
+          "originalSha256": "87fedddfcc11209eb8cf2c5a7194b05710d908056c7dce3f798c3e63539283ab"
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "source": "Zone_008.png",
+      "color": [
+        20,
+        127,
+        198
+      ],
+      "type": "gradient",
+      "paletteMethod": "opaque_median_nearest",
+      "sourceSha256": "4d9d450ce90a504cdef88ad9cd4401843abdb6d5415b5f7490c92a0862b96ae0",
+      "rgbaSha256": "0af96e7ae105000115d322e9c8b457777c1f97746c4223a4272a84bbf6c5ef5c",
+      "sources": [
+        {
+          "source": "Zone_008.png",
+          "sha256": "4d9d450ce90a504cdef88ad9cd4401843abdb6d5415b5f7490c92a0862b96ae0",
+          "rgbaSha256": "0af96e7ae105000115d322e9c8b457777c1f97746c4223a4272a84bbf6c5ef5c"
+        }
+      ],
+      "mergeMethod": "source_bytes",
+      "regions": 12,
+      "file": "Zones/Zone_008.png",
+      "sha256": "4d9d450ce90a504cdef88ad9cd4401843abdb6d5415b5f7490c92a0862b96ae0",
+      "artisticSources": [
+        {
+          "file": "ArtSources/Level_006/SourceProvenance/CorrectedSources/Zone_008.png",
+          "sha256": "4d9d450ce90a504cdef88ad9cd4401843abdb6d5415b5f7490c92a0862b96ae0",
+          "originalFile": "ArtSources/Level_006/SourceProvenance/OriginalSources/Zone_008.png",
+          "originalSha256": "7bba84dc6b682f9eba29972c7920891503ba4997fafc007f8d7274a4a2a9bbba"
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "source": "Zone_009.png",
+      "color": [
+        123,
+        205,
+        237
+      ],
+      "type": "gradient",
+      "paletteMethod": "opaque_median_nearest",
+      "sourceSha256": "1d5293bb59228688c8f5cdf89131dd0dae3268026a75930093316e2d53b8ec19",
+      "rgbaSha256": "ea9c009a77ff05a2a0ddff0849290f2c6a7e1a6abdd7e0b33c839c9ca6719dfe",
+      "sources": [
+        {
+          "source": "Zone_009.png",
+          "sha256": "1d5293bb59228688c8f5cdf89131dd0dae3268026a75930093316e2d53b8ec19",
+          "rgbaSha256": "ea9c009a77ff05a2a0ddff0849290f2c6a7e1a6abdd7e0b33c839c9ca6719dfe"
+        }
+      ],
+      "mergeMethod": "source_bytes",
+      "regions": 8,
+      "file": "Zones/Zone_009.png",
+      "sha256": "1d5293bb59228688c8f5cdf89131dd0dae3268026a75930093316e2d53b8ec19",
+      "artisticSources": [
+        {
+          "file": "ArtSources/Level_006/SourceProvenance/CorrectedSources/Zone_009.png",
+          "sha256": "1d5293bb59228688c8f5cdf89131dd0dae3268026a75930093316e2d53b8ec19",
+          "originalFile": "ArtSources/Level_006/SourceProvenance/OriginalSources/Zone_009.png",
+          "originalSha256": "636f80fd17df2b4e835e43fb530859f814e6c68f173e2dc3cd895794f094ee4e"
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "source": "Zone_010.png",
+      "color": [
+        141,
+        61,
+        234
+      ],
+      "type": "gradient",
+      "paletteMethod": "opaque_median_nearest",
+      "sourceSha256": "91428565db41e74ca790214f760fcbcda5648a233cb029c3f3a0186c96396de0",
+      "rgbaSha256": "26e2b9e2a3da6aff3d5edfb1779c721c8946786d1aa17d5a94d204bacf0a3719",
+      "sources": [
+        {
+          "source": "Zone_010.png",
+          "sha256": "91428565db41e74ca790214f760fcbcda5648a233cb029c3f3a0186c96396de0",
+          "rgbaSha256": "26e2b9e2a3da6aff3d5edfb1779c721c8946786d1aa17d5a94d204bacf0a3719"
+        }
+      ],
+      "mergeMethod": "source_bytes",
+      "regions": 9,
+      "file": "Zones/Zone_010.png",
+      "sha256": "91428565db41e74ca790214f760fcbcda5648a233cb029c3f3a0186c96396de0",
+      "artisticSources": [
+        {
+          "file": "ArtSources/Level_006/SourceProvenance/CorrectedSources/Zone_010.png",
+          "sha256": "91428565db41e74ca790214f760fcbcda5648a233cb029c3f3a0186c96396de0",
+          "originalFile": "ArtSources/Level_006/SourceProvenance/OriginalSources/Zone_010.png",
+          "originalSha256": "86e203754825c3838b886cb0536fa302d70a3b5e38726b5b281a5c4e075a7255"
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "source": "Zone_011.png",
+      "color": [
+        43,
+        41,
+        45
+      ],
+      "type": "gradient",
+      "paletteMethod": "opaque_median_nearest",
+      "sourceSha256": "8b8b2ae35b8cdbbc026dffabf79711c1656f02ed2617d866dfcc81fb3804c17e",
+      "rgbaSha256": "2df3228cd52c8f3e106f3bd7d5045234ab73c270e91b827d23d5a0acdfdceb67",
+      "sources": [
+        {
+          "source": "Zone_011.png",
+          "sha256": "8b8b2ae35b8cdbbc026dffabf79711c1656f02ed2617d866dfcc81fb3804c17e",
+          "rgbaSha256": "2df3228cd52c8f3e106f3bd7d5045234ab73c270e91b827d23d5a0acdfdceb67"
+        }
+      ],
+      "mergeMethod": "source_bytes",
+      "regions": 22,
+      "file": "Zones/Zone_011.png",
+      "sha256": "8b8b2ae35b8cdbbc026dffabf79711c1656f02ed2617d866dfcc81fb3804c17e",
+      "artisticSources": [
+        {
+          "file": "ArtSources/Level_006/SourceProvenance/CorrectedSources/Zone_011.png",
+          "sha256": "8b8b2ae35b8cdbbc026dffabf79711c1656f02ed2617d866dfcc81fb3804c17e",
+          "originalFile": "ArtSources/Level_006/SourceProvenance/OriginalSources/Zone_011.png",
+          "originalSha256": "8b8b2ae35b8cdbbc026dffabf79711c1656f02ed2617d866dfcc81fb3804c17e"
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "source": "Zone_012.png",
+      "color": [
+        249,
+        200,
+        23
+      ],
+      "type": "gradient",
+      "paletteMethod": "opaque_median_nearest",
+      "sourceSha256": "2e172393c1bb57dd7966a589458cdd132089c06ba658cc7b4f49308f3f773f4b",
+      "rgbaSha256": "be3103c67ce80537af48207ac4acb4e5a4b0e8aa83f7a8c1e7d5e59e2a273775",
+      "sources": [
+        {
+          "source": "Zone_012.png",
+          "sha256": "2e172393c1bb57dd7966a589458cdd132089c06ba658cc7b4f49308f3f773f4b",
+          "rgbaSha256": "be3103c67ce80537af48207ac4acb4e5a4b0e8aa83f7a8c1e7d5e59e2a273775"
+        }
+      ],
+      "mergeMethod": "source_bytes",
+      "regions": 25,
+      "file": "Zones/Zone_012.png",
+      "sha256": "2e172393c1bb57dd7966a589458cdd132089c06ba658cc7b4f49308f3f773f4b",
+      "artisticSources": [
+        {
+          "file": "ArtSources/Level_006/SourceProvenance/CorrectedSources/Zone_012.png",
+          "sha256": "2e172393c1bb57dd7966a589458cdd132089c06ba658cc7b4f49308f3f773f4b",
+          "originalFile": "ArtSources/Level_006/SourceProvenance/OriginalSources/Zone_012.png",
+          "originalSha256": "2851b768f9780b04b502bee691063b5401188d2a5511db745fd91b402e4166ab"
+        }
+      ]
+    },
+    {
+      "id": 13,
+      "source": "Zone_013.png",
+      "color": [
+        80,
+        205,
+        211
+      ],
+      "type": "gradient",
+      "paletteMethod": "opaque_median_nearest",
+      "sourceSha256": "b50d4c0f28696e4b779f61863b06d0be6b8661dd7992c1bf0d60e49374e825e7",
+      "rgbaSha256": "49e386837235304cc5f16a6d733e1321e36ca4d6cd12de90a6fc168bafc133ad",
+      "sources": [
+        {
+          "source": "Zone_013.png",
+          "sha256": "b50d4c0f28696e4b779f61863b06d0be6b8661dd7992c1bf0d60e49374e825e7",
+          "rgbaSha256": "49e386837235304cc5f16a6d733e1321e36ca4d6cd12de90a6fc168bafc133ad"
+        }
+      ],
+      "mergeMethod": "source_bytes",
+      "regions": 22,
+      "file": "Zones/Zone_013.png",
+      "sha256": "b50d4c0f28696e4b779f61863b06d0be6b8661dd7992c1bf0d60e49374e825e7",
+      "artisticSources": [
+        {
+          "file": "ArtSources/Level_006/SourceProvenance/CorrectedSources/Zone_013.png",
+          "sha256": "b50d4c0f28696e4b779f61863b06d0be6b8661dd7992c1bf0d60e49374e825e7",
+          "originalFile": "ArtSources/Level_006/SourceProvenance/OriginalSources/Zone_013.png",
+          "originalSha256": "b50d4c0f28696e4b779f61863b06d0be6b8661dd7992c1bf0d60e49374e825e7"
+        }
+      ]
+    },
+    {
+      "id": 14,
+      "source": "Zone_014.png",
+      "color": [
+        2,
+        123,
+        134
+      ],
+      "type": "gradient",
+      "paletteMethod": "opaque_median_nearest",
+      "sourceSha256": "0c14e2d57b1938ebb2337cb31486a5d50944fb1092123c47ae3c8678c4e53916",
+      "rgbaSha256": "f66ba43bce891858e52d907feae998949b101380655084ec31344a94974d655c",
+      "sources": [
+        {
+          "source": "Zone_014.png",
+          "sha256": "0c14e2d57b1938ebb2337cb31486a5d50944fb1092123c47ae3c8678c4e53916",
+          "rgbaSha256": "f66ba43bce891858e52d907feae998949b101380655084ec31344a94974d655c"
+        }
+      ],
+      "mergeMethod": "source_bytes",
+      "regions": 116,
+      "file": "Zones/Zone_014.png",
+      "sha256": "0c14e2d57b1938ebb2337cb31486a5d50944fb1092123c47ae3c8678c4e53916",
+      "artisticSources": [
+        {
+          "file": "ArtSources/Level_006/SourceProvenance/CorrectedSources/Zone_014.png",
+          "sha256": "0c14e2d57b1938ebb2337cb31486a5d50944fb1092123c47ae3c8678c4e53916",
+          "originalFile": "ArtSources/Level_006/SourceProvenance/OriginalSources/Zone_014.png",
+          "originalSha256": "0c14e2d57b1938ebb2337cb31486a5d50944fb1092123c47ae3c8678c4e53916"
+        }
+      ]
+    },
+    {
+      "id": 15,
+      "source": "Zone_015.png",
+      "color": [
+        204,
+        127,
+        216
+      ],
+      "type": "gradient",
+      "paletteMethod": "opaque_median_nearest",
+      "sourceSha256": "3d8d855b1e83e746f5bcf3078df1f555354bb00b76912fd5a8a069c00608134d",
+      "rgbaSha256": "7d78ba754b20644c013b5eaefa73c0842f60d5f0b9daf7b69ac6bfd270e56a99",
+      "sources": [
+        {
+          "source": "Zone_015.png",
+          "sha256": "3d8d855b1e83e746f5bcf3078df1f555354bb00b76912fd5a8a069c00608134d",
+          "rgbaSha256": "7d78ba754b20644c013b5eaefa73c0842f60d5f0b9daf7b69ac6bfd270e56a99"
+        }
+      ],
+      "mergeMethod": "source_bytes",
+      "regions": 101,
+      "file": "Zones/Zone_015.png",
+      "sha256": "3d8d855b1e83e746f5bcf3078df1f555354bb00b76912fd5a8a069c00608134d",
+      "artisticSources": [
+        {
+          "file": "ArtSources/Level_006/SourceProvenance/CorrectedSources/Zone_015.png",
+          "sha256": "3d8d855b1e83e746f5bcf3078df1f555354bb00b76912fd5a8a069c00608134d",
+          "originalFile": "ArtSources/Level_006/SourceProvenance/OriginalSources/Zone_015.png",
+          "originalSha256": "4d8f0702dd922e7b3cbfa0d89c9ca22116835bec01de810e020d392f16f63e79"
+        }
+      ]
+    },
+    {
+      "id": 16,
+      "source": "Zone_016.png",
+      "color": [
+        150,
+        175,
+        10
+      ],
+      "type": "gradient",
+      "paletteMethod": "opaque_median_nearest",
+      "sourceSha256": "b396676d9463039ac4f732582dcfbd6eb82b9605ddfee60c5613bd1fb4fb31ef",
+      "rgbaSha256": "ec1ffa9dedd47cffdabe0e30fc6e86de4e7320b6c8038ddda5fa84824ca607ff",
+      "sources": [
+        {
+          "source": "Zone_016.png",
+          "sha256": "b396676d9463039ac4f732582dcfbd6eb82b9605ddfee60c5613bd1fb4fb31ef",
+          "rgbaSha256": "ec1ffa9dedd47cffdabe0e30fc6e86de4e7320b6c8038ddda5fa84824ca607ff"
+        }
+      ],
+      "mergeMethod": "source_bytes",
+      "regions": 61,
+      "file": "Zones/Zone_016.png",
+      "sha256": "b396676d9463039ac4f732582dcfbd6eb82b9605ddfee60c5613bd1fb4fb31ef",
+      "artisticSources": [
+        {
+          "file": "ArtSources/Level_006/SourceProvenance/CorrectedSources/Zone_016.png",
+          "sha256": "b396676d9463039ac4f732582dcfbd6eb82b9605ddfee60c5613bd1fb4fb31ef",
+          "originalFile": "ArtSources/Level_006/SourceProvenance/OriginalSources/Zone_016.png",
+          "originalSha256": "5ed83fbe58f491f95735d8e438f1ebac352ae535c570cd66a8aa68cf56416346"
+        }
+      ]
+    },
+    {
+      "id": 17,
+      "source": "Zone_017.png",
+      "color": [
+        197,
+        180,
+        239
+      ],
+      "type": "gradient",
+      "paletteMethod": "opaque_median_nearest",
+      "sourceSha256": "d9cda606bdf57aee0577887573f4eef088740054af83677fed82528fd5b96aba",
+      "rgbaSha256": "9f4a051ecf43f2eb275dcb990b50a358736c9989c101bd24763283599d7aa9af",
+      "sources": [
+        {
+          "source": "Zone_017.png",
+          "sha256": "d9cda606bdf57aee0577887573f4eef088740054af83677fed82528fd5b96aba",
+          "rgbaSha256": "9f4a051ecf43f2eb275dcb990b50a358736c9989c101bd24763283599d7aa9af"
+        }
+      ],
+      "mergeMethod": "source_bytes",
+      "regions": 29,
+      "file": "Zones/Zone_017.png",
+      "sha256": "d9cda606bdf57aee0577887573f4eef088740054af83677fed82528fd5b96aba",
+      "artisticSources": [
+        {
+          "file": "ArtSources/Level_006/SourceProvenance/CorrectedSources/Zone_017.png",
+          "sha256": "d9cda606bdf57aee0577887573f4eef088740054af83677fed82528fd5b96aba",
+          "originalFile": "ArtSources/Level_006/SourceProvenance/OriginalSources/Zone_017.png",
+          "originalSha256": "69783db082e8092c6962328a05029341cdd7a0c32547626d8fd6d9776cc358ee"
+        }
+      ]
+    },
+    {
+      "id": 18,
+      "source": "Zone_018.png",
+      "color": [
+        132,
+        123,
+        158
+      ],
+      "type": "gradient",
+      "paletteMethod": "opaque_median_nearest",
+      "sourceSha256": "755109d47d0a2a91b5dcd859538819f4f32e9bd9d3d1a6e4f9d9c0b82146d7b6",
+      "rgbaSha256": "57cd2d481f94d93c5aeb8dec2d60c22a007bd88bf3ac84cbf140071952089835",
+      "sources": [
+        {
+          "source": "Zone_018.png",
+          "sha256": "755109d47d0a2a91b5dcd859538819f4f32e9bd9d3d1a6e4f9d9c0b82146d7b6",
+          "rgbaSha256": "57cd2d481f94d93c5aeb8dec2d60c22a007bd88bf3ac84cbf140071952089835"
+        }
+      ],
+      "mergeMethod": "source_bytes",
+      "regions": 22,
+      "file": "Zones/Zone_018.png",
+      "sha256": "755109d47d0a2a91b5dcd859538819f4f32e9bd9d3d1a6e4f9d9c0b82146d7b6",
+      "artisticSources": [
+        {
+          "file": "ArtSources/Level_006/SourceProvenance/CorrectedSources/Zone_018.png",
+          "sha256": "755109d47d0a2a91b5dcd859538819f4f32e9bd9d3d1a6e4f9d9c0b82146d7b6",
+          "originalFile": "ArtSources/Level_006/SourceProvenance/OriginalSources/Zone_018.png",
+          "originalSha256": "755109d47d0a2a91b5dcd859538819f4f32e9bd9d3d1a6e4f9d9c0b82146d7b6"
+        }
+      ]
+    },
+    {
+      "id": 19,
+      "source": "Zone_019.png",
+      "color": [
+        0,
+        159,
+        119
+      ],
+      "type": "gradient",
+      "paletteMethod": "opaque_median_nearest",
+      "sourceSha256": "e59c0011376135cc17317ab88406cd5b1aae9633ee5fb589f881f7e2df67c3a5",
+      "rgbaSha256": "52899235d36a54cb12db9d87a0c62770a710888317b523e7eecd43b0c91ad8a9",
+      "sources": [
+        {
+          "source": "Zone_019.png",
+          "sha256": "e59c0011376135cc17317ab88406cd5b1aae9633ee5fb589f881f7e2df67c3a5",
+          "rgbaSha256": "52899235d36a54cb12db9d87a0c62770a710888317b523e7eecd43b0c91ad8a9"
+        }
+      ],
+      "mergeMethod": "source_bytes",
+      "regions": 18,
+      "file": "Zones/Zone_019.png",
+      "sha256": "e59c0011376135cc17317ab88406cd5b1aae9633ee5fb589f881f7e2df67c3a5",
+      "artisticSources": [
+        {
+          "file": "ArtSources/Level_006/SourceProvenance/CorrectedSources/Zone_019.png",
+          "sha256": "e59c0011376135cc17317ab88406cd5b1aae9633ee5fb589f881f7e2df67c3a5",
+          "originalFile": "ArtSources/Level_006/SourceProvenance/OriginalSources/Zone_019.png",
+          "originalSha256": "490f31151908e4eff0a47ecc8be108d8e242891a9e5cc8ce4be7f0f6cf32246d"
+        }
+      ]
+    },
+    {
+      "id": 20,
+      "source": "Zone_020.png",
+      "color": [
+        57,
+        158,
+        4
+      ],
+      "type": "gradient",
+      "paletteMethod": "opaque_median_nearest",
+      "sourceSha256": "4c62d2e9ae44afb0c4e2ab272492be4a3271819aab075762837c8d75f72388f0",
+      "rgbaSha256": "4d34a2f21776b14dbafd706157487757e6d6c599465fa4e53e93f2c839a42a0c",
+      "sources": [
+        {
+          "source": "Zone_020.png",
+          "sha256": "4c62d2e9ae44afb0c4e2ab272492be4a3271819aab075762837c8d75f72388f0",
+          "rgbaSha256": "4d34a2f21776b14dbafd706157487757e6d6c599465fa4e53e93f2c839a42a0c"
+        }
+      ],
+      "mergeMethod": "source_bytes",
+      "regions": 63,
+      "file": "Zones/Zone_020.png",
+      "sha256": "4c62d2e9ae44afb0c4e2ab272492be4a3271819aab075762837c8d75f72388f0",
+      "artisticSources": [
+        {
+          "file": "ArtSources/Level_006/SourceProvenance/CorrectedSources/Zone_020.png",
+          "sha256": "4c62d2e9ae44afb0c4e2ab272492be4a3271819aab075762837c8d75f72388f0",
+          "originalFile": "ArtSources/Level_006/SourceProvenance/OriginalSources/Zone_020.png",
+          "originalSha256": "e60f88cfc8fe49b92f48682dd1cac7988a9c3fba78e377fb4f06619a27b42ffa"
+        }
+      ]
+    },
+    {
+      "id": 21,
+      "source": "Zone_021.png",
+      "color": [
+        136,
+        71,
+        2
+      ],
+      "type": "gradient",
+      "paletteMethod": "opaque_median_nearest",
+      "sourceSha256": "c0326bc870006bc9504d3d7abae17b8db94a528becafa0bd3b1beae2218cc00a",
+      "rgbaSha256": "e3901cf6ddd80ae4feaaa39cfcc712c18247df1a5eace61fd65c6fe65b8ae2b6",
+      "sources": [
+        {
+          "source": "Zone_021.png",
+          "sha256": "c0326bc870006bc9504d3d7abae17b8db94a528becafa0bd3b1beae2218cc00a",
+          "rgbaSha256": "e3901cf6ddd80ae4feaaa39cfcc712c18247df1a5eace61fd65c6fe65b8ae2b6"
+        }
+      ],
+      "mergeMethod": "source_bytes",
+      "regions": 17,
+      "file": "Zones/Zone_021.png",
+      "sha256": "c0326bc870006bc9504d3d7abae17b8db94a528becafa0bd3b1beae2218cc00a",
+      "artisticSources": [
+        {
+          "file": "ArtSources/Level_006/SourceProvenance/CorrectedSources/Zone_021.png",
+          "sha256": "c0326bc870006bc9504d3d7abae17b8db94a528becafa0bd3b1beae2218cc00a",
+          "originalFile": "ArtSources/Level_006/SourceProvenance/OriginalSources/Zone_021.png",
+          "originalSha256": "c0326bc870006bc9504d3d7abae17b8db94a528becafa0bd3b1beae2218cc00a"
+        }
+      ]
+    },
+    {
+      "id": 22,
+      "source": "Zone_022.png",
+      "color": [
+        222,
+        139,
+        32
+      ],
+      "type": "gradient",
+      "paletteMethod": "opaque_median_nearest",
+      "sourceSha256": "3e908e20258d6240de1668ea2039681c0030602bc4d06c1b19368d40454bc652",
+      "rgbaSha256": "8c63693f766afe5250057d1c94e6333431a417f52e16ea000db2b5fdf7d1284a",
+      "sources": [
+        {
+          "source": "Zone_022.png",
+          "sha256": "3e908e20258d6240de1668ea2039681c0030602bc4d06c1b19368d40454bc652",
+          "rgbaSha256": "8c63693f766afe5250057d1c94e6333431a417f52e16ea000db2b5fdf7d1284a"
+        }
+      ],
+      "mergeMethod": "source_bytes",
+      "regions": 12,
+      "file": "Zones/Zone_022.png",
+      "sha256": "3e908e20258d6240de1668ea2039681c0030602bc4d06c1b19368d40454bc652",
+      "artisticSources": [
+        {
+          "file": "ArtSources/Level_006/SourceProvenance/CorrectedSources/Zone_022.png",
+          "sha256": "3e908e20258d6240de1668ea2039681c0030602bc4d06c1b19368d40454bc652",
+          "originalFile": "ArtSources/Level_006/SourceProvenance/OriginalSources/Zone_022.png",
+          "originalSha256": "8d16bf0db55cc2bc746c3d6a45421d83410693bcba8b44b7657ef781d92041ff"
+        }
+      ]
+    },
+    {
+      "id": 23,
+      "source": "Zone_023.png",
+      "color": [
+        252,
+        190,
+        71
+      ],
+      "type": "gradient",
+      "paletteMethod": "opaque_median_nearest",
+      "sourceSha256": "eb9c232ab13842f4ddae348b1a18ba46d40d7b0e667939b9e5eb5748fc8608e2",
+      "rgbaSha256": "7bcbd9901c3468f705bc0c381c59f10fb4590c59047e7e102bfdaf9623c137bf",
+      "sources": [
+        {
+          "source": "Zone_023.png",
+          "sha256": "eb9c232ab13842f4ddae348b1a18ba46d40d7b0e667939b9e5eb5748fc8608e2",
+          "rgbaSha256": "7bcbd9901c3468f705bc0c381c59f10fb4590c59047e7e102bfdaf9623c137bf"
+        }
+      ],
+      "mergeMethod": "source_bytes",
+      "regions": 11,
+      "file": "Zones/Zone_023.png",
+      "sha256": "eb9c232ab13842f4ddae348b1a18ba46d40d7b0e667939b9e5eb5748fc8608e2",
+      "artisticSources": [
+        {
+          "file": "ArtSources/Level_006/SourceProvenance/CorrectedSources/Zone_023.png",
+          "sha256": "eb9c232ab13842f4ddae348b1a18ba46d40d7b0e667939b9e5eb5748fc8608e2",
+          "originalFile": "ArtSources/Level_006/SourceProvenance/OriginalSources/Zone_023.png",
+          "originalSha256": "cca1e528b6321a2b266d416e4bd67915124a260f36520906a69896d26139e563"
+        }
+      ]
+    },
+    {
+      "id": 24,
+      "source": "Zone_024.png",
+      "color": [
+        130,
+        226,
+        59
+      ],
+      "type": "gradient",
+      "paletteMethod": "opaque_median_nearest",
+      "sourceSha256": "771f285117df9fa9f2138b81fdcd80c9beac61f2d1fbe80c9bce12f7f76f1343",
+      "rgbaSha256": "89e98851ab1f866a884887bf3cdd55714cd6023442a2a7d392b26040804e7bbd",
+      "sources": [
+        {
+          "source": "Zone_024.png",
+          "sha256": "771f285117df9fa9f2138b81fdcd80c9beac61f2d1fbe80c9bce12f7f76f1343",
+          "rgbaSha256": "89e98851ab1f866a884887bf3cdd55714cd6023442a2a7d392b26040804e7bbd"
+        }
+      ],
+      "mergeMethod": "source_bytes",
+      "regions": 9,
+      "file": "Zones/Zone_024.png",
+      "sha256": "771f285117df9fa9f2138b81fdcd80c9beac61f2d1fbe80c9bce12f7f76f1343",
+      "artisticSources": [
+        {
+          "file": "ArtSources/Level_006/SourceProvenance/CorrectedSources/Zone_024.png",
+          "sha256": "771f285117df9fa9f2138b81fdcd80c9beac61f2d1fbe80c9bce12f7f76f1343",
+          "originalFile": "ArtSources/Level_006/SourceProvenance/OriginalSources/Zone_024.png",
+          "originalSha256": "c3041297b0a29f24fbacd191186e13a8bdf9614e9f2425374a284360b679e056"
+        }
+      ]
+    },
+    {
+      "id": 25,
+      "source": "Zone_025.png",
+      "color": [
+        220,
+        229,
+        245
+      ],
+      "type": "gradient",
+      "paletteMethod": "opaque_median_nearest",
+      "sourceSha256": "94fd47d6d28936580c3da12cd0fe8d77dd33b88158a13bd50120d1564caf53b8",
+      "rgbaSha256": "0990c23ddc606bedba2fdcd6ae95e8d2ab9ca19f351b874895cfd305f2234113",
+      "sources": [
+        {
+          "source": "Zone_025.png",
+          "sha256": "94fd47d6d28936580c3da12cd0fe8d77dd33b88158a13bd50120d1564caf53b8",
+          "rgbaSha256": "0990c23ddc606bedba2fdcd6ae95e8d2ab9ca19f351b874895cfd305f2234113"
+        }
+      ],
+      "mergeMethod": "source_bytes",
+      "regions": 3,
+      "file": "Zones/Zone_025.png",
+      "sha256": "94fd47d6d28936580c3da12cd0fe8d77dd33b88158a13bd50120d1564caf53b8",
+      "artisticSources": [
+        {
+          "file": "ArtSources/Level_006/SourceProvenance/CorrectedSources/Zone_025.png",
+          "sha256": "94fd47d6d28936580c3da12cd0fe8d77dd33b88158a13bd50120d1564caf53b8",
+          "originalFile": "ArtSources/Level_006/SourceProvenance/OriginalSources/Zone_025.png",
+          "originalSha256": "94fd47d6d28936580c3da12cd0fe8d77dd33b88158a13bd50120d1564caf53b8"
+        }
+      ]
+    }
+  ],
+  "groupingMode": "layer",
+  "groupConfig": {
+    "groupingMode": "layer",
+    "sourceSha256": {
+      "Zone_001.png": "79b57ae8559c00837a7b8f8ee9e606d0c1d5dbed6041721698d96f04238507a9",
+      "Zone_002.png": "8d0f36f336426df49341a99652a387f18567a057396fa995cc9b85b1066e171d",
+      "Zone_003.png": "e1da4d8ae7a0fb70972ce1bb67e6f6101d163834e79614072b115f7080647d6a",
+      "Zone_004.png": "975c862a5b1fa5a9014738b1a5ac608beea9d9d1b2f65c0e450850e90e5c2325",
+      "Zone_005.png": "adb7662ab5ee267ad04bf8bbe8303db03f0023c44354e619352d6a64c02f44f6",
+      "Zone_006.png": "645738a5c4793a6510647fcb7f518f63e33861150cd8ec14278b9244b8bbdb74",
+      "Zone_007.png": "7213512643bc7bff27774e869b28f770b2d949a1900c9ae0ce1f186c2b574f48",
+      "Zone_008.png": "4d9d450ce90a504cdef88ad9cd4401843abdb6d5415b5f7490c92a0862b96ae0",
+      "Zone_009.png": "1d5293bb59228688c8f5cdf89131dd0dae3268026a75930093316e2d53b8ec19",
+      "Zone_010.png": "91428565db41e74ca790214f760fcbcda5648a233cb029c3f3a0186c96396de0",
+      "Zone_011.png": "8b8b2ae35b8cdbbc026dffabf79711c1656f02ed2617d866dfcc81fb3804c17e",
+      "Zone_012.png": "2e172393c1bb57dd7966a589458cdd132089c06ba658cc7b4f49308f3f773f4b",
+      "Zone_013.png": "b50d4c0f28696e4b779f61863b06d0be6b8661dd7992c1bf0d60e49374e825e7",
+      "Zone_014.png": "0c14e2d57b1938ebb2337cb31486a5d50944fb1092123c47ae3c8678c4e53916",
+      "Zone_015.png": "3d8d855b1e83e746f5bcf3078df1f555354bb00b76912fd5a8a069c00608134d",
+      "Zone_016.png": "b396676d9463039ac4f732582dcfbd6eb82b9605ddfee60c5613bd1fb4fb31ef",
+      "Zone_017.png": "d9cda606bdf57aee0577887573f4eef088740054af83677fed82528fd5b96aba",
+      "Zone_018.png": "755109d47d0a2a91b5dcd859538819f4f32e9bd9d3d1a6e4f9d9c0b82146d7b6",
+      "Zone_019.png": "e59c0011376135cc17317ab88406cd5b1aae9633ee5fb589f881f7e2df67c3a5",
+      "Zone_020.png": "4c62d2e9ae44afb0c4e2ab272492be4a3271819aab075762837c8d75f72388f0",
+      "Zone_021.png": "c0326bc870006bc9504d3d7abae17b8db94a528becafa0bd3b1beae2218cc00a",
+      "Zone_022.png": "3e908e20258d6240de1668ea2039681c0030602bc4d06c1b19368d40454bc652",
+      "Zone_023.png": "eb9c232ab13842f4ddae348b1a18ba46d40d7b0e667939b9e5eb5748fc8608e2",
+      "Zone_024.png": "771f285117df9fa9f2138b81fdcd80c9beac61f2d1fbe80c9bce12f7f76f1343",
+      "Zone_025.png": "94fd47d6d28936580c3da12cd0fe8d77dd33b88158a13bd50120d1564caf53b8"
+    },
+    "geometryMaxEdgePixels": {
+      "Zone_009.png": 32,
+      "Zone_024.png": 32
+    }
+  },
+  "paletteReview": {
+    "metric": "CIE76 sRGB D65 (review candidates, not duplicates)",
+    "minDistance": 6,
+    "closePairs": [],
+    "status": "PASS"
+  },
+  "artisticProvenanceFile": "ArtSources/Level_006/SourceProvenance/group-mapping.json",
+  "preparationOnly": false,
+  "importRequiresAuthorisedLevelNumber": false,
+  "nativeValidationFile": "ArtSources/Level_006/native-validation.json",
+  "playValidationFile": "ArtSources/Level_006/play-validation.json",
+  "importedPreparedBundle": "C:\\Users\\Public\\Documents\\PaintByNumbers Exchange\\Готовые уровни\\Домик"
+}

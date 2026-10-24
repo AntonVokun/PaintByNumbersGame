@@ -270,7 +270,7 @@ public class PaintController : MonoBehaviour
 
         if (Application.CanStreamedLevelBeLoaded(nextLevelSceneName))
         {
-            SceneManager.LoadScene(nextLevelSceneName);
+            LevelTransition.Load(nextLevelSceneName);
         }
         else
         {
@@ -282,6 +282,6 @@ public class PaintController : MonoBehaviour
     {
         SaveSystem.ResetLevelProgress(SceneName);
 
-        SceneManager.LoadScene(SceneName);
+        LevelTransition.Load(SceneName);
     }
 }

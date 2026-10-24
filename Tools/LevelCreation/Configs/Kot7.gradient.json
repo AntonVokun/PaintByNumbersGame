@@ -1,0 +1,29 @@
+{
+  "groupingMode": "layer",
+  "mergeGroups": [
+    [
+      "Zone_017.png",
+      "Zone_018.png"
+    ]
+  ],
+  "sourceSha256": {
+    "Zone_001.png": "9b8abc0368fda5018db8eab19051f1c06c1e372ee6bee25c07895e7774161210",
+    "Zone_002.png": "ccdcfa05630a2c4bfe7bc7822ef835185db33cca1868d977b19311c3916cfe8f",
+    "Zone_003.png": "5bfa0da255060a0e0811869e7cbc8807ded12b22e8c1f234fcd3dbd92f04046e",
+    "Zone_004.png": "1a378ed25966038e6e54957ea0fdb43302a4d4b836e11360a214b4b35b61edef",
+    "Zone_005.png": "dca02b5fd3228dd0913838278459a90e8ddb5d05c08023afef3ca1c3beefcfa5",
+    "Zone_006.png": "c64560c9f2d8d26ce541aba6f1575b30a01104aa9bd6b1a4f2bb4c64ed8b8934",
+    "Zone_007.png": "c12a51cf521ec7ba22f49683ef59feb5274beb11afbfeafaec400f84e4e57469",
+    "Zone_008.png": "b3c91e351648cdd1e2d506cc84bf245ffdaf95b602eb013d9edd099a7ec181e9",
+    "Zone_009.png": "35291166f3a971e94fc58eafa7dc286474029dd460bcb5cefa5da378720906c8",
+    "Zone_010.png": "4b6f8c4083d8ec7f110b70fc6c05db2f098cce7978e74a705bb131a23ed589be",
+    "Zone_011.png": "36f33b08fa4b74185581c6f81f26c872f269386400e02ac0282bb35df6df0d16",
+    "Zone_012.png": "7b36a30247ae6c26fbbbf45a170a1e528927038a26a90ca32e8ed4459787a1dd",
+    "Zone_013.png": "be170be82fe079cc84d5c8d89e90f26b69eb88ea19c384f3e2e75e9cbd0c9ed5",
+    "Zone_014.png": "97353db5b1298231aa0d92123b68954011b22955eb1e5d936790a1f18d33987a",
+    "Zone_015.png": "f2d162338d56b0a39b0a295dcc71e9549f1f82bd07bca15dff2bb6832a366c79",
+    "Zone_016.png": "4fd0006054ddb120c0f0738062d34a1cde12d2579e38647d07891f7648e1c7b7",
+    "Zone_017.png": "fb41028a5ee90e09365b3ac3d93a9f06a0e90301322efdb65571a551f2ddb853",
+    "Zone_018.png": "f6d36f9ff0842cffdeaeb08c21d629a7844999084b23a4fc5278615e77e82f58"
+  }
+}

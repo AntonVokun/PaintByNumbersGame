@@ -1,0 +1,23 @@
+{
+  "status": "PASS",
+  "scope": "SOURCE_PREPARATION_ONLY",
+  "colors": 25,
+  "regions": 1472,
+  "overlaps": 0,
+  "gaps": 0,
+  "gameZones": "Game/Zones",
+  "config": "group-config.json",
+  "manifest": "ArtSources/Game/level_manifest.json",
+  "sourcePixelCentersChecked": 1402421,
+  "nativePrecisionFallbackPixelsOrSamples": 388,
+  "precisionFallbackPixels": 0.001,
+  "sceneCreated": false,
+  "playMode": "NOT_RUN",
+  "android": "NOT_RUN",
+  "geometryPolicy": {
+    "geometryMaxEdgePixels": {
+      "Zone_009.png": 32,
+      "Zone_024.png": 32
+    }
+  }
+}

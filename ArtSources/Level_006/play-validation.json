@@ -1,0 +1,22 @@
+{
+  "scene": "Level_006_New",
+  "status": "PASS",
+  "startFrame": 28272,
+  "loadFromMenu": true,
+  "backButton": true,
+  "runtimeChecks": "Runtime camera/viewport and hidden-label checks PASS",
+  "colors": 25,
+  "groupsMatchOneFullSpriteEach": true,
+  "editorFrameMedianMs": 1.10099924,
+  "editorFrameP95Ms": 6.51420069,
+  "frameSamples": 120,
+  "pointerSuite": "Input System suite started: 25 remaining colors",
+  "allColorsSelectedAndPaintedThroughPointer": true,
+  "allGroupSpritesFullyVisible": true,
+  "replayFinished": true,
+  "winPanelAfterTap": true,
+  "nextScene": "Level_007_New",
+  "nextButton": true,
+  "returnedToMenu": true,
+  "endFrame": 48032
+}

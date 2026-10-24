@@ -1,0 +1,51 @@
+{
+  "groupingMode": "layer",
+  "sourceSha256": {
+    "Zone_001.png": "e2b2dfbdb34a68e4d64cc3cd302ecf199c5de83aeecbda28a2c05e51bf3ec0aa",
+    "Zone_002.png": "8580cc1454e0a8fc67ce88ad8ae629fa05d0f09143c54a261e7cf5de676586e6",
+    "Zone_003.png": "d119213924ee57b423f0d50e193699f6daf8583b1b089a94678c9ff7c1d3758b",
+    "Zone_004.png": "42b8f5fd5ebed51e3b2532536675f12091d5a36feb01b2af3ecf1c05ab1717d7",
+    "Zone_005.png": "d6305c40fc419414eece67ed4d5eac7ba87ca871721a6a823d71eb6b529030a4",
+    "Zone_006.png": "b93b1652a03920998ec501cab64d97f9addf2a4180277e51b1254be69f9fe104",
+    "Zone_007.png": "5495a1022a6190cc2ee6b8501adea1e9aea1443cc7417e2e727cecefaa2a1d79",
+    "Zone_008.png": "41a5e5b888979202e5afd771143e479f2cdab77f0b041e8d164e996288cf11b8",
+    "Zone_009.png": "6fcfbf2a745eec183aef9fdd3b3fd2ae9707d387a49ae45b7c7af4ffd2fca034",
+    "Zone_010.png": "d345b6fae338b8ffafb3285b0dfdb63615efcb21e2b3cf876afa57f0004e8faf",
+    "Zone_011.png": "b636200f7a1dfb1bcfafab475776314586501696b6970ec285b3ad3e0ab1951b",
+    "Zone_012.png": "7168dcf5c6415aafc014aac34fc37b2688a9303d11a43c1ed5da6036f727bb56",
+    "Zone_013.png": "c93a1aca3c176192785cc73d5c56618b18fd1caa04a4531951332a73084bdf93",
+    "Zone_014.png": "a62731a42baa33d7c34a4321932306738ed14bdbaaabfae2121a6ac3cb86c774",
+    "Zone_015.png": "baa98f593a3b642cf9494083333009e5f1eac9ac2653a591831b42c5dc34ab66",
+    "Zone_016.png": "7500e11c0248990cee6dc4f2bf83f731211c11ddc67f53dbd447ce84be3d9b69",
+    "Zone_017.png": "442b2bd079e8bccb8350469039b9583bc59d27bd7a285d148e2ae0b0b10dcf42",
+    "Zone_018.png": "9621acdf033d3b8aad37ac6f33b424c74408d440011b388b026259e2737828b2",
+    "Zone_019.png": "03074f21bbfac1d318b08689198a344392e89538b7ecfb324ab069d821b91022",
+    "Zone_020.png": "5eb52dd873cd174977f0b35ae999a755b9dc183824fb53f60e0f6505608db6e6",
+    "Zone_021.png": "63abd090298355f430bbe456fdf5a1800858ecc578a34baba3f286dcb398eaf7",
+    "Zone_022.png": "6550e5430cc3dd4ed76da69b8b60d9f4a7928ffc18d979971da04c0e82291e5d",
+    "Zone_023.png": "e8d79d00bde8384ea1d594b59cc94b4cfef39ebaa4616a8b929be6248015f4c6",
+    "Zone_024.png": "c9784ee088eb0a07508876078af3c3d2d80f6983846aebd1af84d405799c0143",
+    "Zone_025.png": "05a9873e0119890ddfd22cc78d0c2520f24e75b5b57bcad9b1d51c42d6ab5a63",
+    "Zone_026.png": "7d7de6c78fb5fce4f0615119bf40993c0bd655777284ce3318c2f031187caadd",
+    "Zone_027.png": "1452db28074a013635b11298cc33bca75de30faaac72d84b635c9ae9d34360df",
+    "Zone_028.png": "61b91ea90e24ef30605b79cd6bd1fabc0db7f860d84fcdee0b7e54aab3dcc358",
+    "Zone_029.png": "eaeb67b2e81c03f99aa136fd491f6006f22a39e2e71f342f3e78b279bbad479a",
+    "Zone_030.png": "ebd3da2ab0c239602eb326fce1a0b2d11374b51358e91ac944509f6a21681442",
+    "Zone_031.png": "0baeca77e44b13d797f54a43e27ba86d1d673f0b9d8bc2af5f97f4fdd619cd92",
+    "Zone_032.png": "ccc61fcd8f98bb263183a024650c75ba59d26bc9de7735c915c5ffc1d3090919",
+    "Zone_033.png": "2d5e5b7608513ef339ac77417df8a637e48ad7ecfc2f039e05ad819813891b5c",
+    "Zone_034.png": "d6e5cf942411c52c90ed799962ee0aa93795f4ec7a17e7a33e257a8b51d071dd",
+    "Zone_035.png": "cba102faee2f52ba62b3adc2e073a389449849afce86d703d180c35ff8743dd9",
+    "Zone_036.png": "306944252c8b11d56c234cff7a1acaf627e8ce5a0d2a9b73fb11a12b9f2ef9d9",
+    "Zone_037.png": "143e69d7880d8a832b6f8fad3de78b885d83346d864194123a3d76cb47e7e1f2",
+    "Zone_038.png": "9e258532af61010a7dec9b281343fcf23c4986dd2cf5574118fb3ffd7ecca97b"
+  },
+  "geometryMaxEdgePixels": {
+    "Zone_004.png": 8,
+    "Zone_008.png": 8,
+    "Zone_015.png": 32
+  },
+  "geometryRectangles": [
+    "Zone_004.png"
+  ]
+}

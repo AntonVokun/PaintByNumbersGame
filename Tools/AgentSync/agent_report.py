@@ -226,6 +226,10 @@ def generate(task,status,observations_path,skip_editor=False):
     os.replace(staging,report_dir)
     for name in REPORT_NAMES[:-1]:atomic_write(SYNC/name,(report_dir/name).read_bytes())
     atomic_write(SYNC/'STATE.json',state_data)  # Commit marker last. Readers use immutable paths in it.
+    # P0 index only; full evidence and immutable snapshot format stay unchanged.
+    sys.path.insert(0,str(ROOT/'Tools/LevelCreation'))
+    from inspect_pipeline import lite_from_state
+    atomic_write(SYNC/'STATE_LITE.json',json_bytes(lite_from_state(state)))
     plan=dict(schema=1,reportId=report_id,projectRoot=str(ROOT),statePath=str(report_dir/'STATE.json'),
         files=[dict(name=n,path=str(report_dir/n),sha256=sha((report_dir/n).read_bytes())) for n in REPORT_NAMES])
     atomic_write(SYNC/'SYNC_PLAN.json',json_bytes(plan))

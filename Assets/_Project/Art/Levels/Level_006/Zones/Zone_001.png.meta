@@ -1,0 +1,1170 @@
+fileFormatVersion: 2
+guid: 6477a0facf2df8e49a9677826a2de031
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 3671409187732364336
+    second: Zone_001_0
+  - first:
+      213: 4911304117986232354
+    second: Zone_001_1
+  - first:
+      213: -1134363943263717722
+    second: Zone_001_2
+  - first:
+      213: -5670431638777437120
+    second: Zone_001_3
+  - first:
+      213: 8594277414512930059
+    second: Zone_001_4
+  - first:
+      213: -5923949939761201565
+    second: Zone_001_5
+  - first:
+      213: 8276807938024441875
+    second: Zone_001_6
+  - first:
+      213: -3688588954209242222
+    second: Zone_001_7
+  - first:
+      213: -1078092826537427496
+    second: Zone_001_8
+  - first:
+      213: 5875569286775522176
+    second: Zone_001_9
+  - first:
+      213: 1658300188141825794
+    second: Zone_001_10
+  - first:
+      213: 7823168860707424872
+    second: Zone_001_11
+  - first:
+      213: -2125874921744276131
+    second: Zone_001_12
+  - first:
+      213: -7982415496310201469
+    second: Zone_001_13
+  - first:
+      213: 7054535157995692499
+    second: Zone_001_14
+  - first:
+      213: 4467697385896161010
+    second: Zone_001_15
+  - first:
+      213: 277546411324586681
+    second: Zone_001_16
+  - first:
+      213: -6691428136639285296
+    second: Zone_001_17
+  - first:
+      213: 8104965217795461576
+    second: Zone_001_18
+  - first:
+      213: 2728235251115955851
+    second: Zone_001_19
+  - first:
+      213: 2667577437695934502
+    second: Zone_001_20
+  - first:
+      213: -3012767822966246063
+    second: Zone_001_21
+  - first:
+      213: 3488564955751366537
+    second: Zone_001_22
+  - first:
+      213: 5610502753046128340
+    second: Zone_001_23
+  - first:
+      213: 6052556595321342660
+    second: Zone_001_24
+  - first:
+      213: -2244637094795993404
+    second: Zone_001_25
+  - first:
+      213: -8041494065123999584
+    second: Zone_001_26
+  - first:
+      213: -8365014785421892952
+    second: Zone_001_27
+  - first:
+      213: -7473565402577360522
+    second: Zone_001_28
+  - first:
+      213: 2516600453684953720
+    second: Zone_001_29
+  - first:
+      213: 8063459968980146039
+    second: Zone_001_30
+  - first:
+      213: -186900308375671712
+    second: Zone_001_31
+  - first:
+      213: -7519255867410338597
+    second: Zone_001_32
+  - first:
+      213: 8252033932608863352
+    second: Zone_001_33
+  - first:
+      213: -8263426774104189079
+    second: Zone_001_34
+  - first:
+      213: -3897200639688062061
+    second: Zone_001_35
+  - first:
+      213: 749829854636330968
+    second: Zone_001_36
+  - first:
+      213: 2295614013727695651
+    second: Zone_001_37
+  - first:
+      213: 1535079217511230939
+    second: Zone_001_38
+  - first:
+      213: -309059939072164458
+    second: Zone_001_39
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 0
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: 4
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 1
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Zone_001_0
+      rect:
+        serializedVersion: 2
+        x: 1185
+        y: 1099
+        width: 26
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 03c94eb443773f230800000000000000
+      internalID: 3671409187732364336
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Zone_001_1
+      rect:
+        serializedVersion: 2
+        x: 607
+        y: 790
+        width: 36
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2288b78f215782440800000000000000
+      internalID: 4911304117986232354
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Zone_001_2
+      rect:
+        serializedVersion: 2
+        x: 654
+        y: 810
+        width: 40
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6a631c3f00ee140f0800000000000000
+      internalID: -1134363943263717722
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Zone_001_3
+      rect:
+        serializedVersion: 2
+        x: 686
+        y: 781
+        width: 34
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 044e88fb7749e41b0800000000000000
+      internalID: -5670431638777437120
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Zone_001_4
+      rect:
+        serializedVersion: 2
+        x: 763
+        y: 798
+        width: 28
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b0da43926c1054770800000000000000
+      internalID: 8594277414512930059
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Zone_001_5
+      rect:
+        serializedVersion: 2
+        x: 794
+        y: 808
+        width: 29
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 36e365d8ae6e9cda0800000000000000
+      internalID: -5923949939761201565
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Zone_001_6
+      rect:
+        serializedVersion: 2
+        x: 822
+        y: 787
+        width: 23
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 318841c97f02dd270800000000000000
+      internalID: 8276807938024441875
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Zone_001_7
+      rect:
+        serializedVersion: 2
+        x: 618
+        y: 749
+        width: 41
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 293bded93ef7fccc0800000000000000
+      internalID: -3688588954209242222
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Zone_001_8
+      rect:
+        serializedVersion: 2
+        x: 660
+        y: 745
+        width: 42
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8ddf6574948d901f0800000000000000
+      internalID: -1078092826537427496
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Zone_001_9
+      rect:
+        serializedVersion: 2
+        x: 766
+        y: 760
+        width: 34
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 083437fd2273a8150800000000000000
+      internalID: 5875569286775522176
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Zone_001_10
+      rect:
+        serializedVersion: 2
+        x: 801
+        y: 758
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 20f282d2c37730710800000000000000
+      internalID: 1658300188141825794
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Zone_001_11
+      rect:
+        serializedVersion: 2
+        x: 950
+        y: 389
+        width: 102
+        height: 134
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 86a0d5041aa719c60800000000000000
+      internalID: 7823168860707424872
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Zone_001_12
+      rect:
+        serializedVersion: 2
+        x: 975
+        y: 509
+        width: 111
+        height: 90
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d556584a5006f72e0800000000000000
+      internalID: -2125874921744276131
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Zone_001_13
+      rect:
+        serializedVersion: 2
+        x: 1045
+        y: 387
+        width: 144
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3836bd41663c83190800000000000000
+      internalID: -7982415496310201469
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Zone_001_14
+      rect:
+        serializedVersion: 2
+        x: 1077
+        y: 510
+        width: 106
+        height: 86
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3d166d3895eb6e160800000000000000
+      internalID: 7054535157995692499
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Zone_001_15
+      rect:
+        serializedVersion: 2
+        x: 103
+        y: 370
+        width: 176
+        height: 134
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2fe28420a13700e30800000000000000
+      internalID: 4467697385896161010
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Zone_001_16
+      rect:
+        serializedVersion: 2
+        x: 166
+        y: 361
+        width: 60
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9babfa79dfa0ad300800000000000000
+      internalID: 277546411324586681
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Zone_001_17
+      rect:
+        serializedVersion: 2
+        x: 705
+        y: 400
+        width: 31
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0d7bf8bff854323a0800000000000000
+      internalID: -6691428136639285296
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Zone_001_18
+      rect:
+        serializedVersion: 2
+        x: 735
+        y: 405
+        width: 30
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8c158937cee9a7070800000000000000
+      internalID: 8104965217795461576
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Zone_001_19
+      rect:
+        serializedVersion: 2
+        x: 751
+        y: 385
+        width: 30
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b86177e8183acd520800000000000000
+      internalID: 2728235251115955851
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Zone_001_20
+      rect:
+        serializedVersion: 2
+        x: 696
+        y: 373
+        width: 32
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 62086b0db83250520800000000000000
+      internalID: 2667577437695934502
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Zone_001_21
+      rect:
+        serializedVersion: 2
+        x: 713
+        y: 354
+        width: 30
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 155be5990af7036d0800000000000000
+      internalID: -3012767822966246063
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Zone_001_22
+      rect:
+        serializedVersion: 2
+        x: 743
+        y: 360
+        width: 30
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 98fbf63185fd96030800000000000000
+      internalID: 3488564955751366537
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Zone_001_23
+      rect:
+        serializedVersion: 2
+        x: 743
+        y: 252
+        width: 29
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4d66aa637828cdd40800000000000000
+      internalID: 5610502753046128340
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Zone_001_24
+      rect:
+        serializedVersion: 2
+        x: 751
+        y: 279
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4ca8317d7200ff350800000000000000
+      internalID: 6052556595321342660
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Zone_001_25
+      rect:
+        serializedVersion: 2
+        x: 784
+        y: 277
+        width: 32
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4ce1503747279d0e0800000000000000
+      internalID: -2244637094795993404
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Zone_001_26
+      rect:
+        serializedVersion: 2
+        x: 766
+        y: 237
+        width: 29
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0a04fd0e0cfd66090800000000000000
+      internalID: -8041494065123999584
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Zone_001_27
+      rect:
+        serializedVersion: 2
+        x: 791
+        y: 249
+        width: 29
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8a2a9065f5f79eb80800000000000000
+      internalID: -8365014785421892952
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Zone_001_28
+      rect:
+        serializedVersion: 2
+        x: 1007
+        y: 91
+        width: 180
+        height: 165
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6792abdecdf884890800000000000000
+      internalID: -7473565402577360522
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Zone_001_29
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 99
+        width: 83
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8728a7377c2cce220800000000000000
+      internalID: 2516600453684953720
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Zone_001_30
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 94
+        width: 94
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 777d4a7ae1a27ef60800000000000000
+      internalID: 8063459968980146039
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Zone_001_31
+      rect:
+        serializedVersion: 2
+        x: 275
+        y: 110
+        width: 61
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 06c6bd6e82ff76df0800000000000000
+      internalID: -186900308375671712
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Zone_001_32
+      rect:
+        serializedVersion: 2
+        x: 324
+        y: 142
+        width: 66
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bdc2cb790ac36a790800000000000000
+      internalID: -7519255867410338597
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Zone_001_33
+      rect:
+        serializedVersion: 2
+        x: 377
+        y: 114
+        width: 64
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 87cfe9bf32d158270800000000000000
+      internalID: 8252033932608863352
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Zone_001_34
+      rect:
+        serializedVersion: 2
+        x: 37
+        y: 26
+        width: 81
+        height: 85
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 96751166129625d80800000000000000
+      internalID: -8263426774104189079
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Zone_001_35
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 42
+        width: 67
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 39bc7fc9aac5ae9c0800000000000000
+      internalID: -3897200639688062061
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Zone_001_36
+      rect:
+        serializedVersion: 2
+        x: 294
+        y: 59
+        width: 63
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8dfc49fa74ee76a00800000000000000
+      internalID: 749829854636330968
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Zone_001_37
+      rect:
+        serializedVersion: 2
+        x: 359
+        y: 61
+        width: 65
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 323e5a568c8abdf10800000000000000
+      internalID: 2295614013727695651
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Zone_001_38
+      rect:
+        serializedVersion: 2
+        x: 101
+        y: 3
+        width: 77
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bdd67d54a62bd4510800000000000000
+      internalID: 1535079217511230939
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Zone_001_39
+      rect:
+        serializedVersion: 2
+        x: 174
+        y: 3
+        width: 69
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 69dbc457f9ff5bbf0800000000000000
+      internalID: -309059939072164458
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Zone_001_0: 3671409187732364336
+      Zone_001_1: 4911304117986232354
+      Zone_001_10: 1658300188141825794
+      Zone_001_11: 7823168860707424872
+      Zone_001_12: -2125874921744276131
+      Zone_001_13: -7982415496310201469
+      Zone_001_14: 7054535157995692499
+      Zone_001_15: 4467697385896161010
+      Zone_001_16: 277546411324586681
+      Zone_001_17: -6691428136639285296
+      Zone_001_18: 8104965217795461576
+      Zone_001_19: 2728235251115955851
+      Zone_001_2: -1134363943263717722
+      Zone_001_20: 2667577437695934502
+      Zone_001_21: -3012767822966246063
+      Zone_001_22: 3488564955751366537
+      Zone_001_23: 5610502753046128340
+      Zone_001_24: 6052556595321342660
+      Zone_001_25: -2244637094795993404
+      Zone_001_26: -8041494065123999584
+      Zone_001_27: -8365014785421892952
+      Zone_001_28: -7473565402577360522
+      Zone_001_29: 2516600453684953720
+      Zone_001_3: -5670431638777437120
+      Zone_001_30: 8063459968980146039
+      Zone_001_31: -186900308375671712
+      Zone_001_32: -7519255867410338597
+      Zone_001_33: 8252033932608863352
+      Zone_001_34: -8263426774104189079
+      Zone_001_35: -3897200639688062061
+      Zone_001_36: 749829854636330968
+      Zone_001_37: 2295614013727695651
+      Zone_001_38: 1535079217511230939
+      Zone_001_39: -309059939072164458
+      Zone_001_4: 8594277414512930059
+      Zone_001_5: -5923949939761201565
+      Zone_001_6: 8276807938024441875
+      Zone_001_7: -3688588954209242222
+      Zone_001_8: -1078092826537427496
+      Zone_001_9: 5875569286775522176
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

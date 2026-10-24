@@ -47,7 +47,7 @@ public class LevelCardUI : MonoBehaviour
 
         if (Application.CanStreamedLevelBeLoaded(levelSceneName))
         {
-            SceneManager.LoadScene(levelSceneName);
+            LevelTransition.Load(levelSceneName);
         }
         else
         {
