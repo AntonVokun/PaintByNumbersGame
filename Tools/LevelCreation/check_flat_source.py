@@ -39,9 +39,10 @@ def validate(source: Path, expected_size: int = 1254):
         ink = np.asarray(im).copy()
     h, w = ink.shape[:2]
     coverage = np.zeros((h, w), dtype=np.uint8)
+    group_ids = np.zeros((h, w), dtype=np.uint16)
     color_set = set()
     preview = Image.new('RGBA', (w, h), 'white')
-    for path in zones:
+    for group_idx, path in enumerate(zones, 1):
         with Image.open(path) as image:
             if image.mode != 'RGBA' or image.size != (w, h):
                 raise ValueError(f'{path.name}: expected full-canvas RGBA {w}x{h}')
@@ -60,11 +61,21 @@ def validate(source: Path, expected_size: int = 1254):
             raise ValueError(f'{path.name}: duplicate RGB {color}; merge islands into a single zone')
         color_set.add(color)
         coverage[mask] += 1
+        group_ids[mask] = group_idx
         preview = Image.alpha_composite(preview, Image.fromarray(rgba, 'RGBA'))
     if (coverage > 1).any():
         raise ValueError(f'Overlapping zones: {int(np.count_nonzero(coverage > 1))} pixels')
     if ((coverage != 0) & (ink[:, :, 3] != 0)).any():
         raise ValueError('Paint zones overlap nontransparent outlines')
+    # Different playable colors must have a real opaque outline pixel between them.
+    # Visible color-to-color adjacency is not a contour, even for perfect flat RGB.
+    horizontal = ((group_ids[:, :-1] > 0) & (group_ids[:, 1:] > 0)
+                  & (group_ids[:, :-1] != group_ids[:, 1:]))
+    vertical = ((group_ids[:-1, :] > 0) & (group_ids[1:, :] > 0)
+                & (group_ids[:-1, :] != group_ids[1:, :]))
+    contacts = int(np.count_nonzero(horizontal) + np.count_nonzero(vertical))
+    if contacts:
+        raise ValueError(f'Unoutlined contacts between different paint zones: {contacts} pixel edges')
     # Use the same enclosed-hole definition as the existing importer.
     from prepare_level import interior_uncovered
     holes = interior_uncovered((coverage == 0) & (ink[:, :, 3] == 0))
@@ -80,6 +91,7 @@ def validate(source: Path, expected_size: int = 1254):
                 raise ValueError('Flat preview does not match assembled zones + outline')
     return dict(status='PASS', scope='flat source preflight only', canvas=[w, h],
                 colors=len(zones), unique_rgb=len(color_set), overlaps=0,
+                unoutlined_contacts=0,
                 enclosed_holes=0, preview='EXACT' if preview_files else 'NOT_PROVIDED',
                 unity='NOT_RUN', android='NOT_RUN')
 
