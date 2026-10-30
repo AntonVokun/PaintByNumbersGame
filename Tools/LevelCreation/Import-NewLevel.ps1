@@ -6,6 +6,7 @@ param(
     [ValidateSet('rgb','layer')][string]$GroupingMode = 'rgb',
     [string]$GroupConfig,
     [switch]$ReplaceExisting,
+    [switch]$LegacyRgbSplit,
     [switch]$GenerateReport,
     [switch]$VerboseOutput,
     [string]$Python = (Join-Path $env:USERPROFILE '.cache\codex-runtimes\codex-primary-runtime\dependencies\python\python.exe')
@@ -44,6 +45,13 @@ try {
         return $envelope.data
     }
     $null = Invoke-UnityJson @('status','--until-ready','--project-path',$projectRoot,'--format','json')
+    # New source contract: one RGB / one full RGBA PNG / one gameplay group.
+    # Keep historic replacement and explicit layer mode unchanged.
+    if ($GroupingMode -eq 'rgb' -and !$ReplaceExisting -and !$LegacyRgbSplit) {
+        & $Python "$PSScriptRoot/check_flat_source.py" --source $Source
+        if ($LASTEXITCODE -ne 0) { throw 'Flat source preflight failed; nothing was imported. Use -LegacyRgbSplit only for deliberate older RGB-source workflows.' }
+    }
+    if ($LegacyRgbSplit -and $GroupingMode -ne 'rgb') { throw '-LegacyRgbSplit only applies to -GroupingMode rgb.' }
     $prepareArguments = @("$PSScriptRoot/prepare_level.py",'--source',$Source,'--output',$artFolder,'--scene',$sceneName,'--title',$Title)
     $prepareArguments += @('--grouping-mode',$GroupingMode)
     if ($GroupConfig) { $prepareArguments += @('--group-config',(Resolve-Path -LiteralPath $GroupConfig).Path) }
